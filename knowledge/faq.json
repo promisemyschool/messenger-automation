@@ -1,0 +1,59 @@
+{
+  "organization": {
+    "name": "Promise School",
+    "alternateName": "Promise School Bangladesh",
+    "website": "https://promiseschool.com",
+    "supportEmail": "support@promiseschool.com",
+    "hobbycampUrl": "https://promiseschool.com/hobbycamp",
+    "privacyPolicyUrl": "https://promiseschool.com/privacy-policy",
+    "languages": [
+      "English",
+      "Bengali"
+    ],
+    "country": "Bangladesh"
+  },
+  "faqs": [
+    {
+      "question": "What is Promise School?",
+      "answer": "Promise School is a Bangladesh-based learning platform for Class 6-12 students aligned with the NCTB curriculum. It offers interactive lessons, flashcards, quick exams and gamified progress for SSC, HSC, JSC and PSC preparation, alongside Hobbycamp — live extracurricular courses in coding, art, robotics and more."
+    },
+    {
+      "question": "Is Promise School free to use?",
+      "answer": "Yes. The Promise School study app is completely free to download and use. Hobbycamp courses are paid, with prices listed in BDT on each course page."
+    },
+    {
+      "question": "Which curriculum does Promise School cover?",
+      "answer": "Promise School covers the NCTB (National Curriculum and Textbook Board, Bangladesh) curriculum for Class 6-12 — including SSC and HSC subjects like Physics, Mathematics, Biology, Chemistry and ICT — across both English and Bangla mediums."
+    },
+    {
+      "question": "What is Hobbycamp?",
+      "answer": "Hobbycamp is Promise School's extracurricular learning program for Bangladeshi students. You can enroll in live online or offline courses on coding, art, robotics, music and more, taught by vetted instructors. Browse courses and book a seat directly from the Hobbycamp page."
+    },
+    {
+      "question": "How does gamified learning work in Promise School?",
+      "answer": "You earn XP for completing lessons, build daily streaks, collect badges for milestones and compete on leaderboards. The system uses active recall and spaced repetition so you retain what you study for board exams."
+    },
+    {
+      "question": "Can I use Promise School for SSC and HSC preparation?",
+      "answer": "Yes — Promise School is built for SSC and HSC preparation in Bangladesh. You get NCTB-aligned topics, real board-style questions, chapter-wise quick exams and performance analytics to help you target weak areas."
+    },
+    {
+      "question": "Is Promise School available on both iOS and Android?",
+      "answer": "Yes, Promise School is available for free on both the Apple App Store and Google Play Store."
+    },
+    {
+      "question": "How do I track my learning progress?",
+      "answer": "Promise School tracks XP, streaks, performance stars per chapter, badges and leaderboard rank — so you can see improvement across every subject over time."
+    }
+  ],
+  "escalationTopics": [
+    "refund",
+    "payment dispute",
+    "account locked",
+    "password reset",
+    "bug report",
+    "data deletion",
+    "billing issue"
+  ],
+  "escalationReply": "Thanks for reaching out. This needs help from our support team — please email support@promiseschool.com with your phone number or account details, and we'll follow up shortly."
+}

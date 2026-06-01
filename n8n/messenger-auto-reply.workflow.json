@@ -1,0 +1,641 @@
+{
+  "name": "Promise School Messenger Auto-Reply",
+  "nodes": [
+    {
+      "parameters": {
+        "path": "messenger",
+        "responseMode": "responseNode",
+        "options": {
+          "allowedMethods": ["GET", "POST"]
+        }
+      },
+      "id": "a1000001-0001-4000-8000-000000000001",
+      "name": "Messenger Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [0, 300],
+      "webhookId": "promise-school-messenger"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "verify-mode",
+              "leftValue": "={{ $json.query?.['hub.mode'] || $json.query?.hub?.mode || '' }}",
+              "rightValue": "subscribe",
+              "operator": {
+                "type": "string",
+                "operation": "equals"
+              }
+            },
+            {
+              "id": "verify-token",
+              "leftValue": "={{ $json.query?.['hub.verify_token'] || $json.query?.hub?.verify_token || '' }}",
+              "rightValue": "={{ $env.META_VERIFY_TOKEN }}",
+              "operator": {
+                "type": "string",
+                "operation": "equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "a1000001-0001-4000-8000-000000000002",
+      "name": "Meta Verification?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [240, 300]
+    },
+    {
+      "parameters": {
+        "respondWith": "text",
+        "responseBody": "={{ $json.query?.['hub.challenge'] || $json.query?.hub?.challenge || '' }}",
+        "options": {
+          "responseCode": 200
+        }
+      },
+      "id": "a1000001-0001-4000-8000-000000000003",
+      "name": "Return hub.challenge",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [480, 180]
+    },
+    {
+      "parameters": {
+        "jsCode": "const body = $input.first().json.body ?? $input.first().json;\nconst entry = body.entry?.[0];\nconst messaging = entry?.messaging?.[0];\n\nif (!messaging) {\n  return [{ json: { skip: true, reason: 'no_messaging_event' } }];\n}\n\nif (messaging.message?.is_echo) {\n  return [{ json: { skip: true, reason: 'echo' } }];\n}\n\nconst text = messaging.message?.text?.trim();\nif (!text) {\n  return [{ json: { skip: true, reason: 'no_text' } }];\n}\n\nconst senderId = messaging.sender?.id;\nconst messageId = messaging.message?.mid;\n\nreturn [{\n  json: {\n    skip: false,\n    senderId,\n    messageId,\n    text,\n    timestamp: messaging.timestamp\n  }\n}];"
+      },
+      "id": "a1000001-0001-4000-8000-000000000004",
+      "name": "Parse Messenger Event",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [480, 420]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "not-skip",
+              "leftValue": "={{ $json.skip }}",
+              "rightValue": false,
+              "operator": {
+                "type": "boolean",
+                "operation": "equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "a1000001-0001-4000-8000-000000000005",
+      "name": "Valid Text Message?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [720, 420]
+    },
+    {
+      "parameters": {
+        "respondWith": "noData",
+        "options": {
+          "responseCode": 200
+        }
+      },
+      "id": "a1000001-0001-4000-8000-000000000006",
+      "name": "Ack Webhook",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [960, 420]
+    },
+    {
+      "parameters": {
+        "jsCode": "const fs = require('fs');\nconst item = $input.first().json;\nconst knowledge = JSON.parse(fs.readFileSync('/knowledge/faq.json', 'utf8'));\nconst textLower = item.text.toLowerCase();\n\nconst escalationTopics = knowledge.escalationTopics || [];\nconst needsEscalation = escalationTopics.some((topic) => textLower.includes(topic.toLowerCase()));\n\nif (needsEscalation) {\n  return [{\n    json: {\n      ...item,\n      needsEscalation: true,\n      replyText: knowledge.escalationReply,\n      skipLlm: true\n    }\n  }];\n}\n\nconst staticData = $getWorkflowStaticData('global');\nif (!staticData.conversations) staticData.conversations = {};\nif (!staticData.processedMessages) staticData.processedMessages = {};\n\nif (staticData.processedMessages[item.messageId]) {\n  return [{ json: { ...item, skip: true, skipLlm: true, reason: 'duplicate' } }];\n}\nstaticData.processedMessages[item.messageId] = Date.now();\n\nconst history = staticData.conversations[item.senderId] || [];\nconst faqBlock = knowledge.faqs\n  .map((f) => `Q: ${f.question}\\nA: ${f.answer}`)\n  .join('\\n\\n');\n\nconst org = knowledge.organization;\nconst systemPrompt = [\n  \"You are Promise School's friendly support assistant on Facebook Messenger.\",\n  'Rules:',\n  '- Answer ONLY using the FAQ/knowledge below. If unsure, say you will connect them to ' + (org.supportEmail || 'support@promiseschool.com') + ' — do not invent prices, dates, or features.',\n  '- Match the user language (Bangla or English).',\n  '- Write like a helpful human: short warm paragraphs, not bullet walls unless listing steps.',\n  '- Max 3-4 sentences unless they ask for detail.',\n  '- For Hobbycamp enrollment or payment, share ' + (org.hobbycampUrl || 'https://promiseschool.com/hobbycamp') + ' and offer email escalation.',\n  '',\n  'KNOWLEDGE:',\n  faqBlock,\n  '',\n  'Organization: ' + org.name + ' — ' + org.website\n].join('\\n');\n\nconst messages = [{ role: 'system', content: systemPrompt }];\nfor (const turn of history.slice(-8)) {\n  messages.push({ role: turn.role, content: turn.content });\n}\nmessages.push({ role: 'user', content: item.text });\n\nreturn [{\n  json: {\n    ...item,\n    needsEscalation: false,\n    skipLlm: false,\n    ollamaMessages: messages,\n    historyLength: history.length\n  }\n}];"
+      },
+      "id": "a1000001-0001-4000-8000-000000000007",
+      "name": "Prepare Prompt",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [1200, 420]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "skip-llm",
+              "leftValue": "={{ $json.skipLlm }}",
+              "rightValue": true,
+              "operator": {
+                "type": "boolean",
+                "operation": "equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "a1000001-0001-4000-8000-000000000008",
+      "name": "Escalation or LLM?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [1440, 420]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "=https://graph.facebook.com/{{ $env.META_GRAPH_API_VERSION || 'v22.0' }}/me/messages",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "access_token",
+              "value": "={{ $env.META_PAGE_ACCESS_TOKEN }}"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify({ recipient: { id: $json.senderId }, sender_action: 'mark_seen' }) }}",
+        "options": {}
+      },
+      "id": "a1000001-0001-4000-8000-000000000009",
+      "name": "Mark Seen",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [1680, 520]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "=https://graph.facebook.com/{{ $env.META_GRAPH_API_VERSION || 'v22.0' }}/me/messages",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "access_token",
+              "value": "={{ $env.META_PAGE_ACCESS_TOKEN }}"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify({ recipient: { id: $('Prepare Prompt').item.json.senderId }, sender_action: 'typing_on' }) }}",
+        "options": {}
+      },
+      "id": "a1000001-0001-4000-8000-00000000000a",
+      "name": "Typing On",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [1920, 520]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "not-duplicate",
+              "leftValue": "={{ $json.skip }}",
+              "rightValue": true,
+              "operator": {
+                "type": "boolean",
+                "operation": "notEquals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "a1000001-0001-4000-8000-000000000014",
+      "name": "Not Duplicate?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [1440, 520]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "http://ollama:11434/api/chat",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify({ model: $env.OLLAMA_MODEL || 'qwen3:8b', messages: $('Prepare Prompt').item.json.ollamaMessages, stream: false, options: { temperature: 0.3 } }) }}",
+        "options": {
+          "timeout": 60000
+        }
+      },
+      "id": "a1000001-0001-4000-8000-00000000000c",
+      "name": "Ollama Chat",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [2160, 620]
+    },
+    {
+      "parameters": {
+        "jsCode": "const prep = $('Prepare Prompt').item.json;\nconst ollama = $input.first().json;\nlet replyText = ollama.message?.content?.trim() || '';\n\nif (!replyText) {\n  replyText = \"Thanks for messaging Promise School! A team member will follow up soon. You can also email support@promiseschool.com.\";\n}\n\nconst unsurePatterns = [\n  \"i don't know\",\n  \"i do not know\",\n  \"not sure\",\n  \"cannot find\",\n  \"can't find\",\n  \"unable to answer\"\n];\n\nconst lower = replyText.toLowerCase();\nif (unsurePatterns.some((p) => lower.includes(p))) {\n  replyText = \"I'm not fully sure about that one — please email support@promiseschool.com and our team will help you directly.\";\n}\n\nconst staticData = $getWorkflowStaticData('global');\nif (!staticData.conversations) staticData.conversations = {};\nif (!staticData.conversations[prep.senderId]) staticData.conversations[prep.senderId] = [];\n\nstaticData.conversations[prep.senderId].push(\n  { role: 'user', content: prep.text },\n  { role: 'assistant', content: replyText }\n);\n\nif (staticData.conversations[prep.senderId].length > 20) {\n  staticData.conversations[prep.senderId] = staticData.conversations[prep.senderId].slice(-20);\n}\n\nreturn [{\n  json: {\n    senderId: prep.senderId,\n    replyText,\n    needsEscalation: prep.needsEscalation || false,\n    userText: prep.text\n  }\n}];"
+      },
+      "id": "a1000001-0001-4000-8000-00000000000d",
+      "name": "Finalize Reply",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [2640, 520]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "esc-reply",
+              "name": "replyText",
+              "value": "={{ $('Prepare Prompt').item.json.replyText }}",
+              "type": "string"
+            },
+            {
+              "id": "esc-sender",
+              "name": "senderId",
+              "value": "={{ $('Prepare Prompt').item.json.senderId }}",
+              "type": "string"
+            },
+            {
+              "id": "esc-flag",
+              "name": "needsEscalation",
+              "value": true,
+              "type": "boolean"
+            },
+            {
+              "id": "esc-user",
+              "name": "userText",
+              "value": "={{ $('Prepare Prompt').item.json.text }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "a1000001-0001-4000-8000-00000000000e",
+      "name": "Use Escalation Reply",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [1680, 300]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "=https://graph.facebook.com/{{ $env.META_GRAPH_API_VERSION || 'v22.0' }}/me/messages",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "access_token",
+              "value": "={{ $env.META_PAGE_ACCESS_TOKEN }}"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify({ recipient: { id: $json.senderId }, sender_action: 'typing_off' }) }}",
+        "options": {}
+      },
+      "id": "a1000001-0001-4000-8000-00000000000f",
+      "name": "Typing Off",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [2880, 420]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "=https://graph.facebook.com/{{ $env.META_GRAPH_API_VERSION || 'v22.0' }}/me/messages",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "access_token",
+              "value": "={{ $env.META_PAGE_ACCESS_TOKEN }}"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify({ recipient: { id: $json.senderId }, message: { text: $json.replyText } }) }}",
+        "options": {}
+      },
+      "id": "a1000001-0001-4000-8000-000000000010",
+      "name": "Send Messenger Reply",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [3120, 420]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "needs-esc",
+              "leftValue": "={{ $json.needsEscalation }}",
+              "rightValue": true,
+              "operator": {
+                "type": "boolean",
+                "operation": "equals"
+              }
+            },
+            {
+              "id": "has-email",
+              "leftValue": "={{ $env.ESCALATION_NOTIFY_EMAIL || '' }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "notEquals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "a1000001-0001-4000-8000-000000000011",
+      "name": "Notify Team?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [3360, 420]
+    },
+    {
+      "parameters": {
+        "fromEmail": "={{ $env.SUPPORT_EMAIL || 'support@promiseschool.com' }}",
+        "toEmail": "={{ $env.ESCALATION_NOTIFY_EMAIL }}",
+        "subject": "=Promise School Messenger escalation",
+        "emailFormat": "text",
+        "text": "=Escalated Messenger conversation\n\nUser message:\n{{ $json.userText }}\n\nBot reply:\n{{ $json.replyText }}\n\nSender PSID: {{ $json.senderId }}",
+        "options": {}
+      },
+      "id": "a1000001-0001-4000-8000-000000000012",
+      "name": "Email Escalation Alert",
+      "type": "n8n-nodes-base.emailSend",
+      "typeVersion": 2.1,
+      "position": [3600, 340],
+      "credentials": {
+        "smtp": {
+          "id": "CONFIGURE_SMTP",
+          "name": "SMTP account"
+        }
+      },
+      "continueOnFail": true
+    },
+    {
+      "parameters": {
+        "respondWith": "noData",
+        "options": {
+          "responseCode": 200
+        }
+      },
+      "id": "a1000001-0001-4000-8000-000000000013",
+      "name": "Ack Skipped Event",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [960, 600]
+    }
+  ],
+  "connections": {
+    "Messenger Webhook": {
+      "main": [
+        [
+          {
+            "node": "Meta Verification?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Meta Verification?": {
+      "main": [
+        [
+          {
+            "node": "Return hub.challenge",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Parse Messenger Event",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Parse Messenger Event": {
+      "main": [
+        [
+          {
+            "node": "Valid Text Message?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Valid Text Message?": {
+      "main": [
+        [
+          {
+            "node": "Ack Webhook",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Ack Skipped Event",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Ack Webhook": {
+      "main": [
+        [
+          {
+            "node": "Prepare Prompt",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Prepare Prompt": {
+      "main": [
+        [
+          {
+            "node": "Not Duplicate?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Not Duplicate?": {
+      "main": [
+        [
+          {
+            "node": "Escalation or LLM?",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        []
+      ]
+    },
+    "Escalation or LLM?": {
+      "main": [
+        [
+          {
+            "node": "Use Escalation Reply",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Mark Seen",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Mark Seen": {
+      "main": [
+        [
+          {
+            "node": "Typing On",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Typing On": {
+      "main": [
+        [
+          {
+            "node": "Ollama Chat",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Ollama Chat": {
+      "main": [
+        [
+          {
+            "node": "Finalize Reply",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Finalize Reply": {
+      "main": [
+        [
+          {
+            "node": "Typing Off",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Use Escalation Reply": {
+      "main": [
+        [
+          {
+            "node": "Typing Off",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Typing Off": {
+      "main": [
+        [
+          {
+            "node": "Send Messenger Reply",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Send Messenger Reply": {
+      "main": [
+        [
+          {
+            "node": "Notify Team?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Notify Team?": {
+      "main": [
+        [
+          {
+            "node": "Email Escalation Alert",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        []
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1",
+    "timezone": "Asia/Dhaka"
+  },
+  "staticData": null,
+  "meta": {
+    "templateCredsSetupCompleted": false
+  },
+  "pinData": {}
+}
