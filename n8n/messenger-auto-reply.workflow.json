@@ -158,7 +158,30 @@
     },
     {
       "parameters": {
-        "jsCode": "const fs = require('fs');\nconst item = $input.first().json;\nconst knowledge = JSON.parse(fs.readFileSync('/knowledge/faq.json', 'utf8'));\nconst textLower = item.text.toLowerCase();\n\nconst escalationTopics = knowledge.escalationTopics || [];\nconst needsEscalation = escalationTopics.some((topic) => textLower.includes(topic.toLowerCase()));\n\nif (needsEscalation) {\n  return [{\n    json: {\n      ...item,\n      needsEscalation: true,\n      replyText: knowledge.escalationReply,\n      skipLlm: true\n    }\n  }];\n}\n\nconst staticData = $getWorkflowStaticData('global');\nif (!staticData.conversations) staticData.conversations = {};\nif (!staticData.processedMessages) staticData.processedMessages = {};\n\nif (staticData.processedMessages[item.messageId]) {\n  return [{ json: { ...item, skip: true, skipLlm: true, reason: 'duplicate' } }];\n}\nstaticData.processedMessages[item.messageId] = Date.now();\n\nconst history = staticData.conversations[item.senderId] || [];\nconst faqBlock = knowledge.faqs\n  .map((f) => `Q: ${f.question}\\nA: ${f.answer}`)\n  .join('\\n\\n');\n\nconst org = knowledge.organization;\nconst systemPrompt = [\n  \"You are Promise School's friendly support assistant on Facebook Messenger.\",\n  'Rules:',\n  '- Answer ONLY using the FAQ/knowledge below. If unsure, say you will connect them to ' + (org.supportEmail || 'support@promiseschool.com') + ' — do not invent prices, dates, or features.',\n  '- Match the user language (Bangla or English).',\n  '- Write like a helpful human: short warm paragraphs, not bullet walls unless listing steps.',\n  '- Max 3-4 sentences unless they ask for detail.',\n  '- For Hobbycamp enrollment or payment, share ' + (org.hobbycampUrl || 'https://promiseschool.com/hobbycamp') + ' and offer email escalation.',\n  '',\n  'KNOWLEDGE:',\n  faqBlock,\n  '',\n  'Organization: ' + org.name + ' — ' + org.website\n].join('\\n');\n\nconst messages = [{ role: 'system', content: systemPrompt }];\nfor (const turn of history.slice(-8)) {\n  messages.push({ role: turn.role, content: turn.content });\n}\nmessages.push({ role: 'user', content: item.text });\n\nreturn [{\n  json: {\n    ...item,\n    needsEscalation: false,\n    skipLlm: false,\n    ollamaMessages: messages,\n    historyLength: history.length\n  }\n}];"
+        "operation": "read",
+        "fileSelector": "/knowledge/faq.json",
+        "options": {}
+      },
+      "id": "a1000001-0001-4000-8000-000000000017",
+      "name": "Read FAQ",
+      "type": "n8n-nodes-base.readWriteFile",
+      "typeVersion": 1.1,
+      "position": [960, 280]
+    },
+    {
+      "parameters": {
+        "operation": "fromJson",
+        "options": {}
+      },
+      "id": "a1000001-0001-4000-8000-000000000018",
+      "name": "Extract FAQ",
+      "type": "n8n-nodes-base.extractFromFile",
+      "typeVersion": 1.1,
+      "position": [1080, 280]
+    },
+    {
+      "parameters": {
+        "jsCode": "const item = $('Parse Messenger Event').first().json;\nconst knowledge = $input.first().json;\nconst textLower = item.text.toLowerCase();\n\nconst escalationTopics = knowledge.escalationTopics || [];\nconst needsEscalation = escalationTopics.some((topic) => textLower.includes(topic.toLowerCase()));\n\nif (needsEscalation) {\n  return [{\n    json: {\n      ...item,\n      needsEscalation: true,\n      replyText: knowledge.escalationReply,\n      skipLlm: true\n    }\n  }];\n}\n\nconst staticData = $getWorkflowStaticData('global');\nif (!staticData.conversations) staticData.conversations = {};\nif (!staticData.processedMessages) staticData.processedMessages = {};\n\nif (staticData.processedMessages[item.messageId]) {\n  return [{ json: { ...item, skip: true, skipLlm: true, reason: 'duplicate' } }];\n}\nstaticData.processedMessages[item.messageId] = Date.now();\n\nconst history = staticData.conversations[item.senderId] || [];\nconst faqBlock = knowledge.faqs\n  .map((f) => `Q: ${f.question}\\nA: ${f.answer}`)\n  .join('\\n\\n');\n\nconst org = knowledge.organization;\nconst systemPrompt = [\n  \"You are Promise School's friendly support assistant on Facebook Messenger.\",\n  'Rules:',\n  '- Answer ONLY using the FAQ/knowledge below. If unsure, say you will connect them to ' + (org.supportEmail || 'support@promiseschool.com') + ' — do not invent prices, dates, or features.',\n  '- Match the user language (Bangla or English).',\n  '- Write like a helpful human: short warm paragraphs, not bullet walls unless listing steps.',\n  '- Max 3-4 sentences unless they ask for detail.',\n  '- For Hobbycamp enrollment or payment, share ' + (org.hobbycampUrl || 'https://promiseschool.com/hobbycamp') + ' and offer email escalation.',\n  '',\n  'KNOWLEDGE:',\n  faqBlock,\n  '',\n  'Organization: ' + org.name + ' — ' + org.website\n].join('\\n');\n\nconst messages = [{ role: 'system', content: systemPrompt }];\nfor (const turn of history.slice(-8)) {\n  messages.push({ role: turn.role, content: turn.content });\n}\nmessages.push({ role: 'user', content: item.text });\n\nreturn [{\n  json: {\n    ...item,\n    needsEscalation: false,\n    skipLlm: false,\n    ollamaMessages: messages,\n    historyLength: history.length\n  }\n}];"
       },
       "id": "a1000001-0001-4000-8000-000000000007",
       "name": "Prepare Prompt",
@@ -471,6 +494,11 @@
             "node": "Ack Webhook",
             "type": "main",
             "index": 0
+          },
+          {
+            "node": "Read FAQ",
+            "type": "main",
+            "index": 0
           }
         ],
         [
@@ -483,6 +511,20 @@
       ]
     },
     "Ack Webhook": {
+      "main": [[]]
+    },
+    "Read FAQ": {
+      "main": [
+        [
+          {
+            "node": "Extract FAQ",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Extract FAQ": {
       "main": [
         [
           {

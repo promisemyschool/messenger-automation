@@ -25,8 +25,8 @@ services:
       N8N_PORT: ${N8N_PORT}
       WEBHOOK_URL: https://${N8N_HOST}/
       N8N_BLOCK_ENV_ACCESS_IN_NODE: ${N8N_BLOCK_ENV_ACCESS_IN_NODE:-false}
-      # Prepare Prompt reads /knowledge/faq.json via fs in Code node
-      NODE_FUNCTION_ALLOW_BUILTIN: ${NODE_FUNCTION_ALLOW_BUILTIN:-fs}
+      # Read FAQ node (n8n 2.x restricts disk access by default)
+      N8N_RESTRICT_FILE_ACCESS_TO: ${N8N_RESTRICT_FILE_ACCESS_TO:-/knowledge}
       N8N_ENCRYPTION_KEY: ${N8N_ENCRYPTION_KEY}
       N8N_BASIC_AUTH_ACTIVE: "true"
       N8N_BASIC_AUTH_USER: ${N8N_BASIC_AUTH_USER}

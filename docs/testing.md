@@ -53,7 +53,7 @@ For each test message, open **Executions** and verify:
 | 404 on `/webhook/messenger` | Path must be `messenger`; workflow published |
 | Execution but no reply | Invalid Page token; sender not in dev mode roles |
 | Empty reply | Ollama model not pulled — run `./scripts/pull-models.sh` |
-| Error: `Module 'fs' is disallowed` on Prepare Prompt | Set `NODE_FUNCTION_ALLOW_BUILTIN=fs` in `.env`, recreate n8n |
+| Error: `Module 'fs' is disallowed` on Prepare Prompt | Re-import published workflow; ensure `N8N_RESTRICT_FILE_ACCESS_TO=/knowledge` and **Read FAQ** node exists |
 
 ## Sign-off
 
