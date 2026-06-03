@@ -24,6 +24,15 @@ if [[ -z "$HOST" || -z "$VERIFY_TOKEN" ]]; then
   exit 1
 fi
 
+if command -v docker >/dev/null 2>&1 && docker compose ps n8n >/dev/null 2>&1; then
+  BLOCK_ENV="$(docker compose exec -T n8n printenv N8N_BLOCK_ENV_ACCESS_IN_NODE 2>/dev/null || true)"
+  if [[ "$BLOCK_ENV" != "false" ]]; then
+    echo "WARN: n8n container N8N_BLOCK_ENV_ACCESS_IN_NODE is not 'false' (got '${BLOCK_ENV:-<unset>}')."
+    echo "      Add N8N_BLOCK_ENV_ACCESS_IN_NODE=false to .env, update docker-compose.yml, then:"
+    echo "      docker compose up -d --force-recreate n8n"
+  fi
+fi
+
 BASE="https://${HOST}/webhook/messenger"
 VERIFY_URL="${BASE}?hub.mode=subscribe&hub.verify_token=${VERIFY_TOKEN}&hub.challenge=${CHALLENGE}"
 

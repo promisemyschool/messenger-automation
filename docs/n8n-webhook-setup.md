@@ -12,7 +12,7 @@ Use this after deploy when Meta **Verify and save** fails or curl returns 404 / 
 | Setting | Value |
 |---------|--------|
 | **Path** | `messenger` (not a UUID) |
-| **HTTP Method** | GET and POST |
+| **HTTP Method** | GET and POST (enable **Allow Multiple HTTP Methods** in node settings if importing manually) |
 | **Authentication** | None |
 | **Respond** | Using **Respond to Webhook** node |
 | **Production URL** | `https://<your-domain>/webhook/messenger` |

@@ -6,14 +6,14 @@
         "path": "messenger",
         "responseMode": "responseNode",
         "authentication": "none",
-        "options": {
-          "allowedMethods": ["GET", "POST"]
-        }
+        "multipleMethods": true,
+        "httpMethod": ["GET", "POST"],
+        "options": {}
       },
       "id": "a1000001-0001-4000-8000-000000000001",
       "name": "Messenger Webhook",
       "type": "n8n-nodes-base.webhook",
-      "typeVersion": 2,
+      "typeVersion": 2.1,
       "position": [0, 300],
       "webhookId": "promise-school-messenger"
     },
@@ -390,6 +390,13 @@
   "connections": {
     "Messenger Webhook": {
       "main": [
+        [
+          {
+            "node": "Normalize Meta Query",
+            "type": "main",
+            "index": 0
+          }
+        ],
         [
           {
             "node": "Normalize Meta Query",
