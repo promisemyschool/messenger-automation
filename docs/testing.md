@@ -12,8 +12,11 @@ Run these tests **before** App Review. The Meta app must stay in **Development**
 
 ## Webhook verification
 
-1. In Meta Developer Console → Webhooks → click **Test** on `messages`.
-2. In n8n → **Executions**, confirm a run hits **Return hub.challenge** or completes without error.
+1. Run `./scripts/verify-webhook.sh` — must print `OK: challenge echoed` (body exactly `hello_meta_test`).
+2. Confirm POST is registered: script prints `OK: POST accepted` (not “not registered for POST”).
+3. In Meta Developer Console → **Verify and save** (Callback URL `https://<domain>/webhook/messenger`).
+4. In Meta → Webhooks → click **Test** on `messages`.
+5. In n8n → **Executions**, confirm verify runs **Check Meta Verify** → **Return hub.challenge**.
 
 ## Manual message tests
 
@@ -45,7 +48,9 @@ For each test message, open **Executions** and verify:
 | Symptom | Likely cause |
 |---------|----------------|
 | No execution in n8n | Workflow inactive or wrong webhook URL |
-| Verification fails | Verify token mismatch or workflow inactive |
+| Verification fails | Run `./scripts/verify-webhook.sh`; see [`n8n-webhook-setup.md`](n8n-webhook-setup.md) |
+| curl 200 but empty body | Token mismatch or wrong webhook path; republish workflow |
+| 404 on `/webhook/messenger` | Path must be `messenger`; workflow published |
 | Execution but no reply | Invalid Page token; sender not in dev mode roles |
 | Empty reply | Ollama model not pulled — run `./scripts/pull-models.sh` |
 

@@ -47,13 +47,37 @@ Use the **same value** in:
 
 ## 4. Configure the webhook (after VPS deploy)
 
-1. Deploy the stack (`./scripts/deploy.sh`) and import the n8n workflow.
-2. **Activate** the workflow in n8n (top-right toggle).
-3. In Meta → **Messenger → Webhooks** (or Webhooks product):
-   - **Callback URL:** `https://automation.promiseschool.com/webhook/messenger`
-   - **Verify token:** value of `META_VERIFY_TOKEN`
-4. Click **Verify and Save**.
-5. Subscribe to webhook fields: **`messages`**, **`messaging_postbacks`**.
+1. Deploy the stack (`./scripts/deploy.sh`) and import the n8n workflow — see [`n8n-webhook-setup.md`](n8n-webhook-setup.md).
+2. **Publish** the workflow in n8n (webhook path must be `messenger`, GET + POST).
+3. On the VPS, ensure `N8N_BLOCK_ENV_ACCESS_IN_NODE=false` in `.env`, then:
+
+   ```bash
+   docker compose up -d --force-recreate n8n
+   ```
+
+4. Run the curl gate **before** Meta verify:
+
+   ```bash
+   ./scripts/verify-webhook.sh
+   ```
+
+   Success: response body is exactly `hello_meta_test` (or your `WEBHOOK_VERIFY_CHALLENGE`).  
+   Failure: empty body or 404 — do not use Meta **Verify and save** until this passes.
+
+5. In Meta → **Messenger → Webhooks** (or Webhooks product):
+   - **Callback URL:** `https://<your-domain>/webhook/messenger` (must match n8n **Production URL**)
+   - **Verify token:** value of `META_VERIFY_TOKEN` (not Page ID)
+6. Click **Verify and save**.
+7. Subscribe to webhook fields: **`messages`**, **`messaging_postbacks`**.
+
+### Webhook path mistakes
+
+| Mistake | Symptom |
+|---------|---------|
+| Path set to a UUID instead of `messenger` | Meta URL `/webhook/messenger` returns 404 |
+| GET only (no POST) | Meta messages fail after verify |
+| Wrong verify token vs `.env` | HTTP 200 but empty body; Meta verify fails |
+| Workflow not published | 404 `not registered` |
 
 ## 5. Subscribe the Page to your app
 
@@ -81,7 +105,8 @@ For internal testing, keep the app in **Development** and add testers under **Ap
 - [ ] `META_PAGE_ACCESS_TOKEN` in `.env`
 - [ ] `META_PAGE_ID` in `.env`
 - [ ] `META_VERIFY_TOKEN` matches Meta console
-- [ ] n8n workflow imported and **Active**
+- [ ] n8n workflow imported, path `messenger`, **Published**
+- [ ] `./scripts/verify-webhook.sh` passes
 - [ ] Webhook verified in Meta console
 - [ ] `./scripts/setup-meta.sh` completed successfully
 

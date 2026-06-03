@@ -24,6 +24,7 @@ docker compose exec -T ollama ollama pull "${MODEL}"
 
 echo
 echo "Stack is up."
-echo "  n8n UI: https://${DOMAIN:-automation.promiseschool.com}"
-echo "  Import workflow: n8n/messenger-auto-reply.workflow.json"
-echo "  Then run: ./scripts/setup-meta.sh"
+echo "  n8n UI: https://${N8N_HOST:-${DOMAIN:-automation.promiseschool.com}}"
+echo "  Import + publish: docs/n8n-webhook-setup.md"
+echo "  Verify webhook: ./scripts/verify-webhook.sh"
+echo "  Then Meta: ./scripts/setup-meta.sh"

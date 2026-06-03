@@ -27,6 +27,8 @@ curl -fsS \
   "https://graph.facebook.com/${META_GRAPH_API_VERSION:-v22.0}/${META_PAGE_ID}/subscribed_apps?access_token=${META_PAGE_ACCESS_TOKEN}"
 
 echo
-echo "Done. Configure the webhook callback URL in Meta Developer Console:"
-echo "  https://${N8N_HOST:-$DOMAIN}/webhook/messenger"
+echo "Done. Before Meta 'Verify and save', run: ./scripts/verify-webhook.sh"
+echo "Meta Developer Console:"
+echo "  Callback URL: https://${N8N_HOST:-$DOMAIN}/webhook/messenger"
 echo "  Verify token: ${META_VERIFY_TOKEN}"
+echo "  Subscribe fields: messages, messaging_postbacks"

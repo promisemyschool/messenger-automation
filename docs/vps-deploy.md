@@ -23,23 +23,33 @@ chmod +x scripts/*.sh
 
 | Service | Role |
 |---------|------|
-| **Caddy** | HTTPS (Let's Encrypt) → reverse proxy to n8n |
+| **Caddy** (optional profile) | HTTPS → n8n — run with `docker compose --profile caddy up -d` |
 | **n8n** | Webhook + workflow engine |
 | **Ollama** | Local LLM (`qwen3:8b` by default) |
+
+Using **Nginx Proxy Manager** instead? See [`nginx-proxy-manager.md`](nginx-proxy-manager.md).
 
 Knowledge files are mounted read-only at `/knowledge` inside the n8n container.
 
 ## Import the n8n workflow
 
+See [`n8n-webhook-setup.md`](n8n-webhook-setup.md) for full steps.
+
 1. Open `https://<your-domain>` and log in with basic auth from `.env`.
 2. **Workflows → Import from File** → select `n8n/messenger-auto-reply.workflow.json`.
-3. Open the workflow and confirm environment variables are visible to n8n (set in `docker-compose.yml`).
-4. Toggle **Active**.
+3. Confirm **Messenger Webhook** path is `messenger`, methods **GET + POST**, auth **None**.
+4. **Publish** the workflow.
 
 Production webhook URL (use in Meta):
 
 ```
 https://<your-domain>/webhook/messenger
+```
+
+Verify before Meta:
+
+```bash
+./scripts/verify-webhook.sh
 ```
 
 ## Sync FAQ knowledge after landing site changes
@@ -65,10 +75,12 @@ Do **not** expose Ollama (`11434`) or n8n directly without auth.
 
 | Issue | Fix |
 |-------|-----|
-| Meta webhook verification fails | Workflow must be **Active**; webhook uses **Respond to Webhook** node; verify token must match |
+| Meta webhook verification fails | Run `./scripts/verify-webhook.sh`; path `messenger`; `N8N_BLOCK_ENV_ACCESS_IN_NODE=false`; republish workflow |
 | No replies in Development mode | Sender must be app admin/tester or Page role |
 | Ollama timeout | Use `qwen3:8b`; increase VPS RAM; check `docker compose logs ollama` |
 | 502 from Caddy | `docker compose ps` — wait for n8n to start |
+| 502 from NPM, n8n healthy | NPM forward **Scheme** must be `http`, not `https` |
+| 502 from NPM, curl to n8n fails | Connect NPM to `messenger-automation_default` network |
 
 ## Operations
 

@@ -5,6 +5,7 @@
       "parameters": {
         "path": "messenger",
         "responseMode": "responseNode",
+        "authentication": "none",
         "options": {
           "allowedMethods": ["GET", "POST"]
         }
@@ -18,6 +19,16 @@
     },
     {
       "parameters": {
+        "jsCode": "const item = $input.first().json;\nconst q = item.query ?? {};\nconst mode = String(q['hub.mode'] ?? '');\nconst token = String(q['hub.verify_token'] ?? '');\nconst challenge = String(q['hub.challenge'] ?? '');\nconst expected = String($env.META_VERIFY_TOKEN ?? '');\nconst isVerify =\n  mode === 'subscribe' &&\n  token.length > 0 &&\n  token === expected &&\n  challenge.length > 0;\nreturn [{\n  json: {\n    ...item,\n    metaVerify: isVerify,\n    hubChallenge: challenge,\n  },\n}];"
+      },
+      "id": "a1000001-0001-4000-8000-000000000014",
+      "name": "Check Meta Verify",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [120, 300]
+    },
+    {
+      "parameters": {
         "conditions": {
           "options": {
             "caseSensitive": true,
@@ -27,20 +38,11 @@
           },
           "conditions": [
             {
-              "id": "verify-mode",
-              "leftValue": "={{ $json.query?.['hub.mode'] || $json.query?.hub?.mode || '' }}",
-              "rightValue": "subscribe",
+              "id": "meta-verify",
+              "leftValue": "={{ $json.metaVerify }}",
+              "rightValue": true,
               "operator": {
-                "type": "string",
-                "operation": "equals"
-              }
-            },
-            {
-              "id": "verify-token",
-              "leftValue": "={{ $json.query?.['hub.verify_token'] || $json.query?.hub?.verify_token || '' }}",
-              "rightValue": "={{ $env.META_VERIFY_TOKEN }}",
-              "operator": {
-                "type": "string",
+                "type": "boolean",
                 "operation": "equals"
               }
             }
@@ -58,7 +60,7 @@
     {
       "parameters": {
         "respondWith": "text",
-        "responseBody": "={{ $json.query?.['hub.challenge'] || $json.query?.hub?.challenge || '' }}",
+        "responseBody": "={{ $json.hubChallenge }}",
         "options": {
           "responseCode": 200
         }
@@ -430,6 +432,17 @@
   ],
   "connections": {
     "Messenger Webhook": {
+      "main": [
+        [
+          {
+            "node": "Check Meta Verify",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Check Meta Verify": {
       "main": [
         [
           {
