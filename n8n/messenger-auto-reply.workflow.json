@@ -19,10 +19,10 @@
     },
     {
       "parameters": {
-        "jsCode": "const item = $input.first().json;\nconst q = item.query ?? {};\nconst mode = String(q['hub.mode'] ?? '');\nconst token = String(q['hub.verify_token'] ?? '');\nconst challenge = String(q['hub.challenge'] ?? '');\nconst expected = String($env.META_VERIFY_TOKEN ?? '');\nconst isVerify =\n  mode === 'subscribe' &&\n  token.length > 0 &&\n  token === expected &&\n  challenge.length > 0;\nreturn [{\n  json: {\n    ...item,\n    metaVerify: isVerify,\n    hubChallenge: challenge,\n  },\n}];"
+        "jsCode": "const item = $input.first().json;\nconst q = item.query ?? item.params ?? {};\nreturn [{\n  json: {\n    ...item,\n    hubMode: String(q['hub.mode'] ?? item['hub.mode'] ?? ''),\n    hubVerifyToken: String(q['hub.verify_token'] ?? item['hub.verify_token'] ?? ''),\n    hubChallenge: String(q['hub.challenge'] ?? item['hub.challenge'] ?? ''),\n  },\n}];"
       },
       "id": "a1000001-0001-4000-8000-000000000014",
-      "name": "Check Meta Verify",
+      "name": "Normalize Meta Query",
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [120, 300]
@@ -38,12 +38,30 @@
           },
           "conditions": [
             {
-              "id": "meta-verify",
-              "leftValue": "={{ $json.metaVerify }}",
-              "rightValue": true,
+              "id": "verify-mode",
+              "leftValue": "={{ $json.hubMode }}",
+              "rightValue": "subscribe",
               "operator": {
-                "type": "boolean",
+                "type": "string",
                 "operation": "equals"
+              }
+            },
+            {
+              "id": "verify-token",
+              "leftValue": "={{ $json.hubVerifyToken }}",
+              "rightValue": "={{ $env.META_VERIFY_TOKEN }}",
+              "operator": {
+                "type": "string",
+                "operation": "equals"
+              }
+            },
+            {
+              "id": "verify-challenge",
+              "leftValue": "={{ $json.hubChallenge }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "notEquals"
               }
             }
           ],
@@ -357,67 +375,6 @@
     },
     {
       "parameters": {
-        "conditions": {
-          "options": {
-            "caseSensitive": true,
-            "leftValue": "",
-            "typeValidation": "strict",
-            "version": 2
-          },
-          "conditions": [
-            {
-              "id": "needs-esc",
-              "leftValue": "={{ $json.needsEscalation }}",
-              "rightValue": true,
-              "operator": {
-                "type": "boolean",
-                "operation": "equals"
-              }
-            },
-            {
-              "id": "has-email",
-              "leftValue": "={{ $env.ESCALATION_NOTIFY_EMAIL || '' }}",
-              "rightValue": "",
-              "operator": {
-                "type": "string",
-                "operation": "notEquals"
-              }
-            }
-          ],
-          "combinator": "and"
-        },
-        "options": {}
-      },
-      "id": "a1000001-0001-4000-8000-000000000011",
-      "name": "Notify Team?",
-      "type": "n8n-nodes-base.if",
-      "typeVersion": 2.2,
-      "position": [3360, 420]
-    },
-    {
-      "parameters": {
-        "fromEmail": "={{ $env.SUPPORT_EMAIL || 'support@promiseschool.com' }}",
-        "toEmail": "={{ $env.ESCALATION_NOTIFY_EMAIL }}",
-        "subject": "=Promise School Messenger escalation",
-        "emailFormat": "text",
-        "text": "=Escalated Messenger conversation\n\nUser message:\n{{ $json.userText }}\n\nBot reply:\n{{ $json.replyText }}\n\nSender PSID: {{ $json.senderId }}",
-        "options": {}
-      },
-      "id": "a1000001-0001-4000-8000-000000000012",
-      "name": "Email Escalation Alert",
-      "type": "n8n-nodes-base.emailSend",
-      "typeVersion": 2.1,
-      "position": [3600, 340],
-      "credentials": {
-        "smtp": {
-          "id": "CONFIGURE_SMTP",
-          "name": "SMTP account"
-        }
-      },
-      "continueOnFail": true
-    },
-    {
-      "parameters": {
         "respondWith": "noData",
         "options": {
           "responseCode": 200
@@ -435,14 +392,14 @@
       "main": [
         [
           {
-            "node": "Check Meta Verify",
+            "node": "Normalize Meta Query",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "Check Meta Verify": {
+    "Normalize Meta Query": {
       "main": [
         [
           {
@@ -619,27 +576,7 @@
       ]
     },
     "Send Messenger Reply": {
-      "main": [
-        [
-          {
-            "node": "Notify Team?",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Notify Team?": {
-      "main": [
-        [
-          {
-            "node": "Email Escalation Alert",
-            "type": "main",
-            "index": 0
-          }
-        ],
-        []
-      ]
+      "main": [[]]
     }
   },
   "settings": {

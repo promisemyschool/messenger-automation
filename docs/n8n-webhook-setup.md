@@ -17,8 +17,7 @@ Use this after deploy when Meta **Verify and save** fails or curl returns 404 / 
 | **Respond** | Using **Respond to Webhook** node |
 | **Production URL** | `https://<your-domain>/webhook/messenger` |
 
-5. Configure **SMTP** on **Email Escalation Alert** (or remove that node if you skip email alerts).
-6. **Save** → **Publish**.
+5. **Save** → **Publish**.
 
 ## VPS environment
 
@@ -58,4 +57,14 @@ Success means:
 - **Verify and save**
 - Subscribe: `messages`, `messaging_postbacks`
 
-During verify, n8n **Executions** should run **Check Meta Verify** → **Return hub.challenge**, not only **Ack Skipped Event**.
+During verify, n8n **Executions** should run **Normalize Meta Query** → **Meta Verification?** (true) → **Return hub.challenge**, not only **Ack Skipped Event**.
+
+If `./scripts/verify-webhook.sh` returns HTTP 200 with an empty body:
+
+```bash
+docker compose exec n8n printenv META_VERIFY_TOKEN
+docker compose exec n8n printenv N8N_BLOCK_ENV_ACCESS_IN_NODE   # expect false
+docker compose up -d --force-recreate n8n
+```
+
+Then re-import the workflow and **Publish** again.

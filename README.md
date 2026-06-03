@@ -33,8 +33,7 @@ chmod +x scripts/*.sh
 - Bangla / English language mirroring via Qwen
 - Conversation memory (last 10 turns per user)
 - Typing indicator + 1s human delay
-- Escalation for refunds, account issues, bugs → support email
-- Optional SMTP alert on escalation (`ESCALATION_NOTIFY_EMAIL`)
+- Escalation for refunds, account issues, bugs → support email in chat
 
 ## Sync FAQ from landing site
 

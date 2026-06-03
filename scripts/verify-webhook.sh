@@ -40,7 +40,12 @@ if [[ "$BODY" == "$CHALLENGE" && "$HTTP_CODE" == "200" ]]; then
 else
   echo "FAIL: HTTP ${HTTP_CODE}, body '${BODY:-<empty>}' (expected '${CHALLENGE}')"
   echo "URL: ${VERIFY_URL}"
-  echo "If HTTP 200 but empty: token mismatch or republish after import. See docs/n8n-webhook-setup.md"
+  echo "If HTTP 200 but empty: Meta Verification? failed (token/env) or old workflow still published."
+  echo "On the VPS, check:"
+  echo "  docker compose exec n8n printenv META_VERIFY_TOKEN"
+  echo "  docker compose exec n8n printenv N8N_BLOCK_ENV_ACCESS_IN_NODE   # must be false"
+  echo "  docker compose up -d --force-recreate n8n"
+  echo "Re-import n8n/messenger-auto-reply.workflow.json, publish, then run this script again."
   exit 1
 fi
 
