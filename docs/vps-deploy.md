@@ -76,6 +76,7 @@ Do **not** expose Ollama (`11434`) or n8n directly without auth.
 | Issue | Fix |
 |-------|-----|
 | Meta webhook verification fails | Run `./scripts/verify-webhook.sh`; path `messenger`; `N8N_BLOCK_ENV_ACCESS_IN_NODE=false`; republish workflow |
+| `Module 'fs' is disallowed` in Prepare Prompt | Add `NODE_FUNCTION_ALLOW_BUILTIN=fs` to `.env`, `docker compose up -d --force-recreate n8n` |
 | No replies in Development mode | Sender must be app admin/tester or Page role |
 | Ollama timeout | Use `qwen3:8b`; increase VPS RAM; check `docker compose logs ollama` |
 | 502 from Caddy | `docker compose ps` — wait for n8n to start |
