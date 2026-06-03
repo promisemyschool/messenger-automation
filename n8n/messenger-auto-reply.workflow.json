@@ -6,16 +6,30 @@
         "path": "messenger",
         "responseMode": "responseNode",
         "authentication": "none",
-        "multipleMethods": true,
-        "httpMethod": ["GET", "POST"],
+        "httpMethod": "GET",
         "options": {}
       },
       "id": "a1000001-0001-4000-8000-000000000001",
-      "name": "Messenger Webhook",
+      "name": "Messenger Webhook GET",
       "type": "n8n-nodes-base.webhook",
       "typeVersion": 2.1,
-      "position": [0, 300],
-      "webhookId": "promise-school-messenger"
+      "position": [0, 240],
+      "webhookId": "promise-school-messenger-get"
+    },
+    {
+      "parameters": {
+        "path": "messenger",
+        "responseMode": "responseNode",
+        "authentication": "none",
+        "httpMethod": "POST",
+        "options": {}
+      },
+      "id": "a1000001-0001-4000-8000-000000000015",
+      "name": "Messenger Webhook POST",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2.1,
+      "position": [0, 360],
+      "webhookId": "promise-school-messenger-post"
     },
     {
       "parameters": {
@@ -388,7 +402,7 @@
     }
   ],
   "connections": {
-    "Messenger Webhook": {
+    "Messenger Webhook GET": {
       "main": [
         [
           {
@@ -396,10 +410,14 @@
             "type": "main",
             "index": 0
           }
-        ],
+        ]
+      ]
+    },
+    "Messenger Webhook POST": {
+      "main": [
         [
           {
-            "node": "Normalize Meta Query",
+            "node": "Parse Messenger Event",
             "type": "main",
             "index": 0
           }

@@ -72,7 +72,7 @@ echo ""
 echo "== POST (must not be 'not registered for POST') =="
 POST_BODY="$(curl -sS -X POST "$BASE" -H "Content-Type: application/json" -d '{"object":"page","entry":[]}' || true)"
 if echo "$POST_BODY" | grep -q 'not registered for POST'; then
-  echo "FAIL: POST not allowed — enable GET and POST on Messenger Webhook node"
+  echo "FAIL: POST not registered — re-import workflow (needs Messenger Webhook POST node), publish"
   exit 1
 fi
 echo "OK: POST accepted"

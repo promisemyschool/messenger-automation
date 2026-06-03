@@ -7,15 +7,15 @@ Use this after deploy when Meta **Verify and save** fails or curl returns 404 / 
 1. Open n8n → **Workflows**.
 2. **Deactivate / unpublish** any copy using a UUID webhook path (e.g. `2d6ff4b5-...`).
 3. **Import from file** → [`n8n/messenger-auto-reply.workflow.json`](../n8n/messenger-auto-reply.workflow.json).
-4. Open **Messenger Webhook** and confirm:
+4. Confirm two webhook triggers (same path, different methods):
 
-| Setting | Value |
-|---------|--------|
-| **Path** | `messenger` (not a UUID) |
-| **HTTP Method** | GET and POST (enable **Allow Multiple HTTP Methods** in node settings if importing manually) |
-| **Authentication** | None |
-| **Respond** | Using **Respond to Webhook** node |
-| **Production URL** | `https://<your-domain>/webhook/messenger` |
+| Node | Path | Method |
+|------|------|--------|
+| **Messenger Webhook GET** | `messenger` | GET (Meta verify) |
+| **Messenger Webhook POST** | `messenger` | POST (incoming messages) |
+
+Both: **Authentication** None, **Respond** Using **Respond to Webhook** node.  
+Production URL for both: `https://<your-domain>/webhook/messenger`
 
 5. **Save** → **Publish**.
 
