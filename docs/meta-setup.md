@@ -70,6 +70,24 @@ Use the **same value** in:
 6. Click **Verify and save**.
 7. Subscribe to webhook fields: **`messages`**, **`messaging_postbacks`**.
 
+### Critical: subscribe the `messages` field (app level)
+
+**Verify and save** only registers your callback URL. Meta will **not POST incoming DMs** until the app is subscribed to the **`messages`** field on the **Page** object.
+
+In **Meta Developer → Webhooks**:
+
+1. Select object **Page** (not User).
+2. Click **Subscribe** (or edit subscription).
+3. Enable **`messages`** and **`messaging_postbacks`**.
+4. Click **Test** next to `messages` — you should see a new execution in n8n within seconds.
+
+`./scripts/setup-meta.sh` calls `/{page-id}/subscribed_apps` (Page ↔ app link). That alone is **not enough**. Either:
+
+- Subscribe **`messages`** manually in the Webhooks UI (step above), or
+- Set `META_APP_ID` + `META_APP_SECRET` in `.env` so `setup-meta.sh` also calls `/{app-id}/subscriptions`.
+
+**Symptom:** `curl` and `./scripts/simulate-messenger-webhook.sh` create n8n executions, but real Facebook DMs do not.
+
 ### Webhook path mistakes
 
 | Mistake | Symptom |

@@ -234,14 +234,15 @@
         },
         "sendBody": true,
         "specifyBody": "json",
-        "jsonBody": "={{ JSON.stringify({ recipient: { id: $json.senderId }, sender_action: 'mark_seen' }) }}",
+        "jsonBody": "={{ { recipient: { id: String($('Prepare Prompt').item.json.senderId) }, sender_action: 'mark_seen' } }}",
         "options": {}
       },
       "id": "a1000001-0001-4000-8000-000000000009",
       "name": "Mark Seen",
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
-      "position": [1680, 520]
+      "position": [1680, 520],
+      "continueOnFail": true
     },
     {
       "parameters": {
@@ -258,14 +259,15 @@
         },
         "sendBody": true,
         "specifyBody": "json",
-        "jsonBody": "={{ JSON.stringify({ recipient: { id: $('Prepare Prompt').item.json.senderId }, sender_action: 'typing_on' }) }}",
+        "jsonBody": "={{ { recipient: { id: String($('Prepare Prompt').item.json.senderId) }, sender_action: 'typing_on' } }}",
         "options": {}
       },
       "id": "a1000001-0001-4000-8000-00000000000a",
       "name": "Typing On",
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
-      "position": [1920, 520]
+      "position": [1920, 520],
+      "continueOnFail": true
     },
     {
       "parameters": {
@@ -377,7 +379,7 @@
         },
         "sendBody": true,
         "specifyBody": "json",
-        "jsonBody": "={{ JSON.stringify({ recipient: { id: $json.senderId }, sender_action: 'typing_off' }) }}",
+        "jsonBody": "={{ { recipient: { id: String($json.senderId || $('Prepare Prompt').item.json.senderId) }, sender_action: 'typing_off' } }}",
         "options": {}
       },
       "id": "a1000001-0001-4000-8000-00000000000f",
@@ -401,7 +403,7 @@
         },
         "sendBody": true,
         "specifyBody": "json",
-        "jsonBody": "={{ JSON.stringify({ recipient: { id: $json.senderId }, message: { text: $json.replyText } }) }}",
+        "jsonBody": "={{ { recipient: { id: String($json.senderId || $('Prepare Prompt').item.json.senderId) }, message: { text: $json.replyText } } }}",
         "options": {}
       },
       "id": "a1000001-0001-4000-8000-000000000010",

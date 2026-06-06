@@ -47,13 +47,15 @@ For each test message, open **Executions** and verify:
 
 | Symptom | Likely cause |
 |---------|----------------|
-| No execution in n8n | Workflow inactive or wrong webhook URL |
+| No execution in n8n | Workflow not published, or Meta not subscribed to **messages** field (see [`meta-setup.md`](meta-setup.md)) |
+| simulate script runs, real DMs do not | Meta Webhooks → Page → **messages** not subscribed; or messaging as Page admin (echo) |
 | Verification fails | Run `./scripts/verify-webhook.sh`; see [`n8n-webhook-setup.md`](n8n-webhook-setup.md) |
 | curl 200 but empty body | Token mismatch or wrong webhook path; republish workflow |
 | 404 on `/webhook/messenger` | Path must be `messenger`; workflow published |
 | Execution but no reply | Invalid Page token; sender not in dev mode roles |
 | Empty reply | Ollama model not pulled — run `./scripts/pull-models.sh` |
 | Error: `Module 'fs' is disallowed` on Prepare Prompt | Re-import published workflow; ensure `N8N_RESTRICT_FILE_ACCESS_TO=/knowledge` and **Read FAQ** node exists |
+| `Bad request` on **Mark Seen** / **Typing On** | Re-import workflow (JSON body must be `={{ { recipient: … } }}`, not `JSON.stringify`). Confirm `META_PAGE_ACCESS_TOKEN` is a **Page** token with `pages_messaging` |
 
 ## Sign-off
 
