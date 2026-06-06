@@ -2,16 +2,17 @@
   "organization": {
     "name": "Promise School",
     "alternateName": "Promise School Bangladesh",
-    "website": "https://promiseschool.com",
+    "website": "https://www.promiseschool.app",
     "supportEmail": "support@promiseschool.com",
-    "hobbycampUrl": "https://promiseschool.com/hobbycamp",
-    "privacyPolicyUrl": "https://promiseschool.com/privacy-policy",
+    "hobbycampUrl": "https://www.promiseschool.app/hobbycamp",
+    "privacyPolicyUrl": "https://www.promiseschool.app/privacy-policy",
     "languages": [
       "English",
       "Bengali"
     ],
     "country": "Bangladesh"
   },
+  "customFaqs": [],
   "faqs": [
     {
       "question": "What is Promise School?",
@@ -44,6 +45,14 @@
     {
       "question": "How do I track my learning progress?",
       "answer": "Promise School tracks XP, streaks, performance stars per chapter, badges and leaderboard rank — so you can see improvement across every subject over time."
+    },
+    {
+      "question": "How do I enroll in a Hobbycamp course?",
+      "answer": "Visit https://www.promiseschool.app/hobbycamp, choose a course, and book a seat. You can pick online or offline batches where available. For payment issues email support@promiseschool.com."
+    },
+    {
+      "question": "হবিক্যাম্প কোর্সে ভর্তি কিভাবে করব?",
+      "answer": "https://www.promiseschool.app/hobbycamp এ গিয়ে কোর্স বেছে নিয়ে সিট বুক করুন। পেমেন্ট সমস্যা হলে support@promiseschool.com এ লিখুন।"
     }
   ],
   "escalationTopics": [
@@ -55,5 +64,7 @@
     "data deletion",
     "billing issue"
   ],
-  "escalationReply": "Thanks for reaching out. This needs help from our support team — please email support@promiseschool.com with your phone number or account details, and we'll follow up shortly."
+  "escalationReply": "Thanks for reaching out. This needs help from our support team — please email support@promiseschool.com with your phone number or account details, and we'll follow up shortly.",
+  "syncedAt": "2026-06-06T09:03:15.241Z",
+  "syncedFrom": "https://www.promiseschool.app"
 }
