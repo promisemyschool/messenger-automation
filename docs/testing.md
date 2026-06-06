@@ -54,6 +54,7 @@ For each test message, open **Executions** and verify:
 | 404 on `/webhook/messenger` | Path must be `messenger`; workflow published |
 | Execution but no reply | Invalid Page token; sender not in dev mode roles |
 | Empty reply | Ollama model not pulled — run `./scripts/pull-models.sh` |
+| **Ollama Chat** connection aborted / offline | Run `./scripts/test-ollama.sh` on VPS. Pull model, or use smaller `OLLAMA_MODEL=qwen2.5:3b` if RAM &lt; 8GB |
 | Error: `Module 'fs' is disallowed` on Prepare Prompt | Re-import published workflow; ensure `N8N_RESTRICT_FILE_ACCESS_TO=/knowledge` and **Read FAQ** node exists |
 | `Bad request` on **Mark Seen** / **Typing On** | Re-import workflow (JSON body must be `={{ { recipient: … } }}`, not `JSON.stringify`). Confirm `META_PAGE_ACCESS_TOKEN` is a **Page** token with `pages_messaging` |
 | FAQ error on **Prepare Prompt** / **Extract FAQ** | Re-import workflow; it reads `/knowledge/faq-items.json` (JSON array). On VPS: `docker compose exec n8n cat /knowledge/faq-items.json \| head` |

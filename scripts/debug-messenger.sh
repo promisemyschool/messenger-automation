@@ -23,9 +23,8 @@ TOKEN_LEN="$(docker compose exec -T n8n printenv META_PAGE_ACCESS_TOKEN 2>/dev/n
 echo "META_PAGE_ACCESS_TOKEN length in container: ${TOKEN_LEN} chars (expect > 100)"
 
 echo ""
-echo "== 4. Ollama model =="
-docker compose exec -T ollama ollama list 2>/dev/null || echo "ollama not running"
-echo "Expected model from .env: ${OLLAMA_MODEL:-qwen3:8b}"
+echo "== 4. Ollama =="
+./scripts/test-ollama.sh || true
 
 echo ""
 echo "== 5. Page token (Graph API /me) =="

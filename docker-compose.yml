@@ -49,6 +49,9 @@ services:
   ollama:
     image: ollama/ollama:latest
     restart: unless-stopped
+    environment:
+      # Keep model loaded between Messenger replies (reduces first-token delay)
+      OLLAMA_KEEP_ALIVE: ${OLLAMA_KEEP_ALIVE:-24h}
     volumes:
       - ollama_data:/root/.ollama
     healthcheck:

@@ -306,9 +306,9 @@
         "url": "http://ollama:11434/api/chat",
         "sendBody": true,
         "specifyBody": "json",
-        "jsonBody": "={{ JSON.stringify({ model: $env.OLLAMA_MODEL || 'qwen3:8b', messages: $('Prepare Prompt').item.json.ollamaMessages, stream: false, options: { temperature: 0.3 } }) }}",
+        "jsonBody": "={{ { model: $env.OLLAMA_MODEL || 'qwen3:8b', messages: $('Prepare Prompt').item.json.ollamaMessages, stream: false, options: { temperature: 0.3, num_predict: 256 } } }}",
         "options": {
-          "timeout": 60000
+          "timeout": 180000
         }
       },
       "id": "a1000001-0001-4000-8000-00000000000c",
