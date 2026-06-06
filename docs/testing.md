@@ -55,8 +55,10 @@ For each test message, open **Executions** and verify:
 | Execution but no reply | Invalid Page token; sender not in dev mode roles |
 | Empty reply | Ollama model not pulled — run `./scripts/pull-models.sh` |
 | **Ollama Chat** connection aborted / offline | Run `./scripts/test-ollama.sh` on VPS. Pull model, or use smaller `OLLAMA_MODEL=qwen2.5:3b` if RAM &lt; 8GB |
+| **Ollama Chat** resource could not be found (404) | Model not pulled — `./scripts/pull-models.sh` after changing `OLLAMA_MODEL` in `.env` |
 | Error: `Module 'fs' is disallowed` on Prepare Prompt | Re-import published workflow; ensure `N8N_RESTRICT_FILE_ACCESS_TO=/knowledge` and **Read FAQ** node exists |
 | `Bad request` on **Mark Seen** / **Typing On** | Re-import workflow (JSON body must be `={{ { recipient: … } }}`, not `JSON.stringify`). Confirm `META_PAGE_ACCESS_TOKEN` is a **Page** token with `pages_messaging` |
+| `Bad request` on **Send Messenger Reply** | Re-import workflow — reply text comes from **Finalize Reply**, not **Typing Off** (Meta typing response has no `replyText`) |
 | FAQ error on **Prepare Prompt** / **Extract FAQ** | Re-import workflow; it reads `/knowledge/faq-items.json` (JSON array). On VPS: `docker compose exec n8n cat /knowledge/faq-items.json \| head` |
 
 ## Sign-off

@@ -404,7 +404,7 @@
         },
         "sendBody": true,
         "specifyBody": "json",
-        "jsonBody": "={{ { recipient: { id: String($json.senderId || $('Prepare Prompt').item.json.senderId) }, message: { text: $json.replyText } } }}",
+        "jsonBody": "={{ { recipient: { id: String($('Prepare Prompt').item.json.senderId) }, message: { text: String(($('Finalize Reply').isExecuted ? $('Finalize Reply').item.json.replyText : $('Use Escalation Reply').item.json.replyText) || 'Thanks for messaging Promise School!').slice(0, 2000) } } }}",
         "options": {}
       },
       "id": "a1000001-0001-4000-8000-000000000010",

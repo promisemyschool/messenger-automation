@@ -18,8 +18,24 @@ echo ""
 echo "== 2. Models pulled =="
 docker compose exec -T ollama ollama list
 
+if ! docker compose exec -T ollama ollama list | awk 'NR>1 {print $1}' | grep -Fxq "${MODEL}"; then
+  echo ""
+  echo "FAIL: ${MODEL} is not installed in Ollama."
+  echo "      Run: ./scripts/pull-models.sh"
+  echo "      (Changing .env alone is not enough — you must pull the model.)"
+  exit 1
+fi
+
 echo ""
-echo "== 3. Host memory (qwen3:8b needs ~6-8GB free for comfortable CPU inference) =="
+echo "== 2b. n8n env =="
+N8N_MODEL="$(docker compose exec -T n8n printenv OLLAMA_MODEL 2>/dev/null || true)"
+echo "OLLAMA_MODEL in n8n container: ${N8N_MODEL:-<unset>}"
+if [[ "${N8N_MODEL}" != "${MODEL}" ]]; then
+  echo "WARN: mismatch — run: docker compose up -d --force-recreate n8n"
+fi
+
+echo ""
+echo "== 3. Host memory (larger models need more free RAM) =="
 free -h | head -2 || true
 
 echo ""
