@@ -78,7 +78,7 @@ Do **not** expose Ollama (`11434`) or n8n directly without auth.
 | Meta webhook verification fails | Run `./scripts/verify-webhook.sh`; path `messenger`; `N8N_BLOCK_ENV_ACCESS_IN_NODE=false`; republish workflow |
 | `Module 'fs' is disallowed` in Prepare Prompt | Re-import workflow (uses **Read FAQ** + **Extract FAQ**, not `fs`). Set `N8N_RESTRICT_FILE_ACCESS_TO=/knowledge`, recreate n8n |
 | No replies in Development mode | Sender must be app admin/tester or Page role |
-| Ollama timeout | Use `qwen3:8b`; increase VPS RAM; check `docker compose logs ollama` |
+| Ollama timeout / connection aborted | `./scripts/test-ollama.sh` (allow 5-10 min first run). On CPU VPS use `OLLAMA_MODEL=qwen2.5:3b` if `qwen3:8b` is too slow |
 | 502 from Caddy | `docker compose ps` — wait for n8n to start |
 | 502 from NPM, n8n healthy | NPM forward **Scheme** must be `http`, not `https` |
 | 502 from NPM, curl to n8n fails | Connect NPM to `messenger-automation_default` network |
