@@ -52,15 +52,17 @@ Verify before Meta:
 ./scripts/verify-webhook.sh
 ```
 
-## Sync FAQ knowledge after landing site changes
+## Sync FAQ knowledge
 
-From repo root on your dev machine:
+From `messenger-automation/` on your dev machine or VPS:
 
 ```bash
-node messenger-automation/scripts/export-faq.mjs
-# Copy knowledge/faq.json + knowledge/faq-items.json to VPS, or git pull + restart n8n:
-docker compose restart n8n
+node scripts/sync-knowledge-from-site.mjs   # FAQs + HobbyCamp from promiseschool.app
+# or: node scripts/export-faq.mjs           # general FAQs from landing faq.ts only
+git pull   # on VPS — no n8n restart needed; ./knowledge is bind-mounted
 ```
+
+See [`knowledge.md`](knowledge.md).
 
 ## Firewall
 

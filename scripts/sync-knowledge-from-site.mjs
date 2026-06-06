@@ -44,13 +44,41 @@ async function fetchHtml(url) {
   return res.text();
 }
 
+function parseJsonLd(html, type) {
+  const found = [];
+  const re = /<script type="application\/ld\+json">([\s\S]*?)<\/script>/gi;
+  let match;
+  while ((match = re.exec(html)) !== null) {
+    try {
+      const data = JSON.parse(match[1]);
+      const items = Array.isArray(data) ? data : [data];
+      for (const item of items) {
+        if (item["@type"] === type) found.push(item);
+      }
+    } catch {
+      // ignore invalid JSON-LD blocks
+    }
+  }
+  return found;
+}
+
 function parseSiteFaqs(html) {
+  const faqPages = parseJsonLd(html, "FAQPage");
+  if (faqPages.length > 0) {
+    return faqPages.flatMap((page) =>
+      (page.mainEntity || []).map((q) => ({
+        question: q.name?.trim(),
+        answer: q.acceptedAnswer?.text?.trim(),
+      }))
+    ).filter((f) => f.question && f.answer);
+  }
+
   const start = html.search(/Frequently asked questions/i);
   if (start < 0) return [];
 
   const section = html.slice(start);
   const faqs = [];
-  const re = /<h3[^>]*>([^<]+)<\/h3>\s*<p[^>]*>([\s\S]*?)<\/p>/gi;
+  const re = /<h3[^>]*>([^<]+)<\/h3>[\s\S]*?<p[^>]*>([\s\S]*?)<\/p>/gi;
   let match;
   while ((match = re.exec(section)) !== null) {
     const question = stripHtml(match[1]);
@@ -62,12 +90,7 @@ function parseSiteFaqs(html) {
 }
 
 function parseCourses(html) {
-  const start = html.search(/Explore HobbyCamp/i);
-  const end = html.search(/\bFeatures\b/);
-  if (start < 0 || end < 0 || end <= start) return [];
-
-  const section = html.slice(start, end);
-  const chunks = section.split(/<h3[^>]*>/i).slice(1);
+  const chunks = html.split(/<h3[^>]*>/i).slice(1);
   const courses = [];
 
   for (const chunk of chunks) {
@@ -76,25 +99,25 @@ function parseCourses(html) {
 
     const title = stripHtml(titleMatch[1]);
     if (!title || FEATURE_HEADINGS.has(title)) continue;
+    if (!/৳/.test(chunk) && !/Instructor/i.test(chunk)) continue;
 
-    const text = stripHtml(chunk.slice(titleMatch[0].length));
+    const text = stripHtml(chunk.slice(titleMatch[0].length, 1200));
     const prices = [...text.matchAll(/৳\s*([\d,]+)/g)].map((m) => m[1]);
-    const batch = text.match(/Batch\s+(\S+)/i)?.[1];
     const classes = text.match(/(\d+)\s+Classes/i)?.[1];
-    const starts = text.match(/Starts\s+(.+?)\s+(?:Md\.|Joynal|Subarna|H M|[A-Z])/i)?.[1]
-      || text.match(/Starts\s+(\d{1,2}\s+\w{3}\s+\d{4})/i)?.[1];
-    const instructor = text.match(
-      /Starts\s+\d{1,2}\s+\w{3}\s+\d{4}\s+(.+?)\s+৳/i
-    )?.[1]?.trim();
+    const starts =
+      text.match(/Starts\s+(\d{1,2}\s+\w{3}\s+\d{4})/i)?.[1]
+      || text.match(/(\d{1,2}\s+\w{3}\s+\d{4})/)?.[1];
+    const instructor = text
+      .match(/Instructor\s+([A-Za-z0-9 .'-]+?)(?:\s+Course|\s+Promise|\s+৳|$)/i)?.[1]
+      ?.trim();
 
     let mode = "online";
     if (/offline/i.test(title)) mode = "offline";
-    else if (/online/i.test(title)) mode = "online";
 
     const price = prices[0] || null;
     const originalPrice = prices[1] || null;
-
     const key = `${title}|${price}|${starts}|${mode}`;
+
     if (courses.some((c) => c.key === key)) continue;
 
     courses.push({
@@ -103,7 +126,6 @@ function parseCourses(html) {
       mode,
       price,
       originalPrice,
-      batch,
       classes,
       starts,
       instructor,
@@ -142,6 +164,10 @@ function buildCourseFaqs(courses) {
       question: "হবিক্যাম্পে এখন কোন কোর্স আছে?",
       answer: `Promise School Hobbycamp-এ বর্তমানে এই কোর্সগুলো চলছে:\n${list}\n\nবুকিং: ${HOBBYCAMP_URL}`,
     });
+    faqs.push({
+      question: "হবিক্যাম্পে কি কোর্স আছে?",
+      answer: `Promise School Hobbycamp-এ বর্তমানে এই কোর্সগুলো চলছে:\n${list}\n\nবুকিং: ${HOBBYCAMP_URL}`,
+    });
   }
 
   for (const course of courses) {
@@ -165,6 +191,13 @@ function buildCourseFaqs(courses) {
       question: `How much is the ${course.title} Hobbycamp course?`,
       answer: `${course.title} on Hobbycamp is ${details}. Book at ${HOBBYCAMP_URL}`,
     });
+
+    if (!/[\u0980-\u09FF]/.test(course.title)) {
+      faqs.push({
+        question: `What is the price of ${course.title}?`,
+        answer: `${course.title} on Hobbycamp is ${details}. Book at ${HOBBYCAMP_URL}`,
+      });
+    }
 
     if (/[\u0980-\u09FF]/.test(course.title)) {
       faqs.push({
@@ -197,26 +230,33 @@ function dedupeFaqs(faqs) {
   });
 }
 
-function mergeFaqs(siteFaqs, courseFaqs, customFaqs) {
-  return dedupeFaqs([...siteFaqs, ...courseFaqs, ...customFaqs]);
+function mergeFaqs(siteFaqs, courseFaqs, customFaqs, fallbackFaqs) {
+  const base = siteFaqs.length > 0 ? siteFaqs : fallbackFaqs;
+  return dedupeFaqs([...base, ...courseFaqs, ...customFaqs]);
 }
 
 async function main() {
   console.log(`Fetching ${SITE_URL} ...`);
-  const html = await fetchHtml(SITE_URL);
+  const homeHtml = await fetchHtml(SITE_URL);
+
+  console.log(`Fetching ${HOBBYCAMP_URL} ...`);
+  let hobbyHtml = "";
+  try {
+    hobbyHtml = await fetchHtml(HOBBYCAMP_URL);
+  } catch (err) {
+    console.warn(`WARN: could not fetch hobbycamp page: ${err.message}`);
+  }
 
   const existing = JSON.parse(readFileSync(faqPath, "utf8"));
   const customFaqs = existing.customFaqs || [];
+  const fallbackFaqs = (existing.faqs || []).filter(
+    (f) => !f.question.toLowerCase().includes("hobbycamp course")
+  );
 
-  const siteFaqs = parseSiteFaqs(html);
-  const courses = parseCourses(html);
+  const siteFaqs = parseSiteFaqs(homeHtml);
+  const courses = parseCourses(hobbyHtml || homeHtml);
   const courseFaqs = buildCourseFaqs(courses);
-  const faqs = mergeFaqs(siteFaqs, courseFaqs, customFaqs);
-
-  if (siteFaqs.length === 0) {
-    console.warn("WARN: no FAQs parsed from site — keeping existing site FAQs in merge");
-    faqs.unshift(...(existing.faqs || []).filter((f) => !f.question.includes("Hobbycamp course")));
-  }
+  const faqs = mergeFaqs(siteFaqs, courseFaqs, customFaqs, fallbackFaqs);
 
   const output = {
     organization: {
@@ -226,7 +266,7 @@ async function main() {
       privacyPolicyUrl: `${SITE_URL}/privacy-policy`,
     },
     customFaqs,
-    faqs: dedupeFaqs(faqs),
+    faqs,
     escalationTopics: existing.escalationTopics,
     escalationReply: existing.escalationReply,
     syncedAt: new Date().toISOString(),
@@ -236,7 +276,8 @@ async function main() {
   writeFileSync(faqPath, `${JSON.stringify(output, null, 2)}\n`);
   writeFileSync(itemsPath, `${JSON.stringify(output.faqs, null, 2)}\n`);
 
-  console.log(`Synced ${siteFaqs.length} site FAQs, ${courses.length} courses, ${courseFaqs.length} course FAQs`);
+  console.log(`Synced ${siteFaqs.length} site FAQs, ${courses.length} courses`);
+  console.log(`Generated ${courseFaqs.length} course-related FAQ entries`);
   console.log(`Total FAQ entries: ${output.faqs.length}`);
   console.log(`Wrote ${faqPath}`);
   console.log(`Wrote ${itemsPath}`);

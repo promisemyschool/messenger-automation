@@ -35,13 +35,24 @@ chmod +x scripts/*.sh
 - Typing indicator + 1s human delay
 - Escalation for refunds, account issues, bugs → support email in chat
 
-## Sync FAQ from landing site
+## Knowledge base (FAQ)
+
+The bot loads Q&As from [`knowledge/faq-items.json`](knowledge/faq-items.json). See **[`docs/knowledge.md`](docs/knowledge.md)** for full guide.
+
+**Sync from live site** (FAQs + HobbyCamp courses):
 
 ```bash
-node messenger-automation/scripts/export-faq.mjs
+cd messenger-automation
+node scripts/sync-knowledge-from-site.mjs
 ```
 
-Source of truth: [`promise-school-landing/src/data/faq.ts`](../promise-school-landing/promise-school-landing/src/data/faq.ts)
+**Sync general FAQs from landing repo** (optional):
+
+```bash
+node scripts/export-faq.mjs
+```
+
+Source: [`promise-school-landing/src/data/faq.ts`](../promise-school-landing/promise-school-landing/src/data/faq.ts)
 
 ## Environment variables
 
@@ -62,7 +73,10 @@ See [`.env.example`](.env.example). Required:
 |------|---------|
 | `docker-compose.yml` | Caddy, n8n, Ollama |
 | `n8n/messenger-auto-reply.workflow.json` | Importable workflow |
-| `knowledge/faq.json` | Bot knowledge base |
+| `knowledge/faq.json` | Bot knowledge base (canonical) |
+| `knowledge/faq-items.json` | Runtime FAQ array for n8n |
+| `docs/knowledge.md` | How to add/sync Q&As |
+| `scripts/sync-knowledge-from-site.mjs` | Sync from promiseschool.app |
 | `docs/meta-setup.md` | Meta Developer Console steps |
 | `docs/n8n-webhook-setup.md` | Webhook path, publish, curl gate |
 | `scripts/verify-webhook.sh` | Pre-flight Meta webhook test |
