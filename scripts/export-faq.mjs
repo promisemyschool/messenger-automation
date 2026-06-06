@@ -18,6 +18,7 @@ const faqSource = join(
   "faq.ts"
 );
 const outputPath = join(__dirname, "..", "knowledge", "faq.json");
+const itemsOutputPath = join(__dirname, "..", "knowledge", "faq-items.json");
 
 const source = readFileSync(faqSource, "utf8");
 const faqMatches = [...source.matchAll(/question:\s*"([^"]+)"[\s\S]*?answer:\s*\n\s*"([^"]+)"/g)];
@@ -34,4 +35,5 @@ existing.faqs = faqMatches.map((match) => ({
 }));
 
 writeFileSync(outputPath, `${JSON.stringify(existing, null, 2)}\n`);
-console.log(`Exported ${existing.faqs.length} FAQs to ${outputPath}`);
+writeFileSync(itemsOutputPath, `${JSON.stringify(existing.faqs, null, 2)}\n`);
+console.log(`Exported ${existing.faqs.length} FAQs to ${outputPath} and ${itemsOutputPath}`);

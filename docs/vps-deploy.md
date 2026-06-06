@@ -58,7 +58,7 @@ From repo root on your dev machine:
 
 ```bash
 node messenger-automation/scripts/export-faq.mjs
-# Copy knowledge/faq.json to VPS, or git pull + restart n8n:
+# Copy knowledge/faq.json + knowledge/faq-items.json to VPS, or git pull + restart n8n:
 docker compose restart n8n
 ```
 
