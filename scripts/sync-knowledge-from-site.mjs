@@ -223,7 +223,11 @@ function formatCourseLine(course) {
 
 function courseDetailsEn(course) {
   const bits = [];
-  if (course.description) bits.push(course.description);
+  bits.push(`${course.title} (Hobbycamp).`);
+  if (course.description) {
+    const desc = course.description.replace(/\s+/g, " ").trim();
+    bits.push(desc.length > 220 ? `${desc.slice(0, 220)}…` : desc);
+  }
   if (course.price) {
     bits.push(
       course.originalPrice
@@ -233,11 +237,11 @@ function courseDetailsEn(course) {
   }
   if (course.mode) bits.push(`Mode: ${course.mode}.`);
   if (course.classes) bits.push(`Classes: ${course.classes}.`);
-  if (course.workload) bits.push(`Duration/workload: ${course.workload}.`);
+  if (course.workload) bits.push(`Duration: ${course.workload}.`);
   if (course.starts) bits.push(`Starts: ${course.starts}.`);
   if (course.instructor) bits.push(`Instructor(s): ${course.instructor}.`);
-  bits.push(`Book at ${course.url || HOBBYCAMP_URL}`);
-  bits.push(`For help call ${SUPPORT_PHONE}.`);
+  bits.push(`Book: ${course.url || HOBBYCAMP_URL}`);
+  bits.push(`Help: call ${SUPPORT_PHONE}.`);
   return bits.join(" ");
 }
 
@@ -248,9 +252,9 @@ function hasBangla(text) {
 function courseDetailsBn(course) {
   const bits = [];
   bits.push(`Hobbycamp কোর্স: ${course.title}।`);
-  // Prefer Bangla description from the site; skip English-only blurbs for BN answers
   if (course.description && hasBangla(course.description)) {
-    bits.push(course.description);
+    const desc = course.description.replace(/\s+/g, " ").trim();
+    bits.push(desc.length > 220 ? `${desc.slice(0, 220)}…` : desc);
   }
   if (course.price) {
     bits.push(
@@ -272,9 +276,39 @@ function courseDetailsBn(course) {
   if (course.workload) bits.push(`সময়কাল: ${course.workload}।`);
   if (course.starts) bits.push(`শুরুর তারিখ: ${course.starts}।`);
   if (course.instructor) bits.push(`ইনস্ট্রাক্টর: ${course.instructor}।`);
-  bits.push(`বুকিং লিংক: ${course.url || HOBBYCAMP_URL}`);
-  bits.push(`সাহায্যের জন্য কল করুন ${SUPPORT_PHONE}।`);
+  bits.push(`বুকিং: ${course.url || HOBBYCAMP_URL}`);
+  bits.push(`সাহায্য: ${SUPPORT_PHONE} নম্বরে কল করুন।`);
   return bits.join(" ");
+}
+
+/** Bangla / informal aliases so users can ask without exact English titles */
+function courseAliases(course) {
+  const title = course.title || "";
+  const aliases = [];
+  if (/python/i.test(title)) {
+    aliases.push("পাইথন", "পাইথন কোর্স", "python course", "python beginner");
+  }
+  if (/programming for kids/i.test(title)) {
+    aliases.push("প্রোগ্রামিং ফর কিডস", "বাচ্চাদের প্রোগ্রামিং", "kids programming");
+  }
+  if (/debate/i.test(title) && /offline/i.test(title)) {
+    aliases.push("ডিবেট অফলাইন", "debate offline");
+  } else if (/debate/i.test(title)) {
+    aliases.push("ডিবেট কোর্স", "debate course");
+  }
+  if (/আবৃত্তি|উচ্চারণ/.test(title)) {
+    if (/special batch/i.test(title)) aliases.push("আবৃত্তি স্পেশাল ব্যাচ", "special batch abritti");
+    else if (/offline/i.test(title)) aliases.push("আবৃত্তি অফলাইন");
+    else if (/online/i.test(title)) aliases.push("আবৃত্তি অনলাইন");
+    else aliases.push("আবৃত্তি কোর্স", "উচ্চারণ কোর্স");
+  }
+  if (/ম্যাথ মাইন্ডস|number theory|নাম্বার থিওরি/i.test(title)) {
+    aliases.push("ম্যাথ মাইন্ডস", "নাম্বার থিওরি", "math minds");
+  }
+  if (/অলিম্পিয়াড|olympiad/i.test(title)) {
+    aliases.push("ম্যাথ অলিম্পিয়াড", "math olympiad", "এলিট ম্যাথ");
+  }
+  return aliases;
 }
 
 function buildCourseFaqs(courses) {
@@ -283,82 +317,58 @@ function buildCourseFaqs(courses) {
   if (courses.length > 0) {
     const list = courses.map((c) => `- ${formatCourseLine(c)}`).join("\n");
     faqs.push({
-      question: "What Hobbycamp courses are available right now?",
-      answer: `Current Hobbycamp programs on Promise School:\n${list}\n\nBrowse and book at ${HOBBYCAMP_URL}. For help call ${SUPPORT_PHONE}.`,
-    });
-    faqs.push({
-      question: "হবিক্যাম্পে এখন কোন কোর্স আছে?",
-      answer: `Promise School Hobbycamp-এ বর্তমানে এই কোর্সগুলো চলছে:\n${list}\n\nবুকিং: ${HOBBYCAMP_URL}। সাহায্যের জন্য কল করুন ${SUPPORT_PHONE}।`,
+      question: "What Hobbycamp courses are available right now? / হবিক্যাম্পে এখন কোন কোর্স আছে?",
+      answer: `Current Hobbycamp programs:\n${list}\n\nBook: ${HOBBYCAMP_URL} | Help: ${SUPPORT_PHONE}`,
     });
     faqs.push({
       question: "হবিক্যাম্পে কি কোর্স আছে?",
-      answer: `Promise School Hobbycamp-এ বর্তমানে এই কোর্সগুলো চলছে:\n${list}\n\nবুকিং: ${HOBBYCAMP_URL}। সাহায্যের জন্য কল করুন ${SUPPORT_PHONE}।`,
-    });
-    faqs.push({
-      question: "List all Hobbycamp courses with prices and start dates",
-      answer: `Here are all current Hobbycamp courses:\n${list}\n\nDetails and booking: ${HOBBYCAMP_URL}`,
+      answer: `Promise School Hobbycamp-এ বর্তমানে:\n${list}\n\nবুকিং: ${HOBBYCAMP_URL} | সাহায্য: ${SUPPORT_PHONE}`,
     });
   }
 
   for (const course of courses) {
     const en = courseDetailsEn(course);
     const bn = courseDetailsBn(course);
+    const aliases = courseAliases(course);
+    const aliasBn = aliases.filter((a) => hasBangla(a));
+    const aliasEn = aliases.filter((a) => !hasBangla(a));
 
     faqs.push({
-      question: `Tell me about the Hobbycamp course: ${course.title}`,
+      question: `${course.title} details / price / start / instructor / classes`,
       answer: en,
     });
     faqs.push({
-      question: `How much is the ${course.title} Hobbycamp course?`,
-      answer: en,
-    });
-    faqs.push({
-      question: `What is the price of ${course.title}?`,
-      answer: en,
-    });
-    faqs.push({
-      question: `When does ${course.title} start?`,
-      answer: en,
-    });
-    faqs.push({
-      question: `Who teaches ${course.title}?`,
-      answer: en,
-    });
-    faqs.push({
-      question: `How many classes are in ${course.title}?`,
-      answer: en,
+      question: `${course.title} কোর্সের বিস্তারিত / দাম / কবে শুরু / ইনস্ট্রাক্টর / ক্লাস`,
+      answer: bn,
     });
 
-    faqs.push({
-      question: `${course.title} কোর্স সম্পর্কে বলো`,
-      answer: bn,
-    });
-    faqs.push({
-      question: `${course.title} কোর্সের দাম কত?`,
-      answer: bn,
-    });
-    faqs.push({
-      question: `${course.title} কবে শুরু?`,
-      answer: bn,
-    });
-    faqs.push({
-      question: `${course.title} এর ইনস্ট্রাক্টর কে?`,
-      answer: bn,
-    });
-    faqs.push({
-      question: `${course.title} এ কতগুলো ক্লাস?`,
-      answer: bn,
-    });
+    // Natural Bangla phrasings (e.g. পাইথন কোর্সের বিস্তারিত জানতে চাই)
+    for (const a of aliasBn) {
+      faqs.push({ question: `${a} এর বিস্তারিত জানতে চাই`, answer: bn });
+      faqs.push({ question: `${a} কোর্সের বিস্তারিত`, answer: bn });
+      faqs.push({ question: `${a} কোর্সের দাম কত?`, answer: bn });
+    }
+    if (/python/i.test(course.title)) {
+      faqs.push({
+        question: "পাইথন কোর্সের বিস্তারিত জানতে চাই",
+        answer: bn,
+      });
+      faqs.push({
+        question: "পাইথন কোর্স সম্পর্কে জানতে চাই",
+        answer: bn,
+      });
+    }
+    for (const a of aliasEn) {
+      faqs.push({
+        question: `Tell me about ${a}`,
+        answer: en,
+      });
+    }
   }
 
   faqs.push({
-    question: "How do I enroll in a Hobbycamp course?",
-    answer: `Visit ${HOBBYCAMP_URL}, choose a course, and book a seat. You can pick online or offline batches where available. For payment issues call ${SUPPORT_PHONE}.`,
-  });
-
-  faqs.push({
-    question: "হবিক্যাম্প কোর্সে ভর্তি কিভাবে করব?",
-    answer: `${HOBBYCAMP_URL} এ গিয়ে কোর্স বেছে নিয়ে সিট বুক করুন। অনলাইন বা অফলাইন ব্যাচ থাকলে সেখান থেকে বেছে নিন। পেমেন্ট সমস্যা হলে ${SUPPORT_PHONE} নম্বরে কল করুন।`,
+    question: "How do I enroll in a Hobbycamp course? / হবিক্যাম্প কোর্সে ভর্তি কিভাবে করব?",
+    answer: `Visit ${HOBBYCAMP_URL}, choose a course, and book a seat. Online and offline batches are listed on the page. For payment help call ${SUPPORT_PHONE}. / ${HOBBYCAMP_URL} এ গিয়ে কোর্স বেছে সিট বুক করুন। পেমেন্ট সমস্যায় ${SUPPORT_PHONE} নম্বরে কল করুন।`,
   });
 
   return faqs;
