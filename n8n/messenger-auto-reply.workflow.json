@@ -13,7 +13,10 @@
       "name": "Messenger Webhook GET",
       "type": "n8n-nodes-base.webhook",
       "typeVersion": 2.1,
-      "position": [0, 240],
+      "position": [
+        0,
+        200
+      ],
       "webhookId": "promise-school-messenger-get"
     },
     {
@@ -28,7 +31,10 @@
       "name": "Messenger Webhook POST",
       "type": "n8n-nodes-base.webhook",
       "typeVersion": 2.1,
-      "position": [0, 360],
+      "position": [
+        0,
+        360
+      ],
       "webhookId": "promise-school-messenger-post"
     },
     {
@@ -39,7 +45,10 @@
       "name": "Normalize Meta Query",
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
-      "position": [120, 300]
+      "position": [
+        200,
+        200
+      ]
     },
     {
       "parameters": {
@@ -87,7 +96,10 @@
       "name": "Meta Verification?",
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.2,
-      "position": [240, 300]
+      "position": [
+        420,
+        200
+      ]
     },
     {
       "parameters": {
@@ -101,17 +113,23 @@
       "name": "Return hub.challenge",
       "type": "n8n-nodes-base.respondToWebhook",
       "typeVersion": 1.1,
-      "position": [480, 180]
+      "position": [
+        660,
+        80
+      ]
     },
     {
       "parameters": {
-        "jsCode": "const body = $input.first().json.body ?? $input.first().json;\nconst entry = body.entry?.[0];\nconst messaging = entry?.messaging?.[0];\n\nif (!messaging) {\n  return [{ json: { skip: true, reason: 'no_messaging_event' } }];\n}\n\nif (messaging.message?.is_echo) {\n  return [{ json: { skip: true, reason: 'echo' } }];\n}\n\nconst text = messaging.message?.text?.trim();\nif (!text) {\n  return [{ json: { skip: true, reason: 'no_text' } }];\n}\n\nconst senderId = messaging.sender?.id;\nconst messageId = messaging.message?.mid;\n\nreturn [{\n  json: {\n    skip: false,\n    senderId,\n    messageId,\n    text,\n    timestamp: messaging.timestamp\n  }\n}];"
+        "jsCode": "const body = $input.first().json.body ?? $input.first().json;\nconst staticData = $getWorkflowStaticData('global');\nif (!staticData.lastPageReplyAt) staticData.lastPageReplyAt = {};\n\nconst collected = [];\nlet recordedEcho = false;\n\nfor (const entry of body.entry || []) {\n  for (const messaging of entry.messaging || []) {\n    // Page/human outbound messages arrive as echoes — track for pre-send skip\n    if (messaging.message?.is_echo) {\n      const userId = messaging.recipient?.id;\n      const ts = Number(messaging.timestamp) || Date.now();\n      if (userId) {\n        const prev = Number(staticData.lastPageReplyAt[userId] || 0);\n        if (ts >= prev) staticData.lastPageReplyAt[userId] = ts;\n        recordedEcho = true;\n      }\n      continue;\n    }\n    const text = messaging.message?.text?.trim();\n    if (!text) continue;\n    collected.push({\n      senderId: messaging.sender?.id,\n      messageId: messaging.message?.mid,\n      text,\n      timestamp: messaging.timestamp,\n    });\n  }\n}\n\nif (!collected.length) {\n  return [{\n    json: {\n      skip: true,\n      reason: recordedEcho ? 'page_echo' : 'no_messaging_event',\n    },\n  }];\n}\n\nconst senderId = collected[0].senderId;\nreturn [{\n  json: {\n    skip: false,\n    senderId,\n    messageId: collected.map((m) => m.messageId).filter(Boolean).join(','),\n    text: collected.map((m) => m.text).join('\\n'),\n    timestamp: collected[0].timestamp,\n    inboundMessages: collected,\n  },\n}];"
       },
       "id": "a1000001-0001-4000-8000-000000000004",
       "name": "Parse Messenger Event",
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
-      "position": [480, 420]
+      "position": [
+        660,
+        360
+      ]
     },
     {
       "parameters": {
@@ -141,7 +159,10 @@
       "name": "Valid Text Message?",
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.2,
-      "position": [720, 420]
+      "position": [
+        900,
+        360
+      ]
     },
     {
       "parameters": {
@@ -154,7 +175,183 @@
       "name": "Ack Webhook",
       "type": "n8n-nodes-base.respondToWebhook",
       "typeVersion": 1.1,
-      "position": [960, 420]
+      "position": [
+        1140,
+        240
+      ]
+    },
+    {
+      "parameters": {
+        "respondWith": "noData",
+        "options": {
+          "responseCode": 200
+        }
+      },
+      "id": "a1000001-0001-4000-8000-000000000013",
+      "name": "Ack Skipped Event",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [
+        1140,
+        520
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "const item = $input.first().json;\nconst staticData = $getWorkflowStaticData('global');\nif (!staticData.pending) staticData.pending = {};\nif (!staticData.processedMessages) staticData.processedMessages = {};\nif (!staticData.busy) staticData.busy = {};\nif (!staticData.conversations) staticData.conversations = {};\n\nconst now = Date.now();\nfor (const [mid, ts] of Object.entries(staticData.processedMessages)) {\n  if (now - Number(ts) > 3600000) delete staticData.processedMessages[mid];\n}\n\nconst inbound = Array.isArray(item.inboundMessages) && item.inboundMessages.length\n  ? item.inboundMessages\n  : [{ senderId: item.senderId, messageId: item.messageId, text: item.text, timestamp: item.timestamp }];\n\nconst fresh = [];\nfor (const msg of inbound) {\n  const mid = msg.messageId;\n  if (mid && staticData.processedMessages[mid]) continue;\n  if (mid) staticData.processedMessages[mid] = now;\n  fresh.push(msg);\n}\n\nif (!fresh.length) {\n  return [{ json: { ...item, skip: true, ready: false, reason: 'duplicate' } }];\n}\n\nconst senderId = String(fresh[0].senderId || item.senderId);\nif (!staticData.pending[senderId]) {\n  staticData.pending[senderId] = { messages: [], generation: 0 };\n}\n\nfor (const msg of fresh) {\n  staticData.pending[senderId].messages.push({\n    text: msg.text,\n    messageId: msg.messageId,\n    timestamp: msg.timestamp,\n  });\n}\nstaticData.pending[senderId].generation += 1;\nconst myGeneration = staticData.pending[senderId].generation;\n\nreturn [{\n  json: {\n    senderId,\n    messageId: fresh.map((m) => m.messageId).filter(Boolean).join(','),\n    text: fresh.map((m) => m.text).join('\\n'),\n    timestamp: fresh[0].timestamp,\n    myGeneration,\n    skip: false,\n    ready: false,\n  },\n}];"
+      },
+      "id": "a1000001-0001-4000-8000-000000000019",
+      "name": "Queue Message",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1140,
+        360
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "not-dup",
+              "leftValue": "={{ $json.skip }}",
+              "rightValue": true,
+              "operator": {
+                "type": "boolean",
+                "operation": "notEquals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "a1000001-0001-4000-8000-00000000001f",
+      "name": "Queued OK?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        1360,
+        360
+      ]
+    },
+    {
+      "parameters": {
+        "resume": "timeInterval",
+        "amount": 4,
+        "unit": "seconds"
+      },
+      "id": "a1000001-0001-4000-8000-00000000001a",
+      "name": "Debounce Wait",
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        1580,
+        280
+      ],
+      "webhookId": "promise-school-debounce-wait"
+    },
+    {
+      "parameters": {
+        "jsCode": "const input = $input.first().json;\nconst staticData = $getWorkflowStaticData('global');\nif (!staticData.pending) staticData.pending = {};\nif (!staticData.busy) staticData.busy = {};\n\nconst senderId = String(input.senderId);\nconst pending = staticData.pending[senderId];\nconst myGeneration = input.myGeneration;\n\nif (!pending || pending.generation !== myGeneration) {\n  return [{ json: { ...input, skip: true, ready: false, reason: 'superseded' } }];\n}\n\nif (staticData.busy[senderId]) {\n  return [{ json: { ...input, skip: false, ready: false, reason: 'busy' } }];\n}\n\nif (!pending.messages.length) {\n  return [{ json: { ...input, skip: true, ready: false, reason: 'empty' } }];\n}\n\nconst batch = pending.messages.slice();\npending.messages = [];\nstaticData.busy[senderId] = true;\n\nconst combinedText = batch.map((m) => m.text).join('\\n');\nreturn [{\n  json: {\n    senderId,\n    messageId: batch.map((m) => m.messageId).filter(Boolean).join(','),\n    text: combinedText,\n    timestamp: batch[0].timestamp,\n    myGeneration,\n    accumulatedCount: batch.length,\n    skip: false,\n    ready: true,\n    reason: 'claimed',\n  },\n}];"
+      },
+      "id": "a1000001-0001-4000-8000-00000000001b",
+      "name": "Claim Burst",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1800,
+        280
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "is-ready",
+              "leftValue": "={{ $json.ready }}",
+              "rightValue": true,
+              "operator": {
+                "type": "boolean",
+                "operation": "equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "a1000001-0001-4000-8000-000000000016",
+      "name": "Ready to Reply?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        2020,
+        280
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "is-busy",
+              "leftValue": "={{ $json.reason }}",
+              "rightValue": "busy",
+              "operator": {
+                "type": "string",
+                "operation": "equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "a1000001-0001-4000-8000-00000000001c",
+      "name": "Sender Busy?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        2020,
+        480
+      ]
+    },
+    {
+      "parameters": {
+        "resume": "timeInterval",
+        "amount": 2,
+        "unit": "seconds"
+      },
+      "id": "a1000001-0001-4000-8000-00000000001d",
+      "name": "Wait While Busy",
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        2240,
+        520
+      ],
+      "webhookId": "promise-school-busy-wait"
     },
     {
       "parameters": {
@@ -166,7 +363,10 @@
       "name": "Read FAQ",
       "type": "n8n-nodes-base.readWriteFile",
       "typeVersion": 1.1,
-      "position": [960, 280]
+      "position": [
+        2240,
+        160
+      ]
     },
     {
       "parameters": {
@@ -178,17 +378,23 @@
       "name": "Extract FAQ",
       "type": "n8n-nodes-base.extractFromFile",
       "typeVersion": 1.1,
-      "position": [1080, 280]
+      "position": [
+        2460,
+        160
+      ]
     },
     {
       "parameters": {
-        "jsCode": "function collectFaqs() {\n  const rows = $('Extract FAQ').all().map((row) => row.json);\n  const faqs = [];\n  for (const row of rows) {\n    if (row.question && row.answer) {\n      faqs.push({ question: row.question, answer: row.answer });\n      continue;\n    }\n    if (Array.isArray(row.data)) {\n      for (const entry of row.data) {\n        if (entry?.question && entry?.answer) faqs.push(entry);\n      }\n      continue;\n    }\n    if (row.data?.question && row.data?.answer) {\n      faqs.push({ question: row.data.question, answer: row.data.answer });\n    }\n  }\n  if (!faqs.length) {\n    throw new Error('No FAQ items — deploy knowledge/faq-items.json and check Extract FAQ output');\n  }\n  return faqs;\n}\n\nconst item = $('Parse Messenger Event').first().json;\nconst faqs = collectFaqs();\nconst textLower = item.text.toLowerCase();\n\nconst escalationTopics = [\n  'refund',\n  'payment dispute',\n  'account locked',\n  'password reset',\n  'bug report',\n  'data deletion',\n  'billing issue',\n];\nconst escalationReply = 'Thanks for reaching out. This needs help from our support team — please email support@promiseschool.com with your phone number or account details, and we\\'ll follow up shortly.';\nconst needsEscalation = escalationTopics.some((topic) => textLower.includes(topic.toLowerCase()));\n\nif (needsEscalation) {\n  return [{\n    json: {\n      ...item,\n      needsEscalation: true,\n      replyText: escalationReply,\n      skipLlm: true\n    }\n  }];\n}\n\nconst staticData = $getWorkflowStaticData('global');\nif (!staticData.conversations) staticData.conversations = {};\nif (!staticData.processedMessages) staticData.processedMessages = {};\n\nif (staticData.processedMessages[item.messageId]) {\n  return [{ json: { ...item, skip: true, skipLlm: true, reason: 'duplicate' } }];\n}\nstaticData.processedMessages[item.messageId] = Date.now();\n\nconst history = staticData.conversations[item.senderId] || [];\nconst faqBlock = faqs\n  .map((f) => `Q: ${f.question}\\nA: ${f.answer}`)\n  .join('\\n\\n');\n\nconst org = {\n  name: 'Promise School',\n  website: $env.SITE_URL || 'https://promiseschool.com',\n  supportEmail: $env.SUPPORT_EMAIL || 'support@promiseschool.com',\n  hobbycampUrl: $env.HOBBYCAMP_URL || 'https://promiseschool.com/hobbycamp',\n};\nconst systemPrompt = [\n  \"You are Promise School's friendly support assistant on Facebook Messenger.\",\n  'Rules:',\n  '- Answer ONLY using the FAQ/knowledge below. If unsure, say you will connect them to ' + (org.supportEmail || 'support@promiseschool.com') + ' — do not invent prices, dates, or features.',\n  '- Match the user language (Bangla or English).',\n  '- Write like a helpful human: short warm paragraphs, not bullet walls unless listing steps.',\n  '- Max 3-4 sentences unless they ask for detail.',\n  '- For Hobbycamp enrollment or payment, share ' + (org.hobbycampUrl || 'https://promiseschool.com/hobbycamp') + ' and offer email escalation.',\n  '',\n  'KNOWLEDGE:',\n  faqBlock || '(No FAQ entries loaded)',\n  '',\n  'Organization: ' + (org.name || 'Promise School') + ' — ' + (org.website || 'https://promiseschool.com')\n].join('\\n');\n\nconst messages = [{ role: 'system', content: systemPrompt }];\nfor (const turn of history.slice(-8)) {\n  messages.push({ role: turn.role, content: turn.content });\n}\nmessages.push({ role: 'user', content: item.text });\n\nreturn [{\n  json: {\n    ...item,\n    needsEscalation: false,\n    skipLlm: false,\n    ollamaMessages: messages,\n    historyLength: history.length\n  }\n}];"
+        "jsCode": "function collectFaqs() {\n  const rows = $('Extract FAQ').all().map((row) => row.json);\n  const faqs = [];\n  for (const row of rows) {\n    if (row.question && row.answer) {\n      faqs.push({ question: row.question, answer: row.answer });\n      continue;\n    }\n    if (Array.isArray(row.data)) {\n      for (const entry of row.data) {\n        if (entry?.question && entry?.answer) faqs.push(entry);\n      }\n      continue;\n    }\n    if (row.data?.question && row.data?.answer) {\n      faqs.push({ question: row.data.question, answer: row.data.answer });\n    }\n  }\n  if (!faqs.length) {\n    throw new Error('No FAQ items — deploy knowledge/faq-items.json and check Extract FAQ output');\n  }\n  return faqs;\n}\n\nconst item = $('Claim Burst').item.json;\nconst faqs = collectFaqs();\nconst textLower = (item.text || '').toLowerCase();\n\nfunction detectUserLanguage(text) {\n  return /[\\u0980-\\u09FF]/.test(text) ? 'bangla' : 'english';\n}\n\nconst userLanguage = detectUserLanguage(item.text || '');\n\nconst escalationTopics = [\n  'refund',\n  'payment dispute',\n  'account locked',\n  'password reset',\n  'bug report',\n  'data deletion',\n  'billing issue',\n  'রিফান্ড',\n  'ফেরত',\n  'পেমেন্ট',\n  'বিলিং',\n];\nconst escalationReplyEn = 'Thanks for reaching out. This needs help from our support team — please call +8801814266295 with your account details, and we\\'ll follow up shortly.';\nconst escalationReplyBn = 'আপনার বার্তার জন্য ধন্যবাদ। এই বিষয়টি সাপোর্ট টিমের সহায়তা দরকার — অনুগ্রহ করে +8801814266295 নম্বরে কল করুন, আমরা শীঘ্রই যোগাযোগ করব।';\nconst escalationReply = userLanguage === 'bangla' ? escalationReplyBn : escalationReplyEn;\nconst needsEscalation = escalationTopics.some((topic) => {\n  if (/[\\u0980-\\u09FF]/.test(topic)) return (item.text || '').includes(topic);\n  return textLower.includes(topic.toLowerCase());\n});\n\nif (needsEscalation) {\n  return [{\n    json: {\n      ...item,\n      userLanguage,\n      needsEscalation: true,\n      replyText: escalationReply,\n      skipLlm: true,\n      skip: false,\n    },\n  }];\n}\n\nconst staticData = $getWorkflowStaticData('global');\nif (!staticData.conversations) staticData.conversations = {};\n\nconst history = staticData.conversations[item.senderId] || [];\nconst faqBlock = faqs\n  .map((f) => `Q: ${f.question}\\nA: ${f.answer}`)\n  .join('\\n\\n');\n\nconst org = {\n  name: 'Promise School',\n  website: $env.SITE_URL || 'https://www.promiseschool.app',\n  supportEmail: $env.SUPPORT_EMAIL || 'support@promiseschool.com',\n  hobbycampUrl: $env.HOBBYCAMP_URL || 'https://www.promiseschool.app/hobbycamp',\n};\nconst languageRule = userLanguage === 'bangla'\n  ? '- CRITICAL LANGUAGE: The user wrote in Bangla (Bengali). Reply ONLY in natural, meaningful Bangla sentences. Keep URLs, phone numbers, and course prices (৳) in Latin/Arabic numerals. Do not reply in English except for proper nouns already in Latin script.'\n  : '- CRITICAL LANGUAGE: The user wrote in English. Reply ONLY in clear, meaningful English sentences. Do not use Bangla script.';\n\nconst multiNote = (item.accumulatedCount || 1) > 1\n  ? `- The user sent ${item.accumulatedCount} messages in a short burst. Answer ALL of them in ONE reply.`\n  : '- Reply once to the user message.';\n\nconst systemPrompt = [\n  \"You are Promise School's friendly support assistant on Facebook Messenger.\",\n  'Rules:',\n  '- Answer ONLY using the FAQ/knowledge below. If unsure or they need updates/support, tell them to call +8801814266295 — never share support@promiseschool.com or ask them to email.',\n  '- Do not invent prices, dates, courses, or features.',\n  languageRule,\n  multiNote,\n  '- Write like a helpful human: short warm paragraphs, not bullet walls unless listing steps.',\n  '- Max 3-4 sentences unless they ask for detail.',\n  '- For Hobbycamp enrollment or payment, share ' + (org.hobbycampUrl || 'https://www.promiseschool.app/hobbycamp') + ' and say they can call +8801814266295 for help.',\n  '- Write complete meaningful sentences (not fragments or keyword dumps). When listing courses, use short readable lines with price, start date, and mode.',\n  '- Match the user language strictly: Bangla question → Bangla answer; English question → English answer.',\n  '',\n  'KNOWLEDGE:',\n  faqBlock || '(No FAQ entries loaded)',\n  '',\n  'Organization: ' + (org.name || 'Promise School') + ' — ' + (org.website || 'https://promiseschool.com'),\n].join('\\n');\n\nconst messages = [{ role: 'system', content: systemPrompt }];\nfor (const turn of history.slice(-8)) {\n  messages.push({ role: turn.role, content: turn.content });\n}\nmessages.push({\n  role: 'user',\n  content: (userLanguage === 'bangla' ? '[উত্তর শুধু বাংলায় দিন]\\n' : '[Reply in English only]\\n') + item.text,\n});\n\nreturn [{\n  json: {\n    ...item,\n    userLanguage,\n    needsEscalation: false,\n    skipLlm: false,\n    skip: false,\n    ollamaMessages: messages,\n    historyLength: history.length,\n  },\n}];"
       },
       "id": "a1000001-0001-4000-8000-000000000007",
       "name": "Prepare Prompt",
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
-      "position": [1200, 420]
+      "position": [
+        2680,
+        160
+      ]
     },
     {
       "parameters": {
@@ -218,7 +424,10 @@
       "name": "Escalation or LLM?",
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.2,
-      "position": [1440, 420]
+      "position": [
+        2900,
+        160
+      ]
     },
     {
       "parameters": {
@@ -242,7 +451,10 @@
       "name": "Mark Seen",
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
-      "position": [1680, 520],
+      "position": [
+        3120,
+        280
+      ],
       "continueOnFail": true
     },
     {
@@ -267,38 +479,11 @@
       "name": "Typing On",
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
-      "position": [1920, 520],
+      "position": [
+        3340,
+        280
+      ],
       "continueOnFail": true
-    },
-    {
-      "parameters": {
-        "conditions": {
-          "options": {
-            "caseSensitive": true,
-            "leftValue": "",
-            "typeValidation": "strict",
-            "version": 2
-          },
-          "conditions": [
-            {
-              "id": "not-duplicate",
-              "leftValue": "={{ $json.skip }}",
-              "rightValue": true,
-              "operator": {
-                "type": "boolean",
-                "operation": "notEquals"
-              }
-            }
-          ],
-          "combinator": "and"
-        },
-        "options": {}
-      },
-      "id": "a1000001-0001-4000-8000-000000000016",
-      "name": "Not Duplicate?",
-      "type": "n8n-nodes-base.if",
-      "typeVersion": 2.2,
-      "position": [1440, 520]
     },
     {
       "parameters": {
@@ -306,7 +491,7 @@
         "url": "http://ollama:11434/api/chat",
         "sendBody": true,
         "specifyBody": "json",
-        "jsonBody": "={{ { model: $env.OLLAMA_MODEL || 'qwen3:8b', messages: $('Prepare Prompt').item.json.ollamaMessages, stream: false, options: { temperature: 0.3, num_predict: 256 } } }}",
+        "jsonBody": "={{ { model: $env.OLLAMA_MODEL || 'qwen3:8b', messages: $('Prepare Prompt').item.json.ollamaMessages, stream: false, options: { temperature: 0.3, num_predict: 400 } } }}",
         "options": {
           "timeout": 180000
         }
@@ -315,17 +500,24 @@
       "name": "Ollama Chat",
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
-      "position": [2160, 620]
+      "position": [
+        3560,
+        280
+      ],
+      "continueOnFail": true
     },
     {
       "parameters": {
-        "jsCode": "const prep = $('Prepare Prompt').item.json;\nconst ollama = $input.first().json;\nlet replyText = ollama.message?.content?.trim() || '';\n\nif (!replyText) {\n  replyText = \"Thanks for messaging Promise School! A team member will follow up soon. You can also email support@promiseschool.com.\";\n}\n\nconst unsurePatterns = [\n  \"i don't know\",\n  \"i do not know\",\n  \"not sure\",\n  \"cannot find\",\n  \"can't find\",\n  \"unable to answer\"\n];\n\nconst lower = replyText.toLowerCase();\nif (unsurePatterns.some((p) => lower.includes(p))) {\n  replyText = \"I'm not fully sure about that one — please email support@promiseschool.com and our team will help you directly.\";\n}\n\nconst staticData = $getWorkflowStaticData('global');\nif (!staticData.conversations) staticData.conversations = {};\nif (!staticData.conversations[prep.senderId]) staticData.conversations[prep.senderId] = [];\n\nstaticData.conversations[prep.senderId].push(\n  { role: 'user', content: prep.text },\n  { role: 'assistant', content: replyText }\n);\n\nif (staticData.conversations[prep.senderId].length > 20) {\n  staticData.conversations[prep.senderId] = staticData.conversations[prep.senderId].slice(-20);\n}\n\nreturn [{\n  json: {\n    senderId: prep.senderId,\n    replyText,\n    needsEscalation: prep.needsEscalation || false,\n    userText: prep.text\n  }\n}];"
+        "jsCode": "const prep = $('Prepare Prompt').item.json;\nconst ollama = $input.first().json;\nconst userLanguage = prep.userLanguage || (/[\\u0980-\\u09FF]/.test(prep.text || '') ? 'bangla' : 'english');\nlet replyText = ollama.message?.content?.trim() || '';\n\nif (!replyText) {\n  replyText = userLanguage === 'bangla'\n    ? 'Promise School-এ মেসেজ করার জন্য ধন্যবাদ! আমাদের টিম শীঘ্রই উত্তর দেবে। কল করুন: +8801814266295 — Hobbycamp: https://www.promiseschool.app/hobbycamp'\n    : 'Thanks for messaging Promise School! A team member will follow up soon. Call +8801814266295 — Hobbycamp: https://www.promiseschool.app/hobbycamp';\n}\n\n// Prefer phone over support email in any model output\nreplyText = replyText.replace(/support@promiseschool\\.com/gi, '+8801814266295');\nreplyText = replyText.replace(/(?:ইমেইল|মেসেজ)\\s*করুন\\s*:?\\s*\\+8801814266295/g, 'কল করুন: +8801814266295');\nreplyText = replyText.replace(/(?:email|message|msg)\\s*(?:us\\s+)?(?:at\\s+)?\\+8801814266295/gi, 'call +8801814266295');\nreplyText = replyText.replace(/please\\s+email\\s+\\+8801814266295/gi, 'please call +8801814266295');\n\nconst unsurePatterns = [\n  \"i don't know\",\n  \"i do not know\",\n  \"not sure\",\n  \"cannot find\",\n  \"can't find\",\n  \"unable to answer\",\n  'জানি না',\n  'নিশ্চিত নই',\n  'উত্তর দিতে পারছি না',\n];\n\nconst lower = replyText.toLowerCase();\nif (unsurePatterns.some((p) => lower.includes(p) || replyText.includes(p))) {\n  replyText = userLanguage === 'bangla'\n    ? 'এ বিষয়ে আমি পুরোপুরি নিশ্চিত নই — অনুগ্রহ করে +8801814266295 নম্বরে কল করুন, আমাদের টিম সরাসরি সাহায্য করবে।'\n    : \"I'm not fully sure about that one — please call +8801814266295 and our team will help you directly.\";\n}\n\nconst staticData = $getWorkflowStaticData('global');\nif (!staticData.conversations) staticData.conversations = {};\nif (!staticData.conversations[prep.senderId]) staticData.conversations[prep.senderId] = [];\n\nstaticData.conversations[prep.senderId].push(\n  { role: 'user', content: prep.text },\n  { role: 'assistant', content: replyText }\n);\n\nif (staticData.conversations[prep.senderId].length > 20) {\n  staticData.conversations[prep.senderId] = staticData.conversations[prep.senderId].slice(-20);\n}\n\nreturn [{\n  json: {\n    senderId: prep.senderId,\n    replyText,\n    needsEscalation: prep.needsEscalation || false,\n    userText: prep.text,\n  },\n}];"
       },
       "id": "a1000001-0001-4000-8000-00000000000d",
       "name": "Finalize Reply",
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
-      "position": [2640, 520]
+      "position": [
+        3780,
+        280
+      ]
     },
     {
       "parameters": {
@@ -363,7 +555,10 @@
       "name": "Use Escalation Reply",
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
-      "position": [1680, 300]
+      "position": [
+        3120,
+        40
+      ]
     },
     {
       "parameters": {
@@ -387,7 +582,95 @@
       "name": "Typing Off",
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
-      "position": [2880, 420]
+      "position": [
+        4000,
+        160
+      ]
+    },
+    {
+      "parameters": {
+        "method": "GET",
+        "url": "=https://graph.facebook.com/{{ $env.META_GRAPH_API_VERSION || 'v22.0' }}/me/conversations",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "platform",
+              "value": "messenger"
+            },
+            {
+              "name": "user_id",
+              "value": "={{ String($('Prepare Prompt').item.json.senderId) }}"
+            },
+            {
+              "name": "fields",
+              "value": "messages.limit(20){id,from,created_time}"
+            },
+            {
+              "name": "access_token",
+              "value": "={{ $env.META_PAGE_ACCESS_TOKEN }}"
+            }
+          ]
+        },
+        "options": {
+          "timeout": 15000
+        }
+      },
+      "id": "a1000001-0001-4000-8000-000000000020",
+      "name": "Fetch Conversation",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        4220,
+        160
+      ],
+      "continueOnFail": true
+    },
+    {
+      "parameters": {
+        "jsCode": "const staticData = $getWorkflowStaticData('global');\nif (!staticData.lastPageReplyAt) staticData.lastPageReplyAt = {};\n\nlet prep = {};\ntry {\n  prep = $('Prepare Prompt').item.json;\n} catch (e) {\n  prep = $input.first().json;\n}\n\nconst senderId = String(prep.senderId || '');\nlet claimTs = Number(prep.timestamp) || 0;\ntry {\n  const claim = $('Claim Burst').item.json;\n  if (claim?.timestamp) claimTs = Number(claim.timestamp) || claimTs;\n} catch (e) { /* ignore */ }\n\nconst pageId = String($env.META_PAGE_ID || '');\nconst graph = $input.first().json;\n\nlet pageRepliedAfter = false;\nlet graphChecked = false;\nlet graphError = false;\n\ntry {\n  const conversations = graph?.data;\n  if (Array.isArray(conversations)) {\n    graphChecked = true;\n    const messages = conversations[0]?.messages?.data || [];\n    for (const msg of messages) {\n      const fromId = String(msg.from?.id || '');\n      const created = msg.created_time ? Date.parse(msg.created_time) : 0;\n      // Page-originated message after the customer burst ⇒ human (or other Page sender) already answered\n      if (pageId && fromId === pageId && created > claimTs) {\n        pageRepliedAfter = true;\n        break;\n      }\n      // Fallback without page id: any non-user sender after claim\n      if (!pageId && fromId && fromId !== senderId && created > claimTs) {\n        pageRepliedAfter = true;\n        break;\n      }\n    }\n  } else if (graph?.error || graph?.message) {\n    graphError = true;\n  }\n} catch (e) {\n  graphError = true;\n}\n\nconst echoTs = Number(staticData.lastPageReplyAt[senderId] || 0);\nconst echoRepliedAfter = echoTs > claimTs;\n\nconst skipSend = pageRepliedAfter || echoRepliedAfter;\n\n// Roll back conversation memory added in Finalize / escalation path when we skip send\nif (skipSend && senderId && Array.isArray(staticData.conversations?.[senderId])) {\n  const hist = staticData.conversations[senderId];\n  if (hist.length >= 2) {\n    const last = hist[hist.length - 1];\n    const prev = hist[hist.length - 2];\n    if (last?.role === 'assistant' && prev?.role === 'user') {\n      staticData.conversations[senderId] = hist.slice(0, -2);\n    }\n  }\n}\n\nreturn [{\n  json: {\n    senderId,\n    claimTs,\n    skipSend,\n    pageRepliedAfter,\n    echoRepliedAfter,\n    graphChecked,\n    graphError,\n    replyText: prep.replyText || undefined,\n  },\n}];"
+      },
+      "id": "a1000001-0001-4000-8000-000000000021",
+      "name": "Human Already Replied?",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        4440,
+        160
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "should-send",
+              "leftValue": "={{ $json.skipSend }}",
+              "rightValue": true,
+              "operator": {
+                "type": "boolean",
+                "operation": "notEquals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "a1000001-0001-4000-8000-000000000022",
+      "name": "Should Send?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        4660,
+        160
+      ]
     },
     {
       "parameters": {
@@ -411,20 +694,24 @@
       "name": "Send Messenger Reply",
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
-      "position": [3120, 420]
+      "position": [
+        4880,
+        80
+      ],
+      "continueOnFail": true
     },
     {
       "parameters": {
-        "respondWith": "noData",
-        "options": {
-          "responseCode": 200
-        }
+        "jsCode": "const staticData = $getWorkflowStaticData('global');\nif (!staticData.busy) staticData.busy = {};\n\nlet senderId = '';\ntry {\n  senderId = String($('Prepare Prompt').item.json.senderId || '');\n} catch (e) {\n  senderId = String($input.first().json.senderId || '');\n}\n\nif (senderId) {\n  staticData.busy[senderId] = false;\n}\n\nconst pendingLeft = (staticData.pending && staticData.pending[senderId] && staticData.pending[senderId].messages)\n  ? staticData.pending[senderId].messages.length\n  : 0;\n\nreturn [{\n  json: {\n    senderId,\n    busyReleased: true,\n    pendingLeft,\n  },\n}];"
       },
-      "id": "a1000001-0001-4000-8000-000000000013",
-      "name": "Ack Skipped Event",
-      "type": "n8n-nodes-base.respondToWebhook",
-      "typeVersion": 1.1,
-      "position": [960, 600]
+      "id": "a1000001-0001-4000-8000-00000000001e",
+      "name": "Release Sender Lock",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        5100,
+        160
+      ]
     }
   ],
   "connections": {
@@ -499,7 +786,7 @@
             "index": 0
           },
           {
-            "node": "Read FAQ",
+            "node": "Queue Message",
             "type": "main",
             "index": 0
           }
@@ -514,7 +801,95 @@
       ]
     },
     "Ack Webhook": {
-      "main": [[]]
+      "main": [
+        []
+      ]
+    },
+    "Queue Message": {
+      "main": [
+        [
+          {
+            "node": "Queued OK?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Queued OK?": {
+      "main": [
+        [
+          {
+            "node": "Debounce Wait",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        []
+      ]
+    },
+    "Debounce Wait": {
+      "main": [
+        [
+          {
+            "node": "Claim Burst",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Claim Burst": {
+      "main": [
+        [
+          {
+            "node": "Ready to Reply?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Ready to Reply?": {
+      "main": [
+        [
+          {
+            "node": "Read FAQ",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Sender Busy?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Sender Busy?": {
+      "main": [
+        [
+          {
+            "node": "Wait While Busy",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        []
+      ]
+    },
+    "Wait While Busy": {
+      "main": [
+        [
+          {
+            "node": "Claim Burst",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
     },
     "Read FAQ": {
       "main": [
@@ -542,23 +917,11 @@
       "main": [
         [
           {
-            "node": "Not Duplicate?",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Not Duplicate?": {
-      "main": [
-        [
-          {
             "node": "Escalation or LLM?",
             "type": "main",
             "index": 0
           }
-        ],
-        []
+        ]
       ]
     },
     "Escalation or LLM?": {
@@ -638,7 +1001,7 @@
       "main": [
         [
           {
-            "node": "Send Messenger Reply",
+            "node": "Fetch Conversation",
             "type": "main",
             "index": 0
           }
@@ -646,7 +1009,60 @@
       ]
     },
     "Send Messenger Reply": {
-      "main": [[]]
+      "main": [
+        [
+          {
+            "node": "Release Sender Lock",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Release Sender Lock": {
+      "main": [
+        []
+      ]
+    },
+    "Fetch Conversation": {
+      "main": [
+        [
+          {
+            "node": "Human Already Replied?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Human Already Replied?": {
+      "main": [
+        [
+          {
+            "node": "Should Send?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Should Send?": {
+      "main": [
+        [
+          {
+            "node": "Send Messenger Reply",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Release Sender Lock",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
     }
   },
   "settings": {

@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Meta App Creation — Messenger Automation</title>
+  <style>
+    @page { margin: 2cm; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+      font-size: 11pt;
+      line-height: 1.5;
+      color: #1a1a1a;
+      max-width: 100%;
+    }
+    h1 { font-size: 22pt; border-bottom: 2px solid #1877f2; padding-bottom: 0.3em; color: #1877f2; }
+    h2 { font-size: 14pt; margin-top: 1.5em; color: #333; page-break-after: avoid; }
+    h3 { font-size: 12pt; margin-top: 1.2em; page-break-after: avoid; }
+    p, li { margin: 0.4em 0; }
+    ul, ol { padding-left: 1.4em; }
+    hr { border: none; border-top: 1px solid #ddd; margin: 1.5em 0; }
+    table { border-collapse: collapse; width: 100%; margin: 1em 0; font-size: 10pt; page-break-inside: avoid; }
+    th, td { border: 1px solid #ccc; padding: 8px 10px; text-align: left; vertical-align: top; }
+    th { background: #f0f2f5; font-weight: 600; }
+    code { font-family: "SF Mono", Menlo, monospace; font-size: 9pt; background: #f5f5f5; padding: 1px 4px; border-radius: 3px; }
+    pre {
+      background: #f5f5f5;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      padding: 12px 14px;
+      font-size: 9pt;
+      line-height: 1.4;
+      overflow-wrap: break-word;
+      white-space: pre-wrap;
+      page-break-inside: avoid;
+    }
+    a { color: #1877f2; text-decoration: none; }
+    .subtitle { color: #555; font-size: 10pt; margin-top: -0.5em; margin-bottom: 1.5em; }
+    .checklist { list-style: none; padding-left: 0; }
+    .checklist li { padding-left: 1.6em; position: relative; }
+    .checklist li::before { content: "☐"; position: absolute; left: 0; }
+    strong { font-weight: 600; }
+  </style>
+</head>
+<body>
+
+<h1>Meta App Creation (Messenger Automation)</h1>
+<p class="subtitle">Promise School Facebook Messenger auto-reply setup — Meta Developer app creation, permissions, and credentials only.</p>
+
+<p>Focused guide for creating the Meta Developer app and collecting credentials. Webhook registration, n8n deploy, and go-Live steps are separate — see <code>docs/meta-setup.md</code> after this.</p>
+
+<hr />
+
+<h2>1. Create the app</h2>
+<ol>
+  <li>Open <a href="https://developers.facebook.com/apps/">Meta for Developers</a> → <strong>Create App</strong>.</li>
+  <li>Select <strong>Other</strong> → <strong>Business</strong> (or any use case that exposes Messenger).</li>
+  <li>Name the app (e.g. <code>Promise School Messenger</code>).</li>
+  <li>Link it to your Business Portfolio if prompted (optional but recommended for org apps).</li>
+</ol>
+
+<hr />
+
+<h2>2. Add required products</h2>
+<p>In the app dashboard, click <strong>Add Product</strong> and enable:</p>
+<table>
+  <tr><th>Product</th><th>Purpose</th></tr>
+  <tr><td><strong>Messenger</strong></td><td>Connect your Facebook Page and generate a Page Access Token for sending/receiving DMs</td></tr>
+  <tr><td><strong>Webhooks</strong></td><td>Subscribe to incoming Messenger events (configured later against your n8n URL)</td></tr>
+</table>
+
+<hr />
+
+<h2>3. Permissions</h2>
+<p>These are the permissions this setup needs. Request or grant them when generating tokens in Graph API Explorer or during App Review.</p>
+
+<h3>Required for token generation (Development)</h3>
+<p>When getting a User Access Token in <a href="https://developers.facebook.com/tools/explorer/">Graph API Explorer</a>, select:</p>
+<table>
+  <tr><th>Permission</th><th>Access level</th><th>Why</th></tr>
+  <tr>
+    <td><strong>pages_messaging</strong></td>
+    <td>Standard (dev) / <strong>Advanced</strong> (Live)</td>
+    <td>Send and receive Messenger messages via Graph API (<code>POST /me/messages</code>)</td>
+  </tr>
+  <tr>
+    <td><strong>pages_manage_metadata</strong></td>
+    <td>Standard</td>
+    <td>Subscribe the Page to your app and manage webhook metadata</td>
+  </tr>
+  <tr>
+    <td><strong>pages_show_list</strong></td>
+    <td>Standard</td>
+    <td>List Pages you manage so you can select the correct Page token</td>
+  </tr>
+</table>
+<p><strong>pages_messaging is the critical one.</strong> Without it, Mark Seen, typing indicators, and reply sends will fail.</p>
+
+<h3>For going Live (later)</h3>
+<p>In <strong>App Review → Permissions and Features</strong>, request <strong>Advanced Access</strong> for:</p>
+<ul>
+  <li><strong>pages_messaging</strong> — required so non-app-role customers (any Messenger user) receive bot replies</li>
+</ul>
+<p>Supporting permissions (<code>pages_manage_metadata</code>, <code>pages_show_list</code>) usually stay at Standard Access. See <code>docs/app-review.md</code> when ready.</p>
+
+<h3>Development vs Live</h3>
+<table>
+  <tr><th>App mode</th><th>Who the bot can reply to</th></tr>
+  <tr><td><strong>Development</strong></td><td>App admins, developers, testers, and Page roles only</td></tr>
+  <tr><td><strong>Live</strong> + Advanced Access on pages_messaging</td><td>All Messenger users</td></tr>
+</table>
+
+<hr />
+
+<h2>4. Connect your Facebook Page</h2>
+<ol>
+  <li>Go to <strong>Messenger → Settings</strong>.</li>
+  <li>Click <strong>Add or Remove Pages</strong>.</li>
+  <li>Connect the Promise School Page using a Facebook account that has the <strong>MESSAGING</strong> task on that Page.</li>
+  <li>Under <strong>Token Generation</strong>, select your Page → click <strong>Generate</strong> → copy the <strong>Page Access Token</strong>.</li>
+</ol>
+<p>To get a <strong>long-lived</strong> token (recommended):</p>
+<ol>
+  <li><a href="https://developers.facebook.com/tools/explorer/">Graph API Explorer</a> → select your app.</li>
+  <li><strong>Get User Access Token</strong> → add the three permissions above.</li>
+  <li><strong>Get Page Access Token</strong> → select your Page.</li>
+  <li>Extend the token via <a href="https://developers.facebook.com/tools/debug/accesstoken/">Access Token Debugger</a> if it is short-lived.</li>
+</ol>
+
+<hr />
+
+<h2>5. Collect credentials for <code>.env</code></h2>
+<p>From the Meta console, copy these values into <code>messenger-automation/.env</code>:</p>
+<pre># App settings → Basic
+META_APP_ID=&lt;your-app-id&gt;
+META_APP_SECRET=&lt;your-app-secret&gt;
+
+# Messenger → Settings → Token Generation
+META_PAGE_ACCESS_TOKEN=&lt;long-lived-page-token&gt;
+META_PAGE_ID=&lt;your-page-id&gt;
+
+# Pick any random secret string (same value used later in Webhooks → Verify Token)
+META_VERIFY_TOKEN=&lt;random-secret-string&gt;
+
+META_GRAPH_API_VERSION=v22.0</pre>
+<ul>
+  <li><strong>App ID + App Secret</strong> — used by <code>./scripts/setup-meta.sh</code> to auto-subscribe webhook fields.</li>
+  <li><strong>Page Access Token</strong> — used by n8n to call <code>https://graph.facebook.com/v22.0/me/messages</code>.</li>
+  <li><strong>Page ID</strong> — identifies which Page receives webhooks.</li>
+  <li><strong>Verify token</strong> — shared secret for Meta webhook verification (not the Page ID or Page token).</li>
+</ul>
+<p>Never commit tokens to git. Store secrets only in <code>.env</code> on the VPS.</p>
+
+<hr />
+
+<h2>6. Add testers (Development mode)</h2>
+<p>While the app stays in <strong>Development</strong>:</p>
+<ol>
+  <li>Go to <strong>App Roles → Roles</strong>.</li>
+  <li>Add your personal Facebook account as <strong>Administrator</strong>, <strong>Developer</strong>, or <strong>Tester</strong>.</li>
+  <li>Only people with these roles (plus Page roles) will receive bot replies until the app goes Live.</li>
+</ol>
+
+<hr />
+
+<h2>Checklist (Meta app only)</h2>
+<ul class="checklist">
+  <li>Meta app created (<strong>Other → Business</strong>)</li>
+  <li><strong>Messenger</strong> and <strong>Webhooks</strong> products added</li>
+  <li><strong>App ID</strong> and <strong>App Secret</strong> copied</li>
+  <li>Facebook Page connected under Messenger → Settings</li>
+  <li>Page Access Token generated with <code>pages_messaging</code>, <code>pages_manage_metadata</code>, <code>pages_show_list</code></li>
+  <li>Token extended to long-lived</li>
+  <li><code>META_PAGE_ID</code>, <code>META_PAGE_ACCESS_TOKEN</code>, <code>META_VERIFY_TOKEN</code> saved in <code>.env</code></li>
+  <li>Testers added under App Roles (for dev-mode DMs)</li>
+</ul>
+
+<p><strong>Next steps (outside this guide):</strong> deploy n8n, register webhook callback URL, subscribe Page to <code>messages</code> + <code>messaging_postbacks</code> — see <code>docs/meta-setup.md</code>.</p>
+
+</body>
+</html>

@@ -10,7 +10,8 @@
       "English",
       "Bengali"
     ],
-    "country": "Bangladesh"
+    "country": "Bangladesh",
+    "supportPhone": "+8801814266295"
   },
   "customFaqs": [],
   "faqs": [
@@ -48,87 +49,634 @@
     },
     {
       "question": "What Hobbycamp courses are available right now?",
-      "answer": "Current Hobbycamp programs on Promise School:\n- এলিট ম্যাথ অলিম্পিয়াড প্রস্তুতি (লেভেল ১), (online), ৳6,000 (was ৳9,000), starts 19 Jun 2026\n- ম্যাথ মাইন্ডস: নাম্বার থিওরি ও লজিক মাস্টারি (লেভেল ১), (online), ৳6,000 (was ৳9,000), starts 19 Jun 2026\n- Debate Course Offline, (offline), ৳3,500 (was ৳4,500), starts 6 Jun 2026\n- Debate Course, (online), ৳1,500 (was ৳2,500), starts 6 Jun 2026\n- Abrriti Course Offline, (offline), ৳3,500 (was ৳4,500), starts 6 Jun 2026\n- Abrriti Course, (online), ৳1,500 (was ৳2,500), starts 1 Jun 2026\n- Programming for Kids, (online), ৳1,500 (was ৳2,500), starts 6 Jun 2026\n- Python Beginner, (online), ৳1,500 (was ৳2,500), starts 1 Jun 2026\n\nBrowse and book at https://www.promiseschool.app/hobbycamp"
+      "answer": "Current Hobbycamp programs on Promise School:\n- প্রমিত উচ্চারণ ও আবৃত্তি শৈলী Special Batch - Online — (online) — ৳3,500 — 12 classes — 3 Months — starts 22 Jul 2026 — instructor: Shoaib Ahmad, Rupshree Chakraborty\n- এলিট ম্যাথ অলিম্পিয়াড প্রস্তুতি (লেভেল ১) — (offline) — ৳6,000 — 32 classes — 4 Month — starts 18 Jul 2026 — instructor: Md. Sayem Shahriar\n- ম্যাথ মাইন্ডস: নাম্বার থিওরি ও লজিক মাস্টারি (লেভেল ১) — (offline) — ৳6,000 — 32 classes — 4 Month — starts 18 Jul 2026 — instructor: Md. Sayem Shahriar\n- এলিট ম্যাথ অলিম্পিয়াড প্রস্তুতি (লেভেল ১) — (online) — ৳6,000 — 32 classes — 4 Month — starts 18 Jul 2026 — instructor: Md. Sayem Shahriar\n- ম্যাথ মাইন্ডস: নাম্বার থিওরি ও লজিক মাস্টারি (লেভেল ১) — (online) — ৳6,000 — 32 classes — 4 Month — starts 18 Jul 2026 — instructor: Md. Sayem Shahriar\n- Programming for Kids — (online) — ৳1,500 — 15 classes — 3 Months — starts 18 Jul 2026 — instructor: Joynal Abedin Parag\n- প্রমিত উচ্চারণ ও আবৃত্তি শৈলী - Offline — (offline) — ৳3,500 — 12 classes — 3 Months — starts 18 Jul 2026 — instructor: Subarna Arfin\n- Debate Course Offline — (offline) — ৳3,499 — 12 classes — 3 Months — starts 18 Jul 2026 — instructor: H M Sabir Noor\n- Python Beginner — (online) — ৳1,500 — 15 classes — 3 Months — starts 18 Jul 2026 — instructor: Joynal Abedin Parag\n- প্রমিত উচ্চারণ ও আবৃত্তি শৈলী - Online — (online) — ৳1,500 — 11 classes — 3 Months — starts 23 Jul 2026 — instructor: Subarna Arfin\n- Debate Course — (online) — ৳1,500 — 12 classes — 3 Months — starts 18 Jul 2026 — instructor: H M Sabir Noor\n\nBrowse and book at https://www.promiseschool.app/hobbycamp. For help call +8801814266295."
     },
     {
       "question": "হবিক্যাম্পে এখন কোন কোর্স আছে?",
-      "answer": "Promise School Hobbycamp-এ বর্তমানে এই কোর্সগুলো চলছে:\n- এলিট ম্যাথ অলিম্পিয়াড প্রস্তুতি (লেভেল ১), (online), ৳6,000 (was ৳9,000), starts 19 Jun 2026\n- ম্যাথ মাইন্ডস: নাম্বার থিওরি ও লজিক মাস্টারি (লেভেল ১), (online), ৳6,000 (was ৳9,000), starts 19 Jun 2026\n- Debate Course Offline, (offline), ৳3,500 (was ৳4,500), starts 6 Jun 2026\n- Debate Course, (online), ৳1,500 (was ৳2,500), starts 6 Jun 2026\n- Abrriti Course Offline, (offline), ৳3,500 (was ৳4,500), starts 6 Jun 2026\n- Abrriti Course, (online), ৳1,500 (was ৳2,500), starts 1 Jun 2026\n- Programming for Kids, (online), ৳1,500 (was ৳2,500), starts 6 Jun 2026\n- Python Beginner, (online), ৳1,500 (was ৳2,500), starts 1 Jun 2026\n\nবুকিং: https://www.promiseschool.app/hobbycamp"
+      "answer": "Promise School Hobbycamp-এ বর্তমানে এই কোর্সগুলো চলছে:\n- প্রমিত উচ্চারণ ও আবৃত্তি শৈলী Special Batch - Online — (online) — ৳3,500 — 12 classes — 3 Months — starts 22 Jul 2026 — instructor: Shoaib Ahmad, Rupshree Chakraborty\n- এলিট ম্যাথ অলিম্পিয়াড প্রস্তুতি (লেভেল ১) — (offline) — ৳6,000 — 32 classes — 4 Month — starts 18 Jul 2026 — instructor: Md. Sayem Shahriar\n- ম্যাথ মাইন্ডস: নাম্বার থিওরি ও লজিক মাস্টারি (লেভেল ১) — (offline) — ৳6,000 — 32 classes — 4 Month — starts 18 Jul 2026 — instructor: Md. Sayem Shahriar\n- এলিট ম্যাথ অলিম্পিয়াড প্রস্তুতি (লেভেল ১) — (online) — ৳6,000 — 32 classes — 4 Month — starts 18 Jul 2026 — instructor: Md. Sayem Shahriar\n- ম্যাথ মাইন্ডস: নাম্বার থিওরি ও লজিক মাস্টারি (লেভেল ১) — (online) — ৳6,000 — 32 classes — 4 Month — starts 18 Jul 2026 — instructor: Md. Sayem Shahriar\n- Programming for Kids — (online) — ৳1,500 — 15 classes — 3 Months — starts 18 Jul 2026 — instructor: Joynal Abedin Parag\n- প্রমিত উচ্চারণ ও আবৃত্তি শৈলী - Offline — (offline) — ৳3,500 — 12 classes — 3 Months — starts 18 Jul 2026 — instructor: Subarna Arfin\n- Debate Course Offline — (offline) — ৳3,499 — 12 classes — 3 Months — starts 18 Jul 2026 — instructor: H M Sabir Noor\n- Python Beginner — (online) — ৳1,500 — 15 classes — 3 Months — starts 18 Jul 2026 — instructor: Joynal Abedin Parag\n- প্রমিত উচ্চারণ ও আবৃত্তি শৈলী - Online — (online) — ৳1,500 — 11 classes — 3 Months — starts 23 Jul 2026 — instructor: Subarna Arfin\n- Debate Course — (online) — ৳1,500 — 12 classes — 3 Months — starts 18 Jul 2026 — instructor: H M Sabir Noor\n\nবুকিং: https://www.promiseschool.app/hobbycamp। সাহায্যের জন্য কল করুন +8801814266295।"
     },
     {
       "question": "হবিক্যাম্পে কি কোর্স আছে?",
-      "answer": "Promise School Hobbycamp-এ বর্তমানে এই কোর্সগুলো চলছে:\n- এলিট ম্যাথ অলিম্পিয়াড প্রস্তুতি (লেভেল ১), (online), ৳6,000 (was ৳9,000), starts 19 Jun 2026\n- ম্যাথ মাইন্ডস: নাম্বার থিওরি ও লজিক মাস্টারি (লেভেল ১), (online), ৳6,000 (was ৳9,000), starts 19 Jun 2026\n- Debate Course Offline, (offline), ৳3,500 (was ৳4,500), starts 6 Jun 2026\n- Debate Course, (online), ৳1,500 (was ৳2,500), starts 6 Jun 2026\n- Abrriti Course Offline, (offline), ৳3,500 (was ৳4,500), starts 6 Jun 2026\n- Abrriti Course, (online), ৳1,500 (was ৳2,500), starts 1 Jun 2026\n- Programming for Kids, (online), ৳1,500 (was ৳2,500), starts 6 Jun 2026\n- Python Beginner, (online), ৳1,500 (was ৳2,500), starts 1 Jun 2026\n\nবুকিং: https://www.promiseschool.app/hobbycamp"
+      "answer": "Promise School Hobbycamp-এ বর্তমানে এই কোর্সগুলো চলছে:\n- প্রমিত উচ্চারণ ও আবৃত্তি শৈলী Special Batch - Online — (online) — ৳3,500 — 12 classes — 3 Months — starts 22 Jul 2026 — instructor: Shoaib Ahmad, Rupshree Chakraborty\n- এলিট ম্যাথ অলিম্পিয়াড প্রস্তুতি (লেভেল ১) — (offline) — ৳6,000 — 32 classes — 4 Month — starts 18 Jul 2026 — instructor: Md. Sayem Shahriar\n- ম্যাথ মাইন্ডস: নাম্বার থিওরি ও লজিক মাস্টারি (লেভেল ১) — (offline) — ৳6,000 — 32 classes — 4 Month — starts 18 Jul 2026 — instructor: Md. Sayem Shahriar\n- এলিট ম্যাথ অলিম্পিয়াড প্রস্তুতি (লেভেল ১) — (online) — ৳6,000 — 32 classes — 4 Month — starts 18 Jul 2026 — instructor: Md. Sayem Shahriar\n- ম্যাথ মাইন্ডস: নাম্বার থিওরি ও লজিক মাস্টারি (লেভেল ১) — (online) — ৳6,000 — 32 classes — 4 Month — starts 18 Jul 2026 — instructor: Md. Sayem Shahriar\n- Programming for Kids — (online) — ৳1,500 — 15 classes — 3 Months — starts 18 Jul 2026 — instructor: Joynal Abedin Parag\n- প্রমিত উচ্চারণ ও আবৃত্তি শৈলী - Offline — (offline) — ৳3,500 — 12 classes — 3 Months — starts 18 Jul 2026 — instructor: Subarna Arfin\n- Debate Course Offline — (offline) — ৳3,499 — 12 classes — 3 Months — starts 18 Jul 2026 — instructor: H M Sabir Noor\n- Python Beginner — (online) — ৳1,500 — 15 classes — 3 Months — starts 18 Jul 2026 — instructor: Joynal Abedin Parag\n- প্রমিত উচ্চারণ ও আবৃত্তি শৈলী - Online — (online) — ৳1,500 — 11 classes — 3 Months — starts 23 Jul 2026 — instructor: Subarna Arfin\n- Debate Course — (online) — ৳1,500 — 12 classes — 3 Months — starts 18 Jul 2026 — instructor: H M Sabir Noor\n\nবুকিং: https://www.promiseschool.app/hobbycamp। সাহায্যের জন্য কল করুন +8801814266295।"
+    },
+    {
+      "question": "List all Hobbycamp courses with prices and start dates",
+      "answer": "Here are all current Hobbycamp courses:\n- প্রমিত উচ্চারণ ও আবৃত্তি শৈলী Special Batch - Online — (online) — ৳3,500 — 12 classes — 3 Months — starts 22 Jul 2026 — instructor: Shoaib Ahmad, Rupshree Chakraborty\n- এলিট ম্যাথ অলিম্পিয়াড প্রস্তুতি (লেভেল ১) — (offline) — ৳6,000 — 32 classes — 4 Month — starts 18 Jul 2026 — instructor: Md. Sayem Shahriar\n- ম্যাথ মাইন্ডস: নাম্বার থিওরি ও লজিক মাস্টারি (লেভেল ১) — (offline) — ৳6,000 — 32 classes — 4 Month — starts 18 Jul 2026 — instructor: Md. Sayem Shahriar\n- এলিট ম্যাথ অলিম্পিয়াড প্রস্তুতি (লেভেল ১) — (online) — ৳6,000 — 32 classes — 4 Month — starts 18 Jul 2026 — instructor: Md. Sayem Shahriar\n- ম্যাথ মাইন্ডস: নাম্বার থিওরি ও লজিক মাস্টারি (লেভেল ১) — (online) — ৳6,000 — 32 classes — 4 Month — starts 18 Jul 2026 — instructor: Md. Sayem Shahriar\n- Programming for Kids — (online) — ৳1,500 — 15 classes — 3 Months — starts 18 Jul 2026 — instructor: Joynal Abedin Parag\n- প্রমিত উচ্চারণ ও আবৃত্তি শৈলী - Offline — (offline) — ৳3,500 — 12 classes — 3 Months — starts 18 Jul 2026 — instructor: Subarna Arfin\n- Debate Course Offline — (offline) — ৳3,499 — 12 classes — 3 Months — starts 18 Jul 2026 — instructor: H M Sabir Noor\n- Python Beginner — (online) — ৳1,500 — 15 classes — 3 Months — starts 18 Jul 2026 — instructor: Joynal Abedin Parag\n- প্রমিত উচ্চারণ ও আবৃত্তি শৈলী - Online — (online) — ৳1,500 — 11 classes — 3 Months — starts 23 Jul 2026 — instructor: Subarna Arfin\n- Debate Course — (online) — ৳1,500 — 12 classes — 3 Months — starts 18 Jul 2026 — instructor: H M Sabir Noor\n\nDetails and booking: https://www.promiseschool.app/hobbycamp"
+    },
+    {
+      "question": "Tell me about the Hobbycamp course: প্রমিত উচ্চারণ ও আবৃত্তি শৈলী Special Batch - Online",
+      "answer": "এই কোর্সটি আবৃত্তির মৌলিক থেকে উন্নত বিষয়গুলো ধাপে ধাপে শেখানোর জন্য সাজানো। এতে বর্ণ-ধ্বনি, উচ্চারণ, স্বরলহরী, ছন্দ ও রসের মতো গুরুত্বপূর্ণ উপাদানগুলো শেখানো হয়। পাশাপাশি জিহ্বা ও ওষ্ঠের ব্যায়াম এবং গদ্যপাঠ ও উপস্থাপনার অনুশীলন করানো হয়। শেষে আবৃত্তি নির্মাণ ও একটি চূড়ান্ত পরীক্ষার মাধ্যমে দক্ষতা মূল্যায়ন করা হয়। Price: ৳3,500. Mode: online. Classes: 12. Duration/workload: 3 Months. Starts: 22 Jul 2026. Instructor(s): Shoaib Ahmad, Rupshree Chakraborty. Book at https://www.promiseschool.app/hobbycamp/course/special-batch-online For help call +8801814266295."
+    },
+    {
+      "question": "How much is the প্রমিত উচ্চারণ ও আবৃত্তি শৈলী Special Batch - Online Hobbycamp course?",
+      "answer": "এই কোর্সটি আবৃত্তির মৌলিক থেকে উন্নত বিষয়গুলো ধাপে ধাপে শেখানোর জন্য সাজানো। এতে বর্ণ-ধ্বনি, উচ্চারণ, স্বরলহরী, ছন্দ ও রসের মতো গুরুত্বপূর্ণ উপাদানগুলো শেখানো হয়। পাশাপাশি জিহ্বা ও ওষ্ঠের ব্যায়াম এবং গদ্যপাঠ ও উপস্থাপনার অনুশীলন করানো হয়। শেষে আবৃত্তি নির্মাণ ও একটি চূড়ান্ত পরীক্ষার মাধ্যমে দক্ষতা মূল্যায়ন করা হয়। Price: ৳3,500. Mode: online. Classes: 12. Duration/workload: 3 Months. Starts: 22 Jul 2026. Instructor(s): Shoaib Ahmad, Rupshree Chakraborty. Book at https://www.promiseschool.app/hobbycamp/course/special-batch-online For help call +8801814266295."
+    },
+    {
+      "question": "What is the price of প্রমিত উচ্চারণ ও আবৃত্তি শৈলী Special Batch - Online?",
+      "answer": "এই কোর্সটি আবৃত্তির মৌলিক থেকে উন্নত বিষয়গুলো ধাপে ধাপে শেখানোর জন্য সাজানো। এতে বর্ণ-ধ্বনি, উচ্চারণ, স্বরলহরী, ছন্দ ও রসের মতো গুরুত্বপূর্ণ উপাদানগুলো শেখানো হয়। পাশাপাশি জিহ্বা ও ওষ্ঠের ব্যায়াম এবং গদ্যপাঠ ও উপস্থাপনার অনুশীলন করানো হয়। শেষে আবৃত্তি নির্মাণ ও একটি চূড়ান্ত পরীক্ষার মাধ্যমে দক্ষতা মূল্যায়ন করা হয়। Price: ৳3,500. Mode: online. Classes: 12. Duration/workload: 3 Months. Starts: 22 Jul 2026. Instructor(s): Shoaib Ahmad, Rupshree Chakraborty. Book at https://www.promiseschool.app/hobbycamp/course/special-batch-online For help call +8801814266295."
+    },
+    {
+      "question": "When does প্রমিত উচ্চারণ ও আবৃত্তি শৈলী Special Batch - Online start?",
+      "answer": "এই কোর্সটি আবৃত্তির মৌলিক থেকে উন্নত বিষয়গুলো ধাপে ধাপে শেখানোর জন্য সাজানো। এতে বর্ণ-ধ্বনি, উচ্চারণ, স্বরলহরী, ছন্দ ও রসের মতো গুরুত্বপূর্ণ উপাদানগুলো শেখানো হয়। পাশাপাশি জিহ্বা ও ওষ্ঠের ব্যায়াম এবং গদ্যপাঠ ও উপস্থাপনার অনুশীলন করানো হয়। শেষে আবৃত্তি নির্মাণ ও একটি চূড়ান্ত পরীক্ষার মাধ্যমে দক্ষতা মূল্যায়ন করা হয়। Price: ৳3,500. Mode: online. Classes: 12. Duration/workload: 3 Months. Starts: 22 Jul 2026. Instructor(s): Shoaib Ahmad, Rupshree Chakraborty. Book at https://www.promiseschool.app/hobbycamp/course/special-batch-online For help call +8801814266295."
+    },
+    {
+      "question": "Who teaches প্রমিত উচ্চারণ ও আবৃত্তি শৈলী Special Batch - Online?",
+      "answer": "এই কোর্সটি আবৃত্তির মৌলিক থেকে উন্নত বিষয়গুলো ধাপে ধাপে শেখানোর জন্য সাজানো। এতে বর্ণ-ধ্বনি, উচ্চারণ, স্বরলহরী, ছন্দ ও রসের মতো গুরুত্বপূর্ণ উপাদানগুলো শেখানো হয়। পাশাপাশি জিহ্বা ও ওষ্ঠের ব্যায়াম এবং গদ্যপাঠ ও উপস্থাপনার অনুশীলন করানো হয়। শেষে আবৃত্তি নির্মাণ ও একটি চূড়ান্ত পরীক্ষার মাধ্যমে দক্ষতা মূল্যায়ন করা হয়। Price: ৳3,500. Mode: online. Classes: 12. Duration/workload: 3 Months. Starts: 22 Jul 2026. Instructor(s): Shoaib Ahmad, Rupshree Chakraborty. Book at https://www.promiseschool.app/hobbycamp/course/special-batch-online For help call +8801814266295."
+    },
+    {
+      "question": "How many classes are in প্রমিত উচ্চারণ ও আবৃত্তি শৈলী Special Batch - Online?",
+      "answer": "এই কোর্সটি আবৃত্তির মৌলিক থেকে উন্নত বিষয়গুলো ধাপে ধাপে শেখানোর জন্য সাজানো। এতে বর্ণ-ধ্বনি, উচ্চারণ, স্বরলহরী, ছন্দ ও রসের মতো গুরুত্বপূর্ণ উপাদানগুলো শেখানো হয়। পাশাপাশি জিহ্বা ও ওষ্ঠের ব্যায়াম এবং গদ্যপাঠ ও উপস্থাপনার অনুশীলন করানো হয়। শেষে আবৃত্তি নির্মাণ ও একটি চূড়ান্ত পরীক্ষার মাধ্যমে দক্ষতা মূল্যায়ন করা হয়। Price: ৳3,500. Mode: online. Classes: 12. Duration/workload: 3 Months. Starts: 22 Jul 2026. Instructor(s): Shoaib Ahmad, Rupshree Chakraborty. Book at https://www.promiseschool.app/hobbycamp/course/special-batch-online For help call +8801814266295."
+    },
+    {
+      "question": "প্রমিত উচ্চারণ ও আবৃত্তি শৈলী Special Batch - Online কোর্স সম্পর্কে বলো",
+      "answer": "Hobbycamp কোর্স: প্রমিত উচ্চারণ ও আবৃত্তি শৈলী Special Batch - Online। এই কোর্সটি আবৃত্তির মৌলিক থেকে উন্নত বিষয়গুলো ধাপে ধাপে শেখানোর জন্য সাজানো। এতে বর্ণ-ধ্বনি, উচ্চারণ, স্বরলহরী, ছন্দ ও রসের মতো গুরুত্বপূর্ণ উপাদানগুলো শেখানো হয়। পাশাপাশি জিহ্বা ও ওষ্ঠের ব্যায়াম এবং গদ্যপাঠ ও উপস্থাপনার অনুশীলন করানো হয়। শেষে আবৃত্তি নির্মাণ ও একটি চূড়ান্ত পরীক্ষার মাধ্যমে দক্ষতা মূল্যায়ন করা হয়। মূল্য: ৳3,500। মাধ্যম: অনলাইন। ক্লাস সংখ্যা: 12টি। সময়কাল: 3 Months। শুরুর তারিখ: 22 Jul 2026। ইনস্ট্রাক্টর: Shoaib Ahmad, Rupshree Chakraborty। বুকিং লিংক: https://www.promiseschool.app/hobbycamp/course/special-batch-online সাহায্যের জন্য কল করুন +8801814266295।"
+    },
+    {
+      "question": "প্রমিত উচ্চারণ ও আবৃত্তি শৈলী Special Batch - Online কোর্সের দাম কত?",
+      "answer": "Hobbycamp কোর্স: প্রমিত উচ্চারণ ও আবৃত্তি শৈলী Special Batch - Online। এই কোর্সটি আবৃত্তির মৌলিক থেকে উন্নত বিষয়গুলো ধাপে ধাপে শেখানোর জন্য সাজানো। এতে বর্ণ-ধ্বনি, উচ্চারণ, স্বরলহরী, ছন্দ ও রসের মতো গুরুত্বপূর্ণ উপাদানগুলো শেখানো হয়। পাশাপাশি জিহ্বা ও ওষ্ঠের ব্যায়াম এবং গদ্যপাঠ ও উপস্থাপনার অনুশীলন করানো হয়। শেষে আবৃত্তি নির্মাণ ও একটি চূড়ান্ত পরীক্ষার মাধ্যমে দক্ষতা মূল্যায়ন করা হয়। মূল্য: ৳3,500। মাধ্যম: অনলাইন। ক্লাস সংখ্যা: 12টি। সময়কাল: 3 Months। শুরুর তারিখ: 22 Jul 2026। ইনস্ট্রাক্টর: Shoaib Ahmad, Rupshree Chakraborty। বুকিং লিংক: https://www.promiseschool.app/hobbycamp/course/special-batch-online সাহায্যের জন্য কল করুন +8801814266295।"
+    },
+    {
+      "question": "প্রমিত উচ্চারণ ও আবৃত্তি শৈলী Special Batch - Online কবে শুরু?",
+      "answer": "Hobbycamp কোর্স: প্রমিত উচ্চারণ ও আবৃত্তি শৈলী Special Batch - Online। এই কোর্সটি আবৃত্তির মৌলিক থেকে উন্নত বিষয়গুলো ধাপে ধাপে শেখানোর জন্য সাজানো। এতে বর্ণ-ধ্বনি, উচ্চারণ, স্বরলহরী, ছন্দ ও রসের মতো গুরুত্বপূর্ণ উপাদানগুলো শেখানো হয়। পাশাপাশি জিহ্বা ও ওষ্ঠের ব্যায়াম এবং গদ্যপাঠ ও উপস্থাপনার অনুশীলন করানো হয়। শেষে আবৃত্তি নির্মাণ ও একটি চূড়ান্ত পরীক্ষার মাধ্যমে দক্ষতা মূল্যায়ন করা হয়। মূল্য: ৳3,500। মাধ্যম: অনলাইন। ক্লাস সংখ্যা: 12টি। সময়কাল: 3 Months। শুরুর তারিখ: 22 Jul 2026। ইনস্ট্রাক্টর: Shoaib Ahmad, Rupshree Chakraborty। বুকিং লিংক: https://www.promiseschool.app/hobbycamp/course/special-batch-online সাহায্যের জন্য কল করুন +8801814266295।"
+    },
+    {
+      "question": "প্রমিত উচ্চারণ ও আবৃত্তি শৈলী Special Batch - Online এর ইনস্ট্রাক্টর কে?",
+      "answer": "Hobbycamp কোর্স: প্রমিত উচ্চারণ ও আবৃত্তি শৈলী Special Batch - Online। এই কোর্সটি আবৃত্তির মৌলিক থেকে উন্নত বিষয়গুলো ধাপে ধাপে শেখানোর জন্য সাজানো। এতে বর্ণ-ধ্বনি, উচ্চারণ, স্বরলহরী, ছন্দ ও রসের মতো গুরুত্বপূর্ণ উপাদানগুলো শেখানো হয়। পাশাপাশি জিহ্বা ও ওষ্ঠের ব্যায়াম এবং গদ্যপাঠ ও উপস্থাপনার অনুশীলন করানো হয়। শেষে আবৃত্তি নির্মাণ ও একটি চূড়ান্ত পরীক্ষার মাধ্যমে দক্ষতা মূল্যায়ন করা হয়। মূল্য: ৳3,500। মাধ্যম: অনলাইন। ক্লাস সংখ্যা: 12টি। সময়কাল: 3 Months। শুরুর তারিখ: 22 Jul 2026। ইনস্ট্রাক্টর: Shoaib Ahmad, Rupshree Chakraborty। বুকিং লিংক: https://www.promiseschool.app/hobbycamp/course/special-batch-online সাহায্যের জন্য কল করুন +8801814266295।"
+    },
+    {
+      "question": "প্রমিত উচ্চারণ ও আবৃত্তি শৈলী Special Batch - Online এ কতগুলো ক্লাস?",
+      "answer": "Hobbycamp কোর্স: প্রমিত উচ্চারণ ও আবৃত্তি শৈলী Special Batch - Online। এই কোর্সটি আবৃত্তির মৌলিক থেকে উন্নত বিষয়গুলো ধাপে ধাপে শেখানোর জন্য সাজানো। এতে বর্ণ-ধ্বনি, উচ্চারণ, স্বরলহরী, ছন্দ ও রসের মতো গুরুত্বপূর্ণ উপাদানগুলো শেখানো হয়। পাশাপাশি জিহ্বা ও ওষ্ঠের ব্যায়াম এবং গদ্যপাঠ ও উপস্থাপনার অনুশীলন করানো হয়। শেষে আবৃত্তি নির্মাণ ও একটি চূড়ান্ত পরীক্ষার মাধ্যমে দক্ষতা মূল্যায়ন করা হয়। মূল্য: ৳3,500। মাধ্যম: অনলাইন। ক্লাস সংখ্যা: 12টি। সময়কাল: 3 Months। শুরুর তারিখ: 22 Jul 2026। ইনস্ট্রাক্টর: Shoaib Ahmad, Rupshree Chakraborty। বুকিং লিংক: https://www.promiseschool.app/hobbycamp/course/special-batch-online সাহায্যের জন্য কল করুন +8801814266295।"
+    },
+    {
+      "question": "Tell me about the Hobbycamp course: এলিট ম্যাথ অলিম্পিয়াড প্রস্তুতি (লেভেল ১)",
+      "answer": "গ্রেড ৬ এবং তদূর্ধ্ব শিক্ষার্থীদের জন্য এই ৪ মাসের কোর্সে Permutation, Combination এবং Pattern ভিত্তিক সমস্যা সমাধানের শক্তিশালী ভিত্তি তৈরি করা হবে। শিক্ষার্থীরা ধাপে ধাপে গণনা, বিন্যাস, নির্বাচন এবং লজিক্যাল রিজনিং শিখবে, যা ক্লাস, প্র্যাকটিস এবং পরীক্ষার মাধ্যমে আরও শক্তিশালী হবে। এই কোর্সটি শিক্ষার্থীদের বিশ্লেষণী চিন্তাশক্তি বৃদ্ধি করবে এবং স্কুল পরীক্ষা ও অলিম্পিয়াডের জন্য প্রস্তুত করবে। Price: ৳6,000. Mode: offline. Classes: 32. Duration/workload: 4 Month. Starts: 18 Jul 2026. Instructor(s): Md. Sayem Shahriar. Book at https://www.promiseschool.app/hobbycamp/course/course-4 For help call +8801814266295."
     },
     {
       "question": "How much is the এলিট ম্যাথ অলিম্পিয়াড প্রস্তুতি (লেভেল ১) Hobbycamp course?",
-      "answer": "এলিট ম্যাথ অলিম্পিয়াড প্রস্তুতি (লেভেল ১) on Hobbycamp is ৳6,000 (discounted from ৳9,000), online, starts 19 Jun 2026. Book at https://www.promiseschool.app/hobbycamp"
+      "answer": "গ্রেড ৬ এবং তদূর্ধ্ব শিক্ষার্থীদের জন্য এই ৪ মাসের কোর্সে Permutation, Combination এবং Pattern ভিত্তিক সমস্যা সমাধানের শক্তিশালী ভিত্তি তৈরি করা হবে। শিক্ষার্থীরা ধাপে ধাপে গণনা, বিন্যাস, নির্বাচন এবং লজিক্যাল রিজনিং শিখবে, যা ক্লাস, প্র্যাকটিস এবং পরীক্ষার মাধ্যমে আরও শক্তিশালী হবে। এই কোর্সটি শিক্ষার্থীদের বিশ্লেষণী চিন্তাশক্তি বৃদ্ধি করবে এবং স্কুল পরীক্ষা ও অলিম্পিয়াডের জন্য প্রস্তুত করবে। Price: ৳6,000. Mode: offline. Classes: 32. Duration/workload: 4 Month. Starts: 18 Jul 2026. Instructor(s): Md. Sayem Shahriar. Book at https://www.promiseschool.app/hobbycamp/course/course-4 For help call +8801814266295."
+    },
+    {
+      "question": "What is the price of এলিট ম্যাথ অলিম্পিয়াড প্রস্তুতি (লেভেল ১)?",
+      "answer": "গ্রেড ৬ এবং তদূর্ধ্ব শিক্ষার্থীদের জন্য এই ৪ মাসের কোর্সে Permutation, Combination এবং Pattern ভিত্তিক সমস্যা সমাধানের শক্তিশালী ভিত্তি তৈরি করা হবে। শিক্ষার্থীরা ধাপে ধাপে গণনা, বিন্যাস, নির্বাচন এবং লজিক্যাল রিজনিং শিখবে, যা ক্লাস, প্র্যাকটিস এবং পরীক্ষার মাধ্যমে আরও শক্তিশালী হবে। এই কোর্সটি শিক্ষার্থীদের বিশ্লেষণী চিন্তাশক্তি বৃদ্ধি করবে এবং স্কুল পরীক্ষা ও অলিম্পিয়াডের জন্য প্রস্তুত করবে। Price: ৳6,000. Mode: offline. Classes: 32. Duration/workload: 4 Month. Starts: 18 Jul 2026. Instructor(s): Md. Sayem Shahriar. Book at https://www.promiseschool.app/hobbycamp/course/course-4 For help call +8801814266295."
+    },
+    {
+      "question": "When does এলিট ম্যাথ অলিম্পিয়াড প্রস্তুতি (লেভেল ১) start?",
+      "answer": "গ্রেড ৬ এবং তদূর্ধ্ব শিক্ষার্থীদের জন্য এই ৪ মাসের কোর্সে Permutation, Combination এবং Pattern ভিত্তিক সমস্যা সমাধানের শক্তিশালী ভিত্তি তৈরি করা হবে। শিক্ষার্থীরা ধাপে ধাপে গণনা, বিন্যাস, নির্বাচন এবং লজিক্যাল রিজনিং শিখবে, যা ক্লাস, প্র্যাকটিস এবং পরীক্ষার মাধ্যমে আরও শক্তিশালী হবে। এই কোর্সটি শিক্ষার্থীদের বিশ্লেষণী চিন্তাশক্তি বৃদ্ধি করবে এবং স্কুল পরীক্ষা ও অলিম্পিয়াডের জন্য প্রস্তুত করবে। Price: ৳6,000. Mode: offline. Classes: 32. Duration/workload: 4 Month. Starts: 18 Jul 2026. Instructor(s): Md. Sayem Shahriar. Book at https://www.promiseschool.app/hobbycamp/course/course-4 For help call +8801814266295."
+    },
+    {
+      "question": "Who teaches এলিট ম্যাথ অলিম্পিয়াড প্রস্তুতি (লেভেল ১)?",
+      "answer": "গ্রেড ৬ এবং তদূর্ধ্ব শিক্ষার্থীদের জন্য এই ৪ মাসের কোর্সে Permutation, Combination এবং Pattern ভিত্তিক সমস্যা সমাধানের শক্তিশালী ভিত্তি তৈরি করা হবে। শিক্ষার্থীরা ধাপে ধাপে গণনা, বিন্যাস, নির্বাচন এবং লজিক্যাল রিজনিং শিখবে, যা ক্লাস, প্র্যাকটিস এবং পরীক্ষার মাধ্যমে আরও শক্তিশালী হবে। এই কোর্সটি শিক্ষার্থীদের বিশ্লেষণী চিন্তাশক্তি বৃদ্ধি করবে এবং স্কুল পরীক্ষা ও অলিম্পিয়াডের জন্য প্রস্তুত করবে। Price: ৳6,000. Mode: offline. Classes: 32. Duration/workload: 4 Month. Starts: 18 Jul 2026. Instructor(s): Md. Sayem Shahriar. Book at https://www.promiseschool.app/hobbycamp/course/course-4 For help call +8801814266295."
+    },
+    {
+      "question": "How many classes are in এলিট ম্যাথ অলিম্পিয়াড প্রস্তুতি (লেভেল ১)?",
+      "answer": "গ্রেড ৬ এবং তদূর্ধ্ব শিক্ষার্থীদের জন্য এই ৪ মাসের কোর্সে Permutation, Combination এবং Pattern ভিত্তিক সমস্যা সমাধানের শক্তিশালী ভিত্তি তৈরি করা হবে। শিক্ষার্থীরা ধাপে ধাপে গণনা, বিন্যাস, নির্বাচন এবং লজিক্যাল রিজনিং শিখবে, যা ক্লাস, প্র্যাকটিস এবং পরীক্ষার মাধ্যমে আরও শক্তিশালী হবে। এই কোর্সটি শিক্ষার্থীদের বিশ্লেষণী চিন্তাশক্তি বৃদ্ধি করবে এবং স্কুল পরীক্ষা ও অলিম্পিয়াডের জন্য প্রস্তুত করবে। Price: ৳6,000. Mode: offline. Classes: 32. Duration/workload: 4 Month. Starts: 18 Jul 2026. Instructor(s): Md. Sayem Shahriar. Book at https://www.promiseschool.app/hobbycamp/course/course-4 For help call +8801814266295."
+    },
+    {
+      "question": "এলিট ম্যাথ অলিম্পিয়াড প্রস্তুতি (লেভেল ১) কোর্স সম্পর্কে বলো",
+      "answer": "Hobbycamp কোর্স: এলিট ম্যাথ অলিম্পিয়াড প্রস্তুতি (লেভেল ১)। গ্রেড ৬ এবং তদূর্ধ্ব শিক্ষার্থীদের জন্য এই ৪ মাসের কোর্সে Permutation, Combination এবং Pattern ভিত্তিক সমস্যা সমাধানের শক্তিশালী ভিত্তি তৈরি করা হবে। শিক্ষার্থীরা ধাপে ধাপে গণনা, বিন্যাস, নির্বাচন এবং লজিক্যাল রিজনিং শিখবে, যা ক্লাস, প্র্যাকটিস এবং পরীক্ষার মাধ্যমে আরও শক্তিশালী হবে। এই কোর্সটি শিক্ষার্থীদের বিশ্লেষণী চিন্তাশক্তি বৃদ্ধি করবে এবং স্কুল পরীক্ষা ও অলিম্পিয়াডের জন্য প্রস্তুত করবে। মূল্য: ৳6,000। মাধ্যম: অফলাইন। ক্লাস সংখ্যা: 32টি। সময়কাল: 4 Month। শুরুর তারিখ: 18 Jul 2026। ইনস্ট্রাক্টর: Md. Sayem Shahriar। বুকিং লিংক: https://www.promiseschool.app/hobbycamp/course/course-4 সাহায্যের জন্য কল করুন +8801814266295।"
     },
     {
       "question": "এলিট ম্যাথ অলিম্পিয়াড প্রস্তুতি (লেভেল ১) কোর্সের দাম কত?",
-      "answer": "Hobbycamp-এ এলিট ম্যাথ অলিম্পিয়াড প্রস্তুতি (লেভেল ১) — ৳6,000 (discounted from ৳9,000), online, starts 19 Jun 2026। বুকিং: https://www.promiseschool.app/hobbycamp"
+      "answer": "Hobbycamp কোর্স: এলিট ম্যাথ অলিম্পিয়াড প্রস্তুতি (লেভেল ১)। গ্রেড ৬ এবং তদূর্ধ্ব শিক্ষার্থীদের জন্য এই ৪ মাসের কোর্সে Permutation, Combination এবং Pattern ভিত্তিক সমস্যা সমাধানের শক্তিশালী ভিত্তি তৈরি করা হবে। শিক্ষার্থীরা ধাপে ধাপে গণনা, বিন্যাস, নির্বাচন এবং লজিক্যাল রিজনিং শিখবে, যা ক্লাস, প্র্যাকটিস এবং পরীক্ষার মাধ্যমে আরও শক্তিশালী হবে। এই কোর্সটি শিক্ষার্থীদের বিশ্লেষণী চিন্তাশক্তি বৃদ্ধি করবে এবং স্কুল পরীক্ষা ও অলিম্পিয়াডের জন্য প্রস্তুত করবে। মূল্য: ৳6,000। মাধ্যম: অফলাইন। ক্লাস সংখ্যা: 32টি। সময়কাল: 4 Month। শুরুর তারিখ: 18 Jul 2026। ইনস্ট্রাক্টর: Md. Sayem Shahriar। বুকিং লিংক: https://www.promiseschool.app/hobbycamp/course/course-4 সাহায্যের জন্য কল করুন +8801814266295।"
+    },
+    {
+      "question": "এলিট ম্যাথ অলিম্পিয়াড প্রস্তুতি (লেভেল ১) কবে শুরু?",
+      "answer": "Hobbycamp কোর্স: এলিট ম্যাথ অলিম্পিয়াড প্রস্তুতি (লেভেল ১)। গ্রেড ৬ এবং তদূর্ধ্ব শিক্ষার্থীদের জন্য এই ৪ মাসের কোর্সে Permutation, Combination এবং Pattern ভিত্তিক সমস্যা সমাধানের শক্তিশালী ভিত্তি তৈরি করা হবে। শিক্ষার্থীরা ধাপে ধাপে গণনা, বিন্যাস, নির্বাচন এবং লজিক্যাল রিজনিং শিখবে, যা ক্লাস, প্র্যাকটিস এবং পরীক্ষার মাধ্যমে আরও শক্তিশালী হবে। এই কোর্সটি শিক্ষার্থীদের বিশ্লেষণী চিন্তাশক্তি বৃদ্ধি করবে এবং স্কুল পরীক্ষা ও অলিম্পিয়াডের জন্য প্রস্তুত করবে। মূল্য: ৳6,000। মাধ্যম: অফলাইন। ক্লাস সংখ্যা: 32টি। সময়কাল: 4 Month। শুরুর তারিখ: 18 Jul 2026। ইনস্ট্রাক্টর: Md. Sayem Shahriar। বুকিং লিংক: https://www.promiseschool.app/hobbycamp/course/course-4 সাহায্যের জন্য কল করুন +8801814266295।"
+    },
+    {
+      "question": "এলিট ম্যাথ অলিম্পিয়াড প্রস্তুতি (লেভেল ১) এর ইনস্ট্রাক্টর কে?",
+      "answer": "Hobbycamp কোর্স: এলিট ম্যাথ অলিম্পিয়াড প্রস্তুতি (লেভেল ১)। গ্রেড ৬ এবং তদূর্ধ্ব শিক্ষার্থীদের জন্য এই ৪ মাসের কোর্সে Permutation, Combination এবং Pattern ভিত্তিক সমস্যা সমাধানের শক্তিশালী ভিত্তি তৈরি করা হবে। শিক্ষার্থীরা ধাপে ধাপে গণনা, বিন্যাস, নির্বাচন এবং লজিক্যাল রিজনিং শিখবে, যা ক্লাস, প্র্যাকটিস এবং পরীক্ষার মাধ্যমে আরও শক্তিশালী হবে। এই কোর্সটি শিক্ষার্থীদের বিশ্লেষণী চিন্তাশক্তি বৃদ্ধি করবে এবং স্কুল পরীক্ষা ও অলিম্পিয়াডের জন্য প্রস্তুত করবে। মূল্য: ৳6,000। মাধ্যম: অফলাইন। ক্লাস সংখ্যা: 32টি। সময়কাল: 4 Month। শুরুর তারিখ: 18 Jul 2026। ইনস্ট্রাক্টর: Md. Sayem Shahriar। বুকিং লিংক: https://www.promiseschool.app/hobbycamp/course/course-4 সাহায্যের জন্য কল করুন +8801814266295।"
+    },
+    {
+      "question": "এলিট ম্যাথ অলিম্পিয়াড প্রস্তুতি (লেভেল ১) এ কতগুলো ক্লাস?",
+      "answer": "Hobbycamp কোর্স: এলিট ম্যাথ অলিম্পিয়াড প্রস্তুতি (লেভেল ১)। গ্রেড ৬ এবং তদূর্ধ্ব শিক্ষার্থীদের জন্য এই ৪ মাসের কোর্সে Permutation, Combination এবং Pattern ভিত্তিক সমস্যা সমাধানের শক্তিশালী ভিত্তি তৈরি করা হবে। শিক্ষার্থীরা ধাপে ধাপে গণনা, বিন্যাস, নির্বাচন এবং লজিক্যাল রিজনিং শিখবে, যা ক্লাস, প্র্যাকটিস এবং পরীক্ষার মাধ্যমে আরও শক্তিশালী হবে। এই কোর্সটি শিক্ষার্থীদের বিশ্লেষণী চিন্তাশক্তি বৃদ্ধি করবে এবং স্কুল পরীক্ষা ও অলিম্পিয়াডের জন্য প্রস্তুত করবে। মূল্য: ৳6,000। মাধ্যম: অফলাইন। ক্লাস সংখ্যা: 32টি। সময়কাল: 4 Month। শুরুর তারিখ: 18 Jul 2026। ইনস্ট্রাক্টর: Md. Sayem Shahriar। বুকিং লিংক: https://www.promiseschool.app/hobbycamp/course/course-4 সাহায্যের জন্য কল করুন +8801814266295।"
+    },
+    {
+      "question": "Tell me about the Hobbycamp course: ম্যাথ মাইন্ডস: নাম্বার থিওরি ও লজিক মাস্টারি (লেভেল ১)",
+      "answer": "গ্রেড ৪–৫ শিক্ষার্থীদের জন্য তৈরি এই কোর্সে মজার ও ইন্টারেক্টিভ উপায়ে শেখানো হবে Number Theory ও Logical Thinking। Factor, Multiple, Divisibility, Prime Number, Pattern, Series এবং Olympiad ধাঁচের সমস্যা সমাধানের মাধ্যমে শিক্ষার্থীরা গড়ে তুলবে শক্তিশালী গণিতভিত্তি, লজিক্যাল চিন্তাশক্তি এবং স্মার্ট প্রবলেম সলভিং দক্ষতা। Price: ৳6,000. Mode: offline. Classes: 32. Duration/workload: 4 Month. Starts: 18 Jul 2026. Instructor(s): Md. Sayem Shahriar. Book at https://www.promiseschool.app/hobbycamp/course/course-3 For help call +8801814266295."
     },
     {
       "question": "How much is the ম্যাথ মাইন্ডস: নাম্বার থিওরি ও লজিক মাস্টারি (লেভেল ১) Hobbycamp course?",
-      "answer": "ম্যাথ মাইন্ডস: নাম্বার থিওরি ও লজিক মাস্টারি (লেভেল ১) on Hobbycamp is ৳6,000 (discounted from ৳9,000), online, starts 19 Jun 2026. Book at https://www.promiseschool.app/hobbycamp"
+      "answer": "গ্রেড ৪–৫ শিক্ষার্থীদের জন্য তৈরি এই কোর্সে মজার ও ইন্টারেক্টিভ উপায়ে শেখানো হবে Number Theory ও Logical Thinking। Factor, Multiple, Divisibility, Prime Number, Pattern, Series এবং Olympiad ধাঁচের সমস্যা সমাধানের মাধ্যমে শিক্ষার্থীরা গড়ে তুলবে শক্তিশালী গণিতভিত্তি, লজিক্যাল চিন্তাশক্তি এবং স্মার্ট প্রবলেম সলভিং দক্ষতা। Price: ৳6,000. Mode: offline. Classes: 32. Duration/workload: 4 Month. Starts: 18 Jul 2026. Instructor(s): Md. Sayem Shahriar. Book at https://www.promiseschool.app/hobbycamp/course/course-3 For help call +8801814266295."
+    },
+    {
+      "question": "What is the price of ম্যাথ মাইন্ডস: নাম্বার থিওরি ও লজিক মাস্টারি (লেভেল ১)?",
+      "answer": "গ্রেড ৪–৫ শিক্ষার্থীদের জন্য তৈরি এই কোর্সে মজার ও ইন্টারেক্টিভ উপায়ে শেখানো হবে Number Theory ও Logical Thinking। Factor, Multiple, Divisibility, Prime Number, Pattern, Series এবং Olympiad ধাঁচের সমস্যা সমাধানের মাধ্যমে শিক্ষার্থীরা গড়ে তুলবে শক্তিশালী গণিতভিত্তি, লজিক্যাল চিন্তাশক্তি এবং স্মার্ট প্রবলেম সলভিং দক্ষতা। Price: ৳6,000. Mode: offline. Classes: 32. Duration/workload: 4 Month. Starts: 18 Jul 2026. Instructor(s): Md. Sayem Shahriar. Book at https://www.promiseschool.app/hobbycamp/course/course-3 For help call +8801814266295."
+    },
+    {
+      "question": "When does ম্যাথ মাইন্ডস: নাম্বার থিওরি ও লজিক মাস্টারি (লেভেল ১) start?",
+      "answer": "গ্রেড ৪–৫ শিক্ষার্থীদের জন্য তৈরি এই কোর্সে মজার ও ইন্টারেক্টিভ উপায়ে শেখানো হবে Number Theory ও Logical Thinking। Factor, Multiple, Divisibility, Prime Number, Pattern, Series এবং Olympiad ধাঁচের সমস্যা সমাধানের মাধ্যমে শিক্ষার্থীরা গড়ে তুলবে শক্তিশালী গণিতভিত্তি, লজিক্যাল চিন্তাশক্তি এবং স্মার্ট প্রবলেম সলভিং দক্ষতা। Price: ৳6,000. Mode: offline. Classes: 32. Duration/workload: 4 Month. Starts: 18 Jul 2026. Instructor(s): Md. Sayem Shahriar. Book at https://www.promiseschool.app/hobbycamp/course/course-3 For help call +8801814266295."
+    },
+    {
+      "question": "Who teaches ম্যাথ মাইন্ডস: নাম্বার থিওরি ও লজিক মাস্টারি (লেভেল ১)?",
+      "answer": "গ্রেড ৪–৫ শিক্ষার্থীদের জন্য তৈরি এই কোর্সে মজার ও ইন্টারেক্টিভ উপায়ে শেখানো হবে Number Theory ও Logical Thinking। Factor, Multiple, Divisibility, Prime Number, Pattern, Series এবং Olympiad ধাঁচের সমস্যা সমাধানের মাধ্যমে শিক্ষার্থীরা গড়ে তুলবে শক্তিশালী গণিতভিত্তি, লজিক্যাল চিন্তাশক্তি এবং স্মার্ট প্রবলেম সলভিং দক্ষতা। Price: ৳6,000. Mode: offline. Classes: 32. Duration/workload: 4 Month. Starts: 18 Jul 2026. Instructor(s): Md. Sayem Shahriar. Book at https://www.promiseschool.app/hobbycamp/course/course-3 For help call +8801814266295."
+    },
+    {
+      "question": "How many classes are in ম্যাথ মাইন্ডস: নাম্বার থিওরি ও লজিক মাস্টারি (লেভেল ১)?",
+      "answer": "গ্রেড ৪–৫ শিক্ষার্থীদের জন্য তৈরি এই কোর্সে মজার ও ইন্টারেক্টিভ উপায়ে শেখানো হবে Number Theory ও Logical Thinking। Factor, Multiple, Divisibility, Prime Number, Pattern, Series এবং Olympiad ধাঁচের সমস্যা সমাধানের মাধ্যমে শিক্ষার্থীরা গড়ে তুলবে শক্তিশালী গণিতভিত্তি, লজিক্যাল চিন্তাশক্তি এবং স্মার্ট প্রবলেম সলভিং দক্ষতা। Price: ৳6,000. Mode: offline. Classes: 32. Duration/workload: 4 Month. Starts: 18 Jul 2026. Instructor(s): Md. Sayem Shahriar. Book at https://www.promiseschool.app/hobbycamp/course/course-3 For help call +8801814266295."
+    },
+    {
+      "question": "ম্যাথ মাইন্ডস: নাম্বার থিওরি ও লজিক মাস্টারি (লেভেল ১) কোর্স সম্পর্কে বলো",
+      "answer": "Hobbycamp কোর্স: ম্যাথ মাইন্ডস: নাম্বার থিওরি ও লজিক মাস্টারি (লেভেল ১)। গ্রেড ৪–৫ শিক্ষার্থীদের জন্য তৈরি এই কোর্সে মজার ও ইন্টারেক্টিভ উপায়ে শেখানো হবে Number Theory ও Logical Thinking। Factor, Multiple, Divisibility, Prime Number, Pattern, Series এবং Olympiad ধাঁচের সমস্যা সমাধানের মাধ্যমে শিক্ষার্থীরা গড়ে তুলবে শক্তিশালী গণিতভিত্তি, লজিক্যাল চিন্তাশক্তি এবং স্মার্ট প্রবলেম সলভিং দক্ষতা। মূল্য: ৳6,000। মাধ্যম: অফলাইন। ক্লাস সংখ্যা: 32টি। সময়কাল: 4 Month। শুরুর তারিখ: 18 Jul 2026। ইনস্ট্রাক্টর: Md. Sayem Shahriar। বুকিং লিংক: https://www.promiseschool.app/hobbycamp/course/course-3 সাহায্যের জন্য কল করুন +8801814266295।"
     },
     {
       "question": "ম্যাথ মাইন্ডস: নাম্বার থিওরি ও লজিক মাস্টারি (লেভেল ১) কোর্সের দাম কত?",
-      "answer": "Hobbycamp-এ ম্যাথ মাইন্ডস: নাম্বার থিওরি ও লজিক মাস্টারি (লেভেল ১) — ৳6,000 (discounted from ৳9,000), online, starts 19 Jun 2026। বুকিং: https://www.promiseschool.app/hobbycamp"
+      "answer": "Hobbycamp কোর্স: ম্যাথ মাইন্ডস: নাম্বার থিওরি ও লজিক মাস্টারি (লেভেল ১)। গ্রেড ৪–৫ শিক্ষার্থীদের জন্য তৈরি এই কোর্সে মজার ও ইন্টারেক্টিভ উপায়ে শেখানো হবে Number Theory ও Logical Thinking। Factor, Multiple, Divisibility, Prime Number, Pattern, Series এবং Olympiad ধাঁচের সমস্যা সমাধানের মাধ্যমে শিক্ষার্থীরা গড়ে তুলবে শক্তিশালী গণিতভিত্তি, লজিক্যাল চিন্তাশক্তি এবং স্মার্ট প্রবলেম সলভিং দক্ষতা। মূল্য: ৳6,000। মাধ্যম: অফলাইন। ক্লাস সংখ্যা: 32টি। সময়কাল: 4 Month। শুরুর তারিখ: 18 Jul 2026। ইনস্ট্রাক্টর: Md. Sayem Shahriar। বুকিং লিংক: https://www.promiseschool.app/hobbycamp/course/course-3 সাহায্যের জন্য কল করুন +8801814266295।"
     },
     {
-      "question": "How much is the Debate Course Offline Hobbycamp course?",
-      "answer": "Debate Course Offline on Hobbycamp is ৳3,500 (discounted from ৳4,500), offline, starts 6 Jun 2026. Book at https://www.promiseschool.app/hobbycamp"
+      "question": "ম্যাথ মাইন্ডস: নাম্বার থিওরি ও লজিক মাস্টারি (লেভেল ১) কবে শুরু?",
+      "answer": "Hobbycamp কোর্স: ম্যাথ মাইন্ডস: নাম্বার থিওরি ও লজিক মাস্টারি (লেভেল ১)। গ্রেড ৪–৫ শিক্ষার্থীদের জন্য তৈরি এই কোর্সে মজার ও ইন্টারেক্টিভ উপায়ে শেখানো হবে Number Theory ও Logical Thinking। Factor, Multiple, Divisibility, Prime Number, Pattern, Series এবং Olympiad ধাঁচের সমস্যা সমাধানের মাধ্যমে শিক্ষার্থীরা গড়ে তুলবে শক্তিশালী গণিতভিত্তি, লজিক্যাল চিন্তাশক্তি এবং স্মার্ট প্রবলেম সলভিং দক্ষতা। মূল্য: ৳6,000। মাধ্যম: অফলাইন। ক্লাস সংখ্যা: 32টি। সময়কাল: 4 Month। শুরুর তারিখ: 18 Jul 2026। ইনস্ট্রাক্টর: Md. Sayem Shahriar। বুকিং লিংক: https://www.promiseschool.app/hobbycamp/course/course-3 সাহায্যের জন্য কল করুন +8801814266295।"
     },
     {
-      "question": "What is the price of Debate Course Offline?",
-      "answer": "Debate Course Offline on Hobbycamp is ৳3,500 (discounted from ৳4,500), offline, starts 6 Jun 2026. Book at https://www.promiseschool.app/hobbycamp"
+      "question": "ম্যাথ মাইন্ডস: নাম্বার থিওরি ও লজিক মাস্টারি (লেভেল ১) এর ইনস্ট্রাক্টর কে?",
+      "answer": "Hobbycamp কোর্স: ম্যাথ মাইন্ডস: নাম্বার থিওরি ও লজিক মাস্টারি (লেভেল ১)। গ্রেড ৪–৫ শিক্ষার্থীদের জন্য তৈরি এই কোর্সে মজার ও ইন্টারেক্টিভ উপায়ে শেখানো হবে Number Theory ও Logical Thinking। Factor, Multiple, Divisibility, Prime Number, Pattern, Series এবং Olympiad ধাঁচের সমস্যা সমাধানের মাধ্যমে শিক্ষার্থীরা গড়ে তুলবে শক্তিশালী গণিতভিত্তি, লজিক্যাল চিন্তাশক্তি এবং স্মার্ট প্রবলেম সলভিং দক্ষতা। মূল্য: ৳6,000। মাধ্যম: অফলাইন। ক্লাস সংখ্যা: 32টি। সময়কাল: 4 Month। শুরুর তারিখ: 18 Jul 2026। ইনস্ট্রাক্টর: Md. Sayem Shahriar। বুকিং লিংক: https://www.promiseschool.app/hobbycamp/course/course-3 সাহায্যের জন্য কল করুন +8801814266295।"
     },
     {
-      "question": "How much is the Debate Course Hobbycamp course?",
-      "answer": "Debate Course on Hobbycamp is ৳1,500 (discounted from ৳2,500), online, starts 6 Jun 2026. Book at https://www.promiseschool.app/hobbycamp"
+      "question": "ম্যাথ মাইন্ডস: নাম্বার থিওরি ও লজিক মাস্টারি (লেভেল ১) এ কতগুলো ক্লাস?",
+      "answer": "Hobbycamp কোর্স: ম্যাথ মাইন্ডস: নাম্বার থিওরি ও লজিক মাস্টারি (লেভেল ১)। গ্রেড ৪–৫ শিক্ষার্থীদের জন্য তৈরি এই কোর্সে মজার ও ইন্টারেক্টিভ উপায়ে শেখানো হবে Number Theory ও Logical Thinking। Factor, Multiple, Divisibility, Prime Number, Pattern, Series এবং Olympiad ধাঁচের সমস্যা সমাধানের মাধ্যমে শিক্ষার্থীরা গড়ে তুলবে শক্তিশালী গণিতভিত্তি, লজিক্যাল চিন্তাশক্তি এবং স্মার্ট প্রবলেম সলভিং দক্ষতা। মূল্য: ৳6,000। মাধ্যম: অফলাইন। ক্লাস সংখ্যা: 32টি। সময়কাল: 4 Month। শুরুর তারিখ: 18 Jul 2026। ইনস্ট্রাক্টর: Md. Sayem Shahriar। বুকিং লিংক: https://www.promiseschool.app/hobbycamp/course/course-3 সাহায্যের জন্য কল করুন +8801814266295।"
     },
     {
-      "question": "What is the price of Debate Course?",
-      "answer": "Debate Course on Hobbycamp is ৳1,500 (discounted from ৳2,500), online, starts 6 Jun 2026. Book at https://www.promiseschool.app/hobbycamp"
-    },
-    {
-      "question": "How much is the Abrriti Course Offline Hobbycamp course?",
-      "answer": "Abrriti Course Offline on Hobbycamp is ৳3,500 (discounted from ৳4,500), offline, starts 6 Jun 2026. Book at https://www.promiseschool.app/hobbycamp"
-    },
-    {
-      "question": "What is the price of Abrriti Course Offline?",
-      "answer": "Abrriti Course Offline on Hobbycamp is ৳3,500 (discounted from ৳4,500), offline, starts 6 Jun 2026. Book at https://www.promiseschool.app/hobbycamp"
-    },
-    {
-      "question": "How much is the Abrriti Course Hobbycamp course?",
-      "answer": "Abrriti Course on Hobbycamp is ৳1,500 (discounted from ৳2,500), online, starts 1 Jun 2026. Book at https://www.promiseschool.app/hobbycamp"
-    },
-    {
-      "question": "What is the price of Abrriti Course?",
-      "answer": "Abrriti Course on Hobbycamp is ৳1,500 (discounted from ৳2,500), online, starts 1 Jun 2026. Book at https://www.promiseschool.app/hobbycamp"
+      "question": "Tell me about the Hobbycamp course: Programming for Kids",
+      "answer": "This course is designed for beginners with little to no programming experience who want to learn Python from scratch. It’s suitable for students, school learners, or anyone interested in coding and building simple projects.\r\nIntermediate learners can also join to strengthen fundamentals through hands-on practice. No prior experience is required—just basic computer knowledge and interest in learning. Price: ৳1,500. Mode: online. Classes: 15. Duration/workload: 3 Months. Starts: 18 Jul 2026. Instructor(s): Joynal Abedin Parag. Book at https://www.promiseschool.app/hobbycamp/course/programming-for-kids For help call +8801814266295."
     },
     {
       "question": "How much is the Programming for Kids Hobbycamp course?",
-      "answer": "Programming for Kids on Hobbycamp is ৳1,500 (discounted from ৳2,500), online, starts 6 Jun 2026. Book at https://www.promiseschool.app/hobbycamp"
+      "answer": "This course is designed for beginners with little to no programming experience who want to learn Python from scratch. It’s suitable for students, school learners, or anyone interested in coding and building simple projects.\r\nIntermediate learners can also join to strengthen fundamentals through hands-on practice. No prior experience is required—just basic computer knowledge and interest in learning. Price: ৳1,500. Mode: online. Classes: 15. Duration/workload: 3 Months. Starts: 18 Jul 2026. Instructor(s): Joynal Abedin Parag. Book at https://www.promiseschool.app/hobbycamp/course/programming-for-kids For help call +8801814266295."
     },
     {
       "question": "What is the price of Programming for Kids?",
-      "answer": "Programming for Kids on Hobbycamp is ৳1,500 (discounted from ৳2,500), online, starts 6 Jun 2026. Book at https://www.promiseschool.app/hobbycamp"
+      "answer": "This course is designed for beginners with little to no programming experience who want to learn Python from scratch. It’s suitable for students, school learners, or anyone interested in coding and building simple projects.\r\nIntermediate learners can also join to strengthen fundamentals through hands-on practice. No prior experience is required—just basic computer knowledge and interest in learning. Price: ৳1,500. Mode: online. Classes: 15. Duration/workload: 3 Months. Starts: 18 Jul 2026. Instructor(s): Joynal Abedin Parag. Book at https://www.promiseschool.app/hobbycamp/course/programming-for-kids For help call +8801814266295."
+    },
+    {
+      "question": "When does Programming for Kids start?",
+      "answer": "This course is designed for beginners with little to no programming experience who want to learn Python from scratch. It’s suitable for students, school learners, or anyone interested in coding and building simple projects.\r\nIntermediate learners can also join to strengthen fundamentals through hands-on practice. No prior experience is required—just basic computer knowledge and interest in learning. Price: ৳1,500. Mode: online. Classes: 15. Duration/workload: 3 Months. Starts: 18 Jul 2026. Instructor(s): Joynal Abedin Parag. Book at https://www.promiseschool.app/hobbycamp/course/programming-for-kids For help call +8801814266295."
+    },
+    {
+      "question": "Who teaches Programming for Kids?",
+      "answer": "This course is designed for beginners with little to no programming experience who want to learn Python from scratch. It’s suitable for students, school learners, or anyone interested in coding and building simple projects.\r\nIntermediate learners can also join to strengthen fundamentals through hands-on practice. No prior experience is required—just basic computer knowledge and interest in learning. Price: ৳1,500. Mode: online. Classes: 15. Duration/workload: 3 Months. Starts: 18 Jul 2026. Instructor(s): Joynal Abedin Parag. Book at https://www.promiseschool.app/hobbycamp/course/programming-for-kids For help call +8801814266295."
+    },
+    {
+      "question": "How many classes are in Programming for Kids?",
+      "answer": "This course is designed for beginners with little to no programming experience who want to learn Python from scratch. It’s suitable for students, school learners, or anyone interested in coding and building simple projects.\r\nIntermediate learners can also join to strengthen fundamentals through hands-on practice. No prior experience is required—just basic computer knowledge and interest in learning. Price: ৳1,500. Mode: online. Classes: 15. Duration/workload: 3 Months. Starts: 18 Jul 2026. Instructor(s): Joynal Abedin Parag. Book at https://www.promiseschool.app/hobbycamp/course/programming-for-kids For help call +8801814266295."
+    },
+    {
+      "question": "Programming for Kids কোর্স সম্পর্কে বলো",
+      "answer": "Hobbycamp কোর্স: Programming for Kids। মূল্য: ৳1,500। মাধ্যম: অনলাইন। ক্লাস সংখ্যা: 15টি। সময়কাল: 3 Months। শুরুর তারিখ: 18 Jul 2026। ইনস্ট্রাক্টর: Joynal Abedin Parag। বুকিং লিংক: https://www.promiseschool.app/hobbycamp/course/programming-for-kids সাহায্যের জন্য কল করুন +8801814266295।"
+    },
+    {
+      "question": "Programming for Kids কোর্সের দাম কত?",
+      "answer": "Hobbycamp কোর্স: Programming for Kids। মূল্য: ৳1,500। মাধ্যম: অনলাইন। ক্লাস সংখ্যা: 15টি। সময়কাল: 3 Months। শুরুর তারিখ: 18 Jul 2026। ইনস্ট্রাক্টর: Joynal Abedin Parag। বুকিং লিংক: https://www.promiseschool.app/hobbycamp/course/programming-for-kids সাহায্যের জন্য কল করুন +8801814266295।"
+    },
+    {
+      "question": "Programming for Kids কবে শুরু?",
+      "answer": "Hobbycamp কোর্স: Programming for Kids। মূল্য: ৳1,500। মাধ্যম: অনলাইন। ক্লাস সংখ্যা: 15টি। সময়কাল: 3 Months। শুরুর তারিখ: 18 Jul 2026। ইনস্ট্রাক্টর: Joynal Abedin Parag। বুকিং লিংক: https://www.promiseschool.app/hobbycamp/course/programming-for-kids সাহায্যের জন্য কল করুন +8801814266295।"
+    },
+    {
+      "question": "Programming for Kids এর ইনস্ট্রাক্টর কে?",
+      "answer": "Hobbycamp কোর্স: Programming for Kids। মূল্য: ৳1,500। মাধ্যম: অনলাইন। ক্লাস সংখ্যা: 15টি। সময়কাল: 3 Months। শুরুর তারিখ: 18 Jul 2026। ইনস্ট্রাক্টর: Joynal Abedin Parag। বুকিং লিংক: https://www.promiseschool.app/hobbycamp/course/programming-for-kids সাহায্যের জন্য কল করুন +8801814266295।"
+    },
+    {
+      "question": "Programming for Kids এ কতগুলো ক্লাস?",
+      "answer": "Hobbycamp কোর্স: Programming for Kids। মূল্য: ৳1,500। মাধ্যম: অনলাইন। ক্লাস সংখ্যা: 15টি। সময়কাল: 3 Months। শুরুর তারিখ: 18 Jul 2026। ইনস্ট্রাক্টর: Joynal Abedin Parag। বুকিং লিংক: https://www.promiseschool.app/hobbycamp/course/programming-for-kids সাহায্যের জন্য কল করুন +8801814266295।"
+    },
+    {
+      "question": "Tell me about the Hobbycamp course: প্রমিত উচ্চারণ ও আবৃত্তি শৈলী - Offline",
+      "answer": "এই কোর্সটি আবৃত্তির মৌলিক থেকে উন্নত বিষয়গুলো ধাপে ধাপে শেখানোর জন্য সাজানো। এতে বর্ণ-ধ্বনি, উচ্চারণ, স্বরলহরী, ছন্দ ও রসের মতো গুরুত্বপূর্ণ উপাদানগুলো শেখানো হয়। পাশাপাশি জিহ্বা ও ওষ্ঠের ব্যায়াম এবং গদ্যপাঠ ও উপস্থাপনার অনুশীলন করানো হয়। শেষে আবৃত্তি নির্মাণ ও একটি চূড়ান্ত পরীক্ষার মাধ্যমে দক্ষতা মূল্যায়ন করা হয়। Price: ৳3,500. Mode: offline. Classes: 12. Duration/workload: 3 Months. Starts: 18 Jul 2026. Instructor(s): Subarna Arfin. Book at https://www.promiseschool.app/hobbycamp/course/offline For help call +8801814266295."
+    },
+    {
+      "question": "How much is the প্রমিত উচ্চারণ ও আবৃত্তি শৈলী - Offline Hobbycamp course?",
+      "answer": "এই কোর্সটি আবৃত্তির মৌলিক থেকে উন্নত বিষয়গুলো ধাপে ধাপে শেখানোর জন্য সাজানো। এতে বর্ণ-ধ্বনি, উচ্চারণ, স্বরলহরী, ছন্দ ও রসের মতো গুরুত্বপূর্ণ উপাদানগুলো শেখানো হয়। পাশাপাশি জিহ্বা ও ওষ্ঠের ব্যায়াম এবং গদ্যপাঠ ও উপস্থাপনার অনুশীলন করানো হয়। শেষে আবৃত্তি নির্মাণ ও একটি চূড়ান্ত পরীক্ষার মাধ্যমে দক্ষতা মূল্যায়ন করা হয়। Price: ৳3,500. Mode: offline. Classes: 12. Duration/workload: 3 Months. Starts: 18 Jul 2026. Instructor(s): Subarna Arfin. Book at https://www.promiseschool.app/hobbycamp/course/offline For help call +8801814266295."
+    },
+    {
+      "question": "What is the price of প্রমিত উচ্চারণ ও আবৃত্তি শৈলী - Offline?",
+      "answer": "এই কোর্সটি আবৃত্তির মৌলিক থেকে উন্নত বিষয়গুলো ধাপে ধাপে শেখানোর জন্য সাজানো। এতে বর্ণ-ধ্বনি, উচ্চারণ, স্বরলহরী, ছন্দ ও রসের মতো গুরুত্বপূর্ণ উপাদানগুলো শেখানো হয়। পাশাপাশি জিহ্বা ও ওষ্ঠের ব্যায়াম এবং গদ্যপাঠ ও উপস্থাপনার অনুশীলন করানো হয়। শেষে আবৃত্তি নির্মাণ ও একটি চূড়ান্ত পরীক্ষার মাধ্যমে দক্ষতা মূল্যায়ন করা হয়। Price: ৳3,500. Mode: offline. Classes: 12. Duration/workload: 3 Months. Starts: 18 Jul 2026. Instructor(s): Subarna Arfin. Book at https://www.promiseschool.app/hobbycamp/course/offline For help call +8801814266295."
+    },
+    {
+      "question": "When does প্রমিত উচ্চারণ ও আবৃত্তি শৈলী - Offline start?",
+      "answer": "এই কোর্সটি আবৃত্তির মৌলিক থেকে উন্নত বিষয়গুলো ধাপে ধাপে শেখানোর জন্য সাজানো। এতে বর্ণ-ধ্বনি, উচ্চারণ, স্বরলহরী, ছন্দ ও রসের মতো গুরুত্বপূর্ণ উপাদানগুলো শেখানো হয়। পাশাপাশি জিহ্বা ও ওষ্ঠের ব্যায়াম এবং গদ্যপাঠ ও উপস্থাপনার অনুশীলন করানো হয়। শেষে আবৃত্তি নির্মাণ ও একটি চূড়ান্ত পরীক্ষার মাধ্যমে দক্ষতা মূল্যায়ন করা হয়। Price: ৳3,500. Mode: offline. Classes: 12. Duration/workload: 3 Months. Starts: 18 Jul 2026. Instructor(s): Subarna Arfin. Book at https://www.promiseschool.app/hobbycamp/course/offline For help call +8801814266295."
+    },
+    {
+      "question": "Who teaches প্রমিত উচ্চারণ ও আবৃত্তি শৈলী - Offline?",
+      "answer": "এই কোর্সটি আবৃত্তির মৌলিক থেকে উন্নত বিষয়গুলো ধাপে ধাপে শেখানোর জন্য সাজানো। এতে বর্ণ-ধ্বনি, উচ্চারণ, স্বরলহরী, ছন্দ ও রসের মতো গুরুত্বপূর্ণ উপাদানগুলো শেখানো হয়। পাশাপাশি জিহ্বা ও ওষ্ঠের ব্যায়াম এবং গদ্যপাঠ ও উপস্থাপনার অনুশীলন করানো হয়। শেষে আবৃত্তি নির্মাণ ও একটি চূড়ান্ত পরীক্ষার মাধ্যমে দক্ষতা মূল্যায়ন করা হয়। Price: ৳3,500. Mode: offline. Classes: 12. Duration/workload: 3 Months. Starts: 18 Jul 2026. Instructor(s): Subarna Arfin. Book at https://www.promiseschool.app/hobbycamp/course/offline For help call +8801814266295."
+    },
+    {
+      "question": "How many classes are in প্রমিত উচ্চারণ ও আবৃত্তি শৈলী - Offline?",
+      "answer": "এই কোর্সটি আবৃত্তির মৌলিক থেকে উন্নত বিষয়গুলো ধাপে ধাপে শেখানোর জন্য সাজানো। এতে বর্ণ-ধ্বনি, উচ্চারণ, স্বরলহরী, ছন্দ ও রসের মতো গুরুত্বপূর্ণ উপাদানগুলো শেখানো হয়। পাশাপাশি জিহ্বা ও ওষ্ঠের ব্যায়াম এবং গদ্যপাঠ ও উপস্থাপনার অনুশীলন করানো হয়। শেষে আবৃত্তি নির্মাণ ও একটি চূড়ান্ত পরীক্ষার মাধ্যমে দক্ষতা মূল্যায়ন করা হয়। Price: ৳3,500. Mode: offline. Classes: 12. Duration/workload: 3 Months. Starts: 18 Jul 2026. Instructor(s): Subarna Arfin. Book at https://www.promiseschool.app/hobbycamp/course/offline For help call +8801814266295."
+    },
+    {
+      "question": "প্রমিত উচ্চারণ ও আবৃত্তি শৈলী - Offline কোর্স সম্পর্কে বলো",
+      "answer": "Hobbycamp কোর্স: প্রমিত উচ্চারণ ও আবৃত্তি শৈলী - Offline। এই কোর্সটি আবৃত্তির মৌলিক থেকে উন্নত বিষয়গুলো ধাপে ধাপে শেখানোর জন্য সাজানো। এতে বর্ণ-ধ্বনি, উচ্চারণ, স্বরলহরী, ছন্দ ও রসের মতো গুরুত্বপূর্ণ উপাদানগুলো শেখানো হয়। পাশাপাশি জিহ্বা ও ওষ্ঠের ব্যায়াম এবং গদ্যপাঠ ও উপস্থাপনার অনুশীলন করানো হয়। শেষে আবৃত্তি নির্মাণ ও একটি চূড়ান্ত পরীক্ষার মাধ্যমে দক্ষতা মূল্যায়ন করা হয়। মূল্য: ৳3,500। মাধ্যম: অফলাইন। ক্লাস সংখ্যা: 12টি। সময়কাল: 3 Months। শুরুর তারিখ: 18 Jul 2026। ইনস্ট্রাক্টর: Subarna Arfin। বুকিং লিংক: https://www.promiseschool.app/hobbycamp/course/offline সাহায্যের জন্য কল করুন +8801814266295।"
+    },
+    {
+      "question": "প্রমিত উচ্চারণ ও আবৃত্তি শৈলী - Offline কোর্সের দাম কত?",
+      "answer": "Hobbycamp কোর্স: প্রমিত উচ্চারণ ও আবৃত্তি শৈলী - Offline। এই কোর্সটি আবৃত্তির মৌলিক থেকে উন্নত বিষয়গুলো ধাপে ধাপে শেখানোর জন্য সাজানো। এতে বর্ণ-ধ্বনি, উচ্চারণ, স্বরলহরী, ছন্দ ও রসের মতো গুরুত্বপূর্ণ উপাদানগুলো শেখানো হয়। পাশাপাশি জিহ্বা ও ওষ্ঠের ব্যায়াম এবং গদ্যপাঠ ও উপস্থাপনার অনুশীলন করানো হয়। শেষে আবৃত্তি নির্মাণ ও একটি চূড়ান্ত পরীক্ষার মাধ্যমে দক্ষতা মূল্যায়ন করা হয়। মূল্য: ৳3,500। মাধ্যম: অফলাইন। ক্লাস সংখ্যা: 12টি। সময়কাল: 3 Months। শুরুর তারিখ: 18 Jul 2026। ইনস্ট্রাক্টর: Subarna Arfin। বুকিং লিংক: https://www.promiseschool.app/hobbycamp/course/offline সাহায্যের জন্য কল করুন +8801814266295।"
+    },
+    {
+      "question": "প্রমিত উচ্চারণ ও আবৃত্তি শৈলী - Offline কবে শুরু?",
+      "answer": "Hobbycamp কোর্স: প্রমিত উচ্চারণ ও আবৃত্তি শৈলী - Offline। এই কোর্সটি আবৃত্তির মৌলিক থেকে উন্নত বিষয়গুলো ধাপে ধাপে শেখানোর জন্য সাজানো। এতে বর্ণ-ধ্বনি, উচ্চারণ, স্বরলহরী, ছন্দ ও রসের মতো গুরুত্বপূর্ণ উপাদানগুলো শেখানো হয়। পাশাপাশি জিহ্বা ও ওষ্ঠের ব্যায়াম এবং গদ্যপাঠ ও উপস্থাপনার অনুশীলন করানো হয়। শেষে আবৃত্তি নির্মাণ ও একটি চূড়ান্ত পরীক্ষার মাধ্যমে দক্ষতা মূল্যায়ন করা হয়। মূল্য: ৳3,500। মাধ্যম: অফলাইন। ক্লাস সংখ্যা: 12টি। সময়কাল: 3 Months। শুরুর তারিখ: 18 Jul 2026। ইনস্ট্রাক্টর: Subarna Arfin। বুকিং লিংক: https://www.promiseschool.app/hobbycamp/course/offline সাহায্যের জন্য কল করুন +8801814266295।"
+    },
+    {
+      "question": "প্রমিত উচ্চারণ ও আবৃত্তি শৈলী - Offline এর ইনস্ট্রাক্টর কে?",
+      "answer": "Hobbycamp কোর্স: প্রমিত উচ্চারণ ও আবৃত্তি শৈলী - Offline। এই কোর্সটি আবৃত্তির মৌলিক থেকে উন্নত বিষয়গুলো ধাপে ধাপে শেখানোর জন্য সাজানো। এতে বর্ণ-ধ্বনি, উচ্চারণ, স্বরলহরী, ছন্দ ও রসের মতো গুরুত্বপূর্ণ উপাদানগুলো শেখানো হয়। পাশাপাশি জিহ্বা ও ওষ্ঠের ব্যায়াম এবং গদ্যপাঠ ও উপস্থাপনার অনুশীলন করানো হয়। শেষে আবৃত্তি নির্মাণ ও একটি চূড়ান্ত পরীক্ষার মাধ্যমে দক্ষতা মূল্যায়ন করা হয়। মূল্য: ৳3,500। মাধ্যম: অফলাইন। ক্লাস সংখ্যা: 12টি। সময়কাল: 3 Months। শুরুর তারিখ: 18 Jul 2026। ইনস্ট্রাক্টর: Subarna Arfin। বুকিং লিংক: https://www.promiseschool.app/hobbycamp/course/offline সাহায্যের জন্য কল করুন +8801814266295।"
+    },
+    {
+      "question": "প্রমিত উচ্চারণ ও আবৃত্তি শৈলী - Offline এ কতগুলো ক্লাস?",
+      "answer": "Hobbycamp কোর্স: প্রমিত উচ্চারণ ও আবৃত্তি শৈলী - Offline। এই কোর্সটি আবৃত্তির মৌলিক থেকে উন্নত বিষয়গুলো ধাপে ধাপে শেখানোর জন্য সাজানো। এতে বর্ণ-ধ্বনি, উচ্চারণ, স্বরলহরী, ছন্দ ও রসের মতো গুরুত্বপূর্ণ উপাদানগুলো শেখানো হয়। পাশাপাশি জিহ্বা ও ওষ্ঠের ব্যায়াম এবং গদ্যপাঠ ও উপস্থাপনার অনুশীলন করানো হয়। শেষে আবৃত্তি নির্মাণ ও একটি চূড়ান্ত পরীক্ষার মাধ্যমে দক্ষতা মূল্যায়ন করা হয়। মূল্য: ৳3,500। মাধ্যম: অফলাইন। ক্লাস সংখ্যা: 12টি। সময়কাল: 3 Months। শুরুর তারিখ: 18 Jul 2026। ইনস্ট্রাক্টর: Subarna Arfin। বুকিং লিংক: https://www.promiseschool.app/hobbycamp/course/offline সাহায্যের জন্য কল করুন +8801814266295।"
+    },
+    {
+      "question": "Tell me about the Hobbycamp course: Debate Course Offline",
+      "answer": "এই কোর্সটি ডিবেটের মৌলিক ধারণা থেকে শুরু করে বিভিন্ন ফরম্যাট (ট্র্যাডিশনাল, AP, BP) ও কৌশল শেখানোর জন্য তৈরি। এতে আর্গুমেন্ট বিল্ডিং, প্রিন্সিপল ও পলিসি বিশ্লেষণের মাধ্যমে যৌক্তিক ও সমালোচনামূলক চিন্তা উন্নত করা হয়। পাশাপাশি বিশ্ব ইতিহাস, অর্থনীতি ও আন্তর্জাতিক সম্পর্কের জ্ঞান ব্যবহার করে শক্তিশালী বক্তব্য তৈরি শেখানো হয়। শেষে মক ডিবেট ও ফিডব্যাকের মাধ্যমে শেখা দক্ষতাগুলো বাস্তবে প্রয়োগ ও মূল্যায়ন করা হয়। Price: ৳3,499. Mode: offline. Classes: 12. Duration/workload: 3 Months. Starts: 18 Jul 2026. Instructor(s): H M Sabir Noor. Book at https://www.promiseschool.app/hobbycamp/course/debate-course-offline For help call +8801814266295."
+    },
+    {
+      "question": "How much is the Debate Course Offline Hobbycamp course?",
+      "answer": "এই কোর্সটি ডিবেটের মৌলিক ধারণা থেকে শুরু করে বিভিন্ন ফরম্যাট (ট্র্যাডিশনাল, AP, BP) ও কৌশল শেখানোর জন্য তৈরি। এতে আর্গুমেন্ট বিল্ডিং, প্রিন্সিপল ও পলিসি বিশ্লেষণের মাধ্যমে যৌক্তিক ও সমালোচনামূলক চিন্তা উন্নত করা হয়। পাশাপাশি বিশ্ব ইতিহাস, অর্থনীতি ও আন্তর্জাতিক সম্পর্কের জ্ঞান ব্যবহার করে শক্তিশালী বক্তব্য তৈরি শেখানো হয়। শেষে মক ডিবেট ও ফিডব্যাকের মাধ্যমে শেখা দক্ষতাগুলো বাস্তবে প্রয়োগ ও মূল্যায়ন করা হয়। Price: ৳3,499. Mode: offline. Classes: 12. Duration/workload: 3 Months. Starts: 18 Jul 2026. Instructor(s): H M Sabir Noor. Book at https://www.promiseschool.app/hobbycamp/course/debate-course-offline For help call +8801814266295."
+    },
+    {
+      "question": "What is the price of Debate Course Offline?",
+      "answer": "এই কোর্সটি ডিবেটের মৌলিক ধারণা থেকে শুরু করে বিভিন্ন ফরম্যাট (ট্র্যাডিশনাল, AP, BP) ও কৌশল শেখানোর জন্য তৈরি। এতে আর্গুমেন্ট বিল্ডিং, প্রিন্সিপল ও পলিসি বিশ্লেষণের মাধ্যমে যৌক্তিক ও সমালোচনামূলক চিন্তা উন্নত করা হয়। পাশাপাশি বিশ্ব ইতিহাস, অর্থনীতি ও আন্তর্জাতিক সম্পর্কের জ্ঞান ব্যবহার করে শক্তিশালী বক্তব্য তৈরি শেখানো হয়। শেষে মক ডিবেট ও ফিডব্যাকের মাধ্যমে শেখা দক্ষতাগুলো বাস্তবে প্রয়োগ ও মূল্যায়ন করা হয়। Price: ৳3,499. Mode: offline. Classes: 12. Duration/workload: 3 Months. Starts: 18 Jul 2026. Instructor(s): H M Sabir Noor. Book at https://www.promiseschool.app/hobbycamp/course/debate-course-offline For help call +8801814266295."
+    },
+    {
+      "question": "When does Debate Course Offline start?",
+      "answer": "এই কোর্সটি ডিবেটের মৌলিক ধারণা থেকে শুরু করে বিভিন্ন ফরম্যাট (ট্র্যাডিশনাল, AP, BP) ও কৌশল শেখানোর জন্য তৈরি। এতে আর্গুমেন্ট বিল্ডিং, প্রিন্সিপল ও পলিসি বিশ্লেষণের মাধ্যমে যৌক্তিক ও সমালোচনামূলক চিন্তা উন্নত করা হয়। পাশাপাশি বিশ্ব ইতিহাস, অর্থনীতি ও আন্তর্জাতিক সম্পর্কের জ্ঞান ব্যবহার করে শক্তিশালী বক্তব্য তৈরি শেখানো হয়। শেষে মক ডিবেট ও ফিডব্যাকের মাধ্যমে শেখা দক্ষতাগুলো বাস্তবে প্রয়োগ ও মূল্যায়ন করা হয়। Price: ৳3,499. Mode: offline. Classes: 12. Duration/workload: 3 Months. Starts: 18 Jul 2026. Instructor(s): H M Sabir Noor. Book at https://www.promiseschool.app/hobbycamp/course/debate-course-offline For help call +8801814266295."
+    },
+    {
+      "question": "Who teaches Debate Course Offline?",
+      "answer": "এই কোর্সটি ডিবেটের মৌলিক ধারণা থেকে শুরু করে বিভিন্ন ফরম্যাট (ট্র্যাডিশনাল, AP, BP) ও কৌশল শেখানোর জন্য তৈরি। এতে আর্গুমেন্ট বিল্ডিং, প্রিন্সিপল ও পলিসি বিশ্লেষণের মাধ্যমে যৌক্তিক ও সমালোচনামূলক চিন্তা উন্নত করা হয়। পাশাপাশি বিশ্ব ইতিহাস, অর্থনীতি ও আন্তর্জাতিক সম্পর্কের জ্ঞান ব্যবহার করে শক্তিশালী বক্তব্য তৈরি শেখানো হয়। শেষে মক ডিবেট ও ফিডব্যাকের মাধ্যমে শেখা দক্ষতাগুলো বাস্তবে প্রয়োগ ও মূল্যায়ন করা হয়। Price: ৳3,499. Mode: offline. Classes: 12. Duration/workload: 3 Months. Starts: 18 Jul 2026. Instructor(s): H M Sabir Noor. Book at https://www.promiseschool.app/hobbycamp/course/debate-course-offline For help call +8801814266295."
+    },
+    {
+      "question": "How many classes are in Debate Course Offline?",
+      "answer": "এই কোর্সটি ডিবেটের মৌলিক ধারণা থেকে শুরু করে বিভিন্ন ফরম্যাট (ট্র্যাডিশনাল, AP, BP) ও কৌশল শেখানোর জন্য তৈরি। এতে আর্গুমেন্ট বিল্ডিং, প্রিন্সিপল ও পলিসি বিশ্লেষণের মাধ্যমে যৌক্তিক ও সমালোচনামূলক চিন্তা উন্নত করা হয়। পাশাপাশি বিশ্ব ইতিহাস, অর্থনীতি ও আন্তর্জাতিক সম্পর্কের জ্ঞান ব্যবহার করে শক্তিশালী বক্তব্য তৈরি শেখানো হয়। শেষে মক ডিবেট ও ফিডব্যাকের মাধ্যমে শেখা দক্ষতাগুলো বাস্তবে প্রয়োগ ও মূল্যায়ন করা হয়। Price: ৳3,499. Mode: offline. Classes: 12. Duration/workload: 3 Months. Starts: 18 Jul 2026. Instructor(s): H M Sabir Noor. Book at https://www.promiseschool.app/hobbycamp/course/debate-course-offline For help call +8801814266295."
+    },
+    {
+      "question": "Debate Course Offline কোর্স সম্পর্কে বলো",
+      "answer": "Hobbycamp কোর্স: Debate Course Offline। এই কোর্সটি ডিবেটের মৌলিক ধারণা থেকে শুরু করে বিভিন্ন ফরম্যাট (ট্র্যাডিশনাল, AP, BP) ও কৌশল শেখানোর জন্য তৈরি। এতে আর্গুমেন্ট বিল্ডিং, প্রিন্সিপল ও পলিসি বিশ্লেষণের মাধ্যমে যৌক্তিক ও সমালোচনামূলক চিন্তা উন্নত করা হয়। পাশাপাশি বিশ্ব ইতিহাস, অর্থনীতি ও আন্তর্জাতিক সম্পর্কের জ্ঞান ব্যবহার করে শক্তিশালী বক্তব্য তৈরি শেখানো হয়। শেষে মক ডিবেট ও ফিডব্যাকের মাধ্যমে শেখা দক্ষতাগুলো বাস্তবে প্রয়োগ ও মূল্যায়ন করা হয়। মূল্য: ৳3,499। মাধ্যম: অফলাইন। ক্লাস সংখ্যা: 12টি। সময়কাল: 3 Months। শুরুর তারিখ: 18 Jul 2026। ইনস্ট্রাক্টর: H M Sabir Noor। বুকিং লিংক: https://www.promiseschool.app/hobbycamp/course/debate-course-offline সাহায্যের জন্য কল করুন +8801814266295।"
+    },
+    {
+      "question": "Debate Course Offline কোর্সের দাম কত?",
+      "answer": "Hobbycamp কোর্স: Debate Course Offline। এই কোর্সটি ডিবেটের মৌলিক ধারণা থেকে শুরু করে বিভিন্ন ফরম্যাট (ট্র্যাডিশনাল, AP, BP) ও কৌশল শেখানোর জন্য তৈরি। এতে আর্গুমেন্ট বিল্ডিং, প্রিন্সিপল ও পলিসি বিশ্লেষণের মাধ্যমে যৌক্তিক ও সমালোচনামূলক চিন্তা উন্নত করা হয়। পাশাপাশি বিশ্ব ইতিহাস, অর্থনীতি ও আন্তর্জাতিক সম্পর্কের জ্ঞান ব্যবহার করে শক্তিশালী বক্তব্য তৈরি শেখানো হয়। শেষে মক ডিবেট ও ফিডব্যাকের মাধ্যমে শেখা দক্ষতাগুলো বাস্তবে প্রয়োগ ও মূল্যায়ন করা হয়। মূল্য: ৳3,499। মাধ্যম: অফলাইন। ক্লাস সংখ্যা: 12টি। সময়কাল: 3 Months। শুরুর তারিখ: 18 Jul 2026। ইনস্ট্রাক্টর: H M Sabir Noor। বুকিং লিংক: https://www.promiseschool.app/hobbycamp/course/debate-course-offline সাহায্যের জন্য কল করুন +8801814266295।"
+    },
+    {
+      "question": "Debate Course Offline কবে শুরু?",
+      "answer": "Hobbycamp কোর্স: Debate Course Offline। এই কোর্সটি ডিবেটের মৌলিক ধারণা থেকে শুরু করে বিভিন্ন ফরম্যাট (ট্র্যাডিশনাল, AP, BP) ও কৌশল শেখানোর জন্য তৈরি। এতে আর্গুমেন্ট বিল্ডিং, প্রিন্সিপল ও পলিসি বিশ্লেষণের মাধ্যমে যৌক্তিক ও সমালোচনামূলক চিন্তা উন্নত করা হয়। পাশাপাশি বিশ্ব ইতিহাস, অর্থনীতি ও আন্তর্জাতিক সম্পর্কের জ্ঞান ব্যবহার করে শক্তিশালী বক্তব্য তৈরি শেখানো হয়। শেষে মক ডিবেট ও ফিডব্যাকের মাধ্যমে শেখা দক্ষতাগুলো বাস্তবে প্রয়োগ ও মূল্যায়ন করা হয়। মূল্য: ৳3,499। মাধ্যম: অফলাইন। ক্লাস সংখ্যা: 12টি। সময়কাল: 3 Months। শুরুর তারিখ: 18 Jul 2026। ইনস্ট্রাক্টর: H M Sabir Noor। বুকিং লিংক: https://www.promiseschool.app/hobbycamp/course/debate-course-offline সাহায্যের জন্য কল করুন +8801814266295।"
+    },
+    {
+      "question": "Debate Course Offline এর ইনস্ট্রাক্টর কে?",
+      "answer": "Hobbycamp কোর্স: Debate Course Offline। এই কোর্সটি ডিবেটের মৌলিক ধারণা থেকে শুরু করে বিভিন্ন ফরম্যাট (ট্র্যাডিশনাল, AP, BP) ও কৌশল শেখানোর জন্য তৈরি। এতে আর্গুমেন্ট বিল্ডিং, প্রিন্সিপল ও পলিসি বিশ্লেষণের মাধ্যমে যৌক্তিক ও সমালোচনামূলক চিন্তা উন্নত করা হয়। পাশাপাশি বিশ্ব ইতিহাস, অর্থনীতি ও আন্তর্জাতিক সম্পর্কের জ্ঞান ব্যবহার করে শক্তিশালী বক্তব্য তৈরি শেখানো হয়। শেষে মক ডিবেট ও ফিডব্যাকের মাধ্যমে শেখা দক্ষতাগুলো বাস্তবে প্রয়োগ ও মূল্যায়ন করা হয়। মূল্য: ৳3,499। মাধ্যম: অফলাইন। ক্লাস সংখ্যা: 12টি। সময়কাল: 3 Months। শুরুর তারিখ: 18 Jul 2026। ইনস্ট্রাক্টর: H M Sabir Noor। বুকিং লিংক: https://www.promiseschool.app/hobbycamp/course/debate-course-offline সাহায্যের জন্য কল করুন +8801814266295।"
+    },
+    {
+      "question": "Debate Course Offline এ কতগুলো ক্লাস?",
+      "answer": "Hobbycamp কোর্স: Debate Course Offline। এই কোর্সটি ডিবেটের মৌলিক ধারণা থেকে শুরু করে বিভিন্ন ফরম্যাট (ট্র্যাডিশনাল, AP, BP) ও কৌশল শেখানোর জন্য তৈরি। এতে আর্গুমেন্ট বিল্ডিং, প্রিন্সিপল ও পলিসি বিশ্লেষণের মাধ্যমে যৌক্তিক ও সমালোচনামূলক চিন্তা উন্নত করা হয়। পাশাপাশি বিশ্ব ইতিহাস, অর্থনীতি ও আন্তর্জাতিক সম্পর্কের জ্ঞান ব্যবহার করে শক্তিশালী বক্তব্য তৈরি শেখানো হয়। শেষে মক ডিবেট ও ফিডব্যাকের মাধ্যমে শেখা দক্ষতাগুলো বাস্তবে প্রয়োগ ও মূল্যায়ন করা হয়। মূল্য: ৳3,499। মাধ্যম: অফলাইন। ক্লাস সংখ্যা: 12টি। সময়কাল: 3 Months। শুরুর তারিখ: 18 Jul 2026। ইনস্ট্রাক্টর: H M Sabir Noor। বুকিং লিংক: https://www.promiseschool.app/hobbycamp/course/debate-course-offline সাহায্যের জন্য কল করুন +8801814266295।"
+    },
+    {
+      "question": "Tell me about the Hobbycamp course: Python Beginner",
+      "answer": "This course is designed for beginners with little to no programming experience who want to learn Python from scratch. It’s suitable for students, school learners, or anyone interested in coding and building simple projects.\r\nIntermediate learners can also join to strengthen fundamentals through hands-on practice. No prior experience is required—just basic computer knowledge and interest in learning. Price: ৳1,500. Mode: online. Classes: 15. Duration/workload: 3 Months. Starts: 18 Jul 2026. Instructor(s): Joynal Abedin Parag. Book at https://www.promiseschool.app/hobbycamp/course/python-beginner For help call +8801814266295."
     },
     {
       "question": "How much is the Python Beginner Hobbycamp course?",
-      "answer": "Python Beginner on Hobbycamp is ৳1,500 (discounted from ৳2,500), online, starts 1 Jun 2026. Book at https://www.promiseschool.app/hobbycamp"
+      "answer": "This course is designed for beginners with little to no programming experience who want to learn Python from scratch. It’s suitable for students, school learners, or anyone interested in coding and building simple projects.\r\nIntermediate learners can also join to strengthen fundamentals through hands-on practice. No prior experience is required—just basic computer knowledge and interest in learning. Price: ৳1,500. Mode: online. Classes: 15. Duration/workload: 3 Months. Starts: 18 Jul 2026. Instructor(s): Joynal Abedin Parag. Book at https://www.promiseschool.app/hobbycamp/course/python-beginner For help call +8801814266295."
     },
     {
       "question": "What is the price of Python Beginner?",
-      "answer": "Python Beginner on Hobbycamp is ৳1,500 (discounted from ৳2,500), online, starts 1 Jun 2026. Book at https://www.promiseschool.app/hobbycamp"
+      "answer": "This course is designed for beginners with little to no programming experience who want to learn Python from scratch. It’s suitable for students, school learners, or anyone interested in coding and building simple projects.\r\nIntermediate learners can also join to strengthen fundamentals through hands-on practice. No prior experience is required—just basic computer knowledge and interest in learning. Price: ৳1,500. Mode: online. Classes: 15. Duration/workload: 3 Months. Starts: 18 Jul 2026. Instructor(s): Joynal Abedin Parag. Book at https://www.promiseschool.app/hobbycamp/course/python-beginner For help call +8801814266295."
+    },
+    {
+      "question": "When does Python Beginner start?",
+      "answer": "This course is designed for beginners with little to no programming experience who want to learn Python from scratch. It’s suitable for students, school learners, or anyone interested in coding and building simple projects.\r\nIntermediate learners can also join to strengthen fundamentals through hands-on practice. No prior experience is required—just basic computer knowledge and interest in learning. Price: ৳1,500. Mode: online. Classes: 15. Duration/workload: 3 Months. Starts: 18 Jul 2026. Instructor(s): Joynal Abedin Parag. Book at https://www.promiseschool.app/hobbycamp/course/python-beginner For help call +8801814266295."
+    },
+    {
+      "question": "Who teaches Python Beginner?",
+      "answer": "This course is designed for beginners with little to no programming experience who want to learn Python from scratch. It’s suitable for students, school learners, or anyone interested in coding and building simple projects.\r\nIntermediate learners can also join to strengthen fundamentals through hands-on practice. No prior experience is required—just basic computer knowledge and interest in learning. Price: ৳1,500. Mode: online. Classes: 15. Duration/workload: 3 Months. Starts: 18 Jul 2026. Instructor(s): Joynal Abedin Parag. Book at https://www.promiseschool.app/hobbycamp/course/python-beginner For help call +8801814266295."
+    },
+    {
+      "question": "How many classes are in Python Beginner?",
+      "answer": "This course is designed for beginners with little to no programming experience who want to learn Python from scratch. It’s suitable for students, school learners, or anyone interested in coding and building simple projects.\r\nIntermediate learners can also join to strengthen fundamentals through hands-on practice. No prior experience is required—just basic computer knowledge and interest in learning. Price: ৳1,500. Mode: online. Classes: 15. Duration/workload: 3 Months. Starts: 18 Jul 2026. Instructor(s): Joynal Abedin Parag. Book at https://www.promiseschool.app/hobbycamp/course/python-beginner For help call +8801814266295."
+    },
+    {
+      "question": "Python Beginner কোর্স সম্পর্কে বলো",
+      "answer": "Hobbycamp কোর্স: Python Beginner। মূল্য: ৳1,500। মাধ্যম: অনলাইন। ক্লাস সংখ্যা: 15টি। সময়কাল: 3 Months। শুরুর তারিখ: 18 Jul 2026। ইনস্ট্রাক্টর: Joynal Abedin Parag। বুকিং লিংক: https://www.promiseschool.app/hobbycamp/course/python-beginner সাহায্যের জন্য কল করুন +8801814266295।"
+    },
+    {
+      "question": "Python Beginner কোর্সের দাম কত?",
+      "answer": "Hobbycamp কোর্স: Python Beginner। মূল্য: ৳1,500। মাধ্যম: অনলাইন। ক্লাস সংখ্যা: 15টি। সময়কাল: 3 Months। শুরুর তারিখ: 18 Jul 2026। ইনস্ট্রাক্টর: Joynal Abedin Parag। বুকিং লিংক: https://www.promiseschool.app/hobbycamp/course/python-beginner সাহায্যের জন্য কল করুন +8801814266295।"
+    },
+    {
+      "question": "Python Beginner কবে শুরু?",
+      "answer": "Hobbycamp কোর্স: Python Beginner। মূল্য: ৳1,500। মাধ্যম: অনলাইন। ক্লাস সংখ্যা: 15টি। সময়কাল: 3 Months। শুরুর তারিখ: 18 Jul 2026। ইনস্ট্রাক্টর: Joynal Abedin Parag। বুকিং লিংক: https://www.promiseschool.app/hobbycamp/course/python-beginner সাহায্যের জন্য কল করুন +8801814266295।"
+    },
+    {
+      "question": "Python Beginner এর ইনস্ট্রাক্টর কে?",
+      "answer": "Hobbycamp কোর্স: Python Beginner। মূল্য: ৳1,500। মাধ্যম: অনলাইন। ক্লাস সংখ্যা: 15টি। সময়কাল: 3 Months। শুরুর তারিখ: 18 Jul 2026। ইনস্ট্রাক্টর: Joynal Abedin Parag। বুকিং লিংক: https://www.promiseschool.app/hobbycamp/course/python-beginner সাহায্যের জন্য কল করুন +8801814266295।"
+    },
+    {
+      "question": "Python Beginner এ কতগুলো ক্লাস?",
+      "answer": "Hobbycamp কোর্স: Python Beginner। মূল্য: ৳1,500। মাধ্যম: অনলাইন। ক্লাস সংখ্যা: 15টি। সময়কাল: 3 Months। শুরুর তারিখ: 18 Jul 2026। ইনস্ট্রাক্টর: Joynal Abedin Parag। বুকিং লিংক: https://www.promiseschool.app/hobbycamp/course/python-beginner সাহায্যের জন্য কল করুন +8801814266295।"
+    },
+    {
+      "question": "Tell me about the Hobbycamp course: প্রমিত উচ্চারণ ও আবৃত্তি শৈলী - Online",
+      "answer": "এই কোর্সটি আবৃত্তির মৌলিক থেকে উন্নত বিষয়গুলো ধাপে ধাপে শেখানোর জন্য সাজানো। এতে বর্ণ-ধ্বনি, উচ্চারণ, স্বরলহরী, ছন্দ ও রসের মতো গুরুত্বপূর্ণ উপাদানগুলো শেখানো হয়। পাশাপাশি জিহ্বা ও ওষ্ঠের ব্যায়াম এবং গদ্যপাঠ ও উপস্থাপনার অনুশীলন করানো হয়। শেষে আবৃত্তি নির্মাণ ও একটি চূড়ান্ত পরীক্ষার মাধ্যমে দক্ষতা মূল্যায়ন করা হয়। Price: ৳1,500. Mode: online. Classes: 11. Duration/workload: 3 Months. Starts: 23 Jul 2026. Instructor(s): Subarna Arfin. Book at https://www.promiseschool.app/hobbycamp/course/online For help call +8801814266295."
+    },
+    {
+      "question": "How much is the প্রমিত উচ্চারণ ও আবৃত্তি শৈলী - Online Hobbycamp course?",
+      "answer": "এই কোর্সটি আবৃত্তির মৌলিক থেকে উন্নত বিষয়গুলো ধাপে ধাপে শেখানোর জন্য সাজানো। এতে বর্ণ-ধ্বনি, উচ্চারণ, স্বরলহরী, ছন্দ ও রসের মতো গুরুত্বপূর্ণ উপাদানগুলো শেখানো হয়। পাশাপাশি জিহ্বা ও ওষ্ঠের ব্যায়াম এবং গদ্যপাঠ ও উপস্থাপনার অনুশীলন করানো হয়। শেষে আবৃত্তি নির্মাণ ও একটি চূড়ান্ত পরীক্ষার মাধ্যমে দক্ষতা মূল্যায়ন করা হয়। Price: ৳1,500. Mode: online. Classes: 11. Duration/workload: 3 Months. Starts: 23 Jul 2026. Instructor(s): Subarna Arfin. Book at https://www.promiseschool.app/hobbycamp/course/online For help call +8801814266295."
+    },
+    {
+      "question": "What is the price of প্রমিত উচ্চারণ ও আবৃত্তি শৈলী - Online?",
+      "answer": "এই কোর্সটি আবৃত্তির মৌলিক থেকে উন্নত বিষয়গুলো ধাপে ধাপে শেখানোর জন্য সাজানো। এতে বর্ণ-ধ্বনি, উচ্চারণ, স্বরলহরী, ছন্দ ও রসের মতো গুরুত্বপূর্ণ উপাদানগুলো শেখানো হয়। পাশাপাশি জিহ্বা ও ওষ্ঠের ব্যায়াম এবং গদ্যপাঠ ও উপস্থাপনার অনুশীলন করানো হয়। শেষে আবৃত্তি নির্মাণ ও একটি চূড়ান্ত পরীক্ষার মাধ্যমে দক্ষতা মূল্যায়ন করা হয়। Price: ৳1,500. Mode: online. Classes: 11. Duration/workload: 3 Months. Starts: 23 Jul 2026. Instructor(s): Subarna Arfin. Book at https://www.promiseschool.app/hobbycamp/course/online For help call +8801814266295."
+    },
+    {
+      "question": "When does প্রমিত উচ্চারণ ও আবৃত্তি শৈলী - Online start?",
+      "answer": "এই কোর্সটি আবৃত্তির মৌলিক থেকে উন্নত বিষয়গুলো ধাপে ধাপে শেখানোর জন্য সাজানো। এতে বর্ণ-ধ্বনি, উচ্চারণ, স্বরলহরী, ছন্দ ও রসের মতো গুরুত্বপূর্ণ উপাদানগুলো শেখানো হয়। পাশাপাশি জিহ্বা ও ওষ্ঠের ব্যায়াম এবং গদ্যপাঠ ও উপস্থাপনার অনুশীলন করানো হয়। শেষে আবৃত্তি নির্মাণ ও একটি চূড়ান্ত পরীক্ষার মাধ্যমে দক্ষতা মূল্যায়ন করা হয়। Price: ৳1,500. Mode: online. Classes: 11. Duration/workload: 3 Months. Starts: 23 Jul 2026. Instructor(s): Subarna Arfin. Book at https://www.promiseschool.app/hobbycamp/course/online For help call +8801814266295."
+    },
+    {
+      "question": "Who teaches প্রমিত উচ্চারণ ও আবৃত্তি শৈলী - Online?",
+      "answer": "এই কোর্সটি আবৃত্তির মৌলিক থেকে উন্নত বিষয়গুলো ধাপে ধাপে শেখানোর জন্য সাজানো। এতে বর্ণ-ধ্বনি, উচ্চারণ, স্বরলহরী, ছন্দ ও রসের মতো গুরুত্বপূর্ণ উপাদানগুলো শেখানো হয়। পাশাপাশি জিহ্বা ও ওষ্ঠের ব্যায়াম এবং গদ্যপাঠ ও উপস্থাপনার অনুশীলন করানো হয়। শেষে আবৃত্তি নির্মাণ ও একটি চূড়ান্ত পরীক্ষার মাধ্যমে দক্ষতা মূল্যায়ন করা হয়। Price: ৳1,500. Mode: online. Classes: 11. Duration/workload: 3 Months. Starts: 23 Jul 2026. Instructor(s): Subarna Arfin. Book at https://www.promiseschool.app/hobbycamp/course/online For help call +8801814266295."
+    },
+    {
+      "question": "How many classes are in প্রমিত উচ্চারণ ও আবৃত্তি শৈলী - Online?",
+      "answer": "এই কোর্সটি আবৃত্তির মৌলিক থেকে উন্নত বিষয়গুলো ধাপে ধাপে শেখানোর জন্য সাজানো। এতে বর্ণ-ধ্বনি, উচ্চারণ, স্বরলহরী, ছন্দ ও রসের মতো গুরুত্বপূর্ণ উপাদানগুলো শেখানো হয়। পাশাপাশি জিহ্বা ও ওষ্ঠের ব্যায়াম এবং গদ্যপাঠ ও উপস্থাপনার অনুশীলন করানো হয়। শেষে আবৃত্তি নির্মাণ ও একটি চূড়ান্ত পরীক্ষার মাধ্যমে দক্ষতা মূল্যায়ন করা হয়। Price: ৳1,500. Mode: online. Classes: 11. Duration/workload: 3 Months. Starts: 23 Jul 2026. Instructor(s): Subarna Arfin. Book at https://www.promiseschool.app/hobbycamp/course/online For help call +8801814266295."
+    },
+    {
+      "question": "প্রমিত উচ্চারণ ও আবৃত্তি শৈলী - Online কোর্স সম্পর্কে বলো",
+      "answer": "Hobbycamp কোর্স: প্রমিত উচ্চারণ ও আবৃত্তি শৈলী - Online। এই কোর্সটি আবৃত্তির মৌলিক থেকে উন্নত বিষয়গুলো ধাপে ধাপে শেখানোর জন্য সাজানো। এতে বর্ণ-ধ্বনি, উচ্চারণ, স্বরলহরী, ছন্দ ও রসের মতো গুরুত্বপূর্ণ উপাদানগুলো শেখানো হয়। পাশাপাশি জিহ্বা ও ওষ্ঠের ব্যায়াম এবং গদ্যপাঠ ও উপস্থাপনার অনুশীলন করানো হয়। শেষে আবৃত্তি নির্মাণ ও একটি চূড়ান্ত পরীক্ষার মাধ্যমে দক্ষতা মূল্যায়ন করা হয়। মূল্য: ৳1,500। মাধ্যম: অনলাইন। ক্লাস সংখ্যা: 11টি। সময়কাল: 3 Months। শুরুর তারিখ: 23 Jul 2026। ইনস্ট্রাক্টর: Subarna Arfin। বুকিং লিংক: https://www.promiseschool.app/hobbycamp/course/online সাহায্যের জন্য কল করুন +8801814266295।"
+    },
+    {
+      "question": "প্রমিত উচ্চারণ ও আবৃত্তি শৈলী - Online কোর্সের দাম কত?",
+      "answer": "Hobbycamp কোর্স: প্রমিত উচ্চারণ ও আবৃত্তি শৈলী - Online। এই কোর্সটি আবৃত্তির মৌলিক থেকে উন্নত বিষয়গুলো ধাপে ধাপে শেখানোর জন্য সাজানো। এতে বর্ণ-ধ্বনি, উচ্চারণ, স্বরলহরী, ছন্দ ও রসের মতো গুরুত্বপূর্ণ উপাদানগুলো শেখানো হয়। পাশাপাশি জিহ্বা ও ওষ্ঠের ব্যায়াম এবং গদ্যপাঠ ও উপস্থাপনার অনুশীলন করানো হয়। শেষে আবৃত্তি নির্মাণ ও একটি চূড়ান্ত পরীক্ষার মাধ্যমে দক্ষতা মূল্যায়ন করা হয়। মূল্য: ৳1,500। মাধ্যম: অনলাইন। ক্লাস সংখ্যা: 11টি। সময়কাল: 3 Months। শুরুর তারিখ: 23 Jul 2026। ইনস্ট্রাক্টর: Subarna Arfin। বুকিং লিংক: https://www.promiseschool.app/hobbycamp/course/online সাহায্যের জন্য কল করুন +8801814266295।"
+    },
+    {
+      "question": "প্রমিত উচ্চারণ ও আবৃত্তি শৈলী - Online কবে শুরু?",
+      "answer": "Hobbycamp কোর্স: প্রমিত উচ্চারণ ও আবৃত্তি শৈলী - Online। এই কোর্সটি আবৃত্তির মৌলিক থেকে উন্নত বিষয়গুলো ধাপে ধাপে শেখানোর জন্য সাজানো। এতে বর্ণ-ধ্বনি, উচ্চারণ, স্বরলহরী, ছন্দ ও রসের মতো গুরুত্বপূর্ণ উপাদানগুলো শেখানো হয়। পাশাপাশি জিহ্বা ও ওষ্ঠের ব্যায়াম এবং গদ্যপাঠ ও উপস্থাপনার অনুশীলন করানো হয়। শেষে আবৃত্তি নির্মাণ ও একটি চূড়ান্ত পরীক্ষার মাধ্যমে দক্ষতা মূল্যায়ন করা হয়। মূল্য: ৳1,500। মাধ্যম: অনলাইন। ক্লাস সংখ্যা: 11টি। সময়কাল: 3 Months। শুরুর তারিখ: 23 Jul 2026। ইনস্ট্রাক্টর: Subarna Arfin। বুকিং লিংক: https://www.promiseschool.app/hobbycamp/course/online সাহায্যের জন্য কল করুন +8801814266295।"
+    },
+    {
+      "question": "প্রমিত উচ্চারণ ও আবৃত্তি শৈলী - Online এর ইনস্ট্রাক্টর কে?",
+      "answer": "Hobbycamp কোর্স: প্রমিত উচ্চারণ ও আবৃত্তি শৈলী - Online। এই কোর্সটি আবৃত্তির মৌলিক থেকে উন্নত বিষয়গুলো ধাপে ধাপে শেখানোর জন্য সাজানো। এতে বর্ণ-ধ্বনি, উচ্চারণ, স্বরলহরী, ছন্দ ও রসের মতো গুরুত্বপূর্ণ উপাদানগুলো শেখানো হয়। পাশাপাশি জিহ্বা ও ওষ্ঠের ব্যায়াম এবং গদ্যপাঠ ও উপস্থাপনার অনুশীলন করানো হয়। শেষে আবৃত্তি নির্মাণ ও একটি চূড়ান্ত পরীক্ষার মাধ্যমে দক্ষতা মূল্যায়ন করা হয়। মূল্য: ৳1,500। মাধ্যম: অনলাইন। ক্লাস সংখ্যা: 11টি। সময়কাল: 3 Months। শুরুর তারিখ: 23 Jul 2026। ইনস্ট্রাক্টর: Subarna Arfin। বুকিং লিংক: https://www.promiseschool.app/hobbycamp/course/online সাহায্যের জন্য কল করুন +8801814266295।"
+    },
+    {
+      "question": "প্রমিত উচ্চারণ ও আবৃত্তি শৈলী - Online এ কতগুলো ক্লাস?",
+      "answer": "Hobbycamp কোর্স: প্রমিত উচ্চারণ ও আবৃত্তি শৈলী - Online। এই কোর্সটি আবৃত্তির মৌলিক থেকে উন্নত বিষয়গুলো ধাপে ধাপে শেখানোর জন্য সাজানো। এতে বর্ণ-ধ্বনি, উচ্চারণ, স্বরলহরী, ছন্দ ও রসের মতো গুরুত্বপূর্ণ উপাদানগুলো শেখানো হয়। পাশাপাশি জিহ্বা ও ওষ্ঠের ব্যায়াম এবং গদ্যপাঠ ও উপস্থাপনার অনুশীলন করানো হয়। শেষে আবৃত্তি নির্মাণ ও একটি চূড়ান্ত পরীক্ষার মাধ্যমে দক্ষতা মূল্যায়ন করা হয়। মূল্য: ৳1,500। মাধ্যম: অনলাইন। ক্লাস সংখ্যা: 11টি। সময়কাল: 3 Months। শুরুর তারিখ: 23 Jul 2026। ইনস্ট্রাক্টর: Subarna Arfin। বুকিং লিংক: https://www.promiseschool.app/hobbycamp/course/online সাহায্যের জন্য কল করুন +8801814266295।"
+    },
+    {
+      "question": "Tell me about the Hobbycamp course: Debate Course",
+      "answer": "এই কোর্সটি ডিবেটের মৌলিক ধারণা থেকে শুরু করে বিভিন্ন ফরম্যাট (ট্র্যাডিশনাল, AP, BP) ও কৌশল শেখানোর জন্য তৈরি। এতে আর্গুমেন্ট বিল্ডিং, প্রিন্সিপল ও পলিসি বিশ্লেষণের মাধ্যমে যৌক্তিক ও সমালোচনামূলক চিন্তা উন্নত করা হয়। পাশাপাশি বিশ্ব ইতিহাস, অর্থনীতি ও আন্তর্জাতিক সম্পর্কের জ্ঞান ব্যবহার করে শক্তিশালী বক্তব্য তৈরি শেখানো হয়। শেষে মক ডিবেট ও ফিডব্যাকের মাধ্যমে শেখা দক্ষতাগুলো বাস্তবে প্রয়োগ ও মূল্যায়ন করা হয়। Price: ৳1,500. Mode: online. Classes: 12. Duration/workload: 3 Months. Starts: 18 Jul 2026. Instructor(s): H M Sabir Noor. Book at https://www.promiseschool.app/hobbycamp/course/debate-course For help call +8801814266295."
+    },
+    {
+      "question": "How much is the Debate Course Hobbycamp course?",
+      "answer": "এই কোর্সটি ডিবেটের মৌলিক ধারণা থেকে শুরু করে বিভিন্ন ফরম্যাট (ট্র্যাডিশনাল, AP, BP) ও কৌশল শেখানোর জন্য তৈরি। এতে আর্গুমেন্ট বিল্ডিং, প্রিন্সিপল ও পলিসি বিশ্লেষণের মাধ্যমে যৌক্তিক ও সমালোচনামূলক চিন্তা উন্নত করা হয়। পাশাপাশি বিশ্ব ইতিহাস, অর্থনীতি ও আন্তর্জাতিক সম্পর্কের জ্ঞান ব্যবহার করে শক্তিশালী বক্তব্য তৈরি শেখানো হয়। শেষে মক ডিবেট ও ফিডব্যাকের মাধ্যমে শেখা দক্ষতাগুলো বাস্তবে প্রয়োগ ও মূল্যায়ন করা হয়। Price: ৳1,500. Mode: online. Classes: 12. Duration/workload: 3 Months. Starts: 18 Jul 2026. Instructor(s): H M Sabir Noor. Book at https://www.promiseschool.app/hobbycamp/course/debate-course For help call +8801814266295."
+    },
+    {
+      "question": "What is the price of Debate Course?",
+      "answer": "এই কোর্সটি ডিবেটের মৌলিক ধারণা থেকে শুরু করে বিভিন্ন ফরম্যাট (ট্র্যাডিশনাল, AP, BP) ও কৌশল শেখানোর জন্য তৈরি। এতে আর্গুমেন্ট বিল্ডিং, প্রিন্সিপল ও পলিসি বিশ্লেষণের মাধ্যমে যৌক্তিক ও সমালোচনামূলক চিন্তা উন্নত করা হয়। পাশাপাশি বিশ্ব ইতিহাস, অর্থনীতি ও আন্তর্জাতিক সম্পর্কের জ্ঞান ব্যবহার করে শক্তিশালী বক্তব্য তৈরি শেখানো হয়। শেষে মক ডিবেট ও ফিডব্যাকের মাধ্যমে শেখা দক্ষতাগুলো বাস্তবে প্রয়োগ ও মূল্যায়ন করা হয়। Price: ৳1,500. Mode: online. Classes: 12. Duration/workload: 3 Months. Starts: 18 Jul 2026. Instructor(s): H M Sabir Noor. Book at https://www.promiseschool.app/hobbycamp/course/debate-course For help call +8801814266295."
+    },
+    {
+      "question": "When does Debate Course start?",
+      "answer": "এই কোর্সটি ডিবেটের মৌলিক ধারণা থেকে শুরু করে বিভিন্ন ফরম্যাট (ট্র্যাডিশনাল, AP, BP) ও কৌশল শেখানোর জন্য তৈরি। এতে আর্গুমেন্ট বিল্ডিং, প্রিন্সিপল ও পলিসি বিশ্লেষণের মাধ্যমে যৌক্তিক ও সমালোচনামূলক চিন্তা উন্নত করা হয়। পাশাপাশি বিশ্ব ইতিহাস, অর্থনীতি ও আন্তর্জাতিক সম্পর্কের জ্ঞান ব্যবহার করে শক্তিশালী বক্তব্য তৈরি শেখানো হয়। শেষে মক ডিবেট ও ফিডব্যাকের মাধ্যমে শেখা দক্ষতাগুলো বাস্তবে প্রয়োগ ও মূল্যায়ন করা হয়। Price: ৳1,500. Mode: online. Classes: 12. Duration/workload: 3 Months. Starts: 18 Jul 2026. Instructor(s): H M Sabir Noor. Book at https://www.promiseschool.app/hobbycamp/course/debate-course For help call +8801814266295."
+    },
+    {
+      "question": "Who teaches Debate Course?",
+      "answer": "এই কোর্সটি ডিবেটের মৌলিক ধারণা থেকে শুরু করে বিভিন্ন ফরম্যাট (ট্র্যাডিশনাল, AP, BP) ও কৌশল শেখানোর জন্য তৈরি। এতে আর্গুমেন্ট বিল্ডিং, প্রিন্সিপল ও পলিসি বিশ্লেষণের মাধ্যমে যৌক্তিক ও সমালোচনামূলক চিন্তা উন্নত করা হয়। পাশাপাশি বিশ্ব ইতিহাস, অর্থনীতি ও আন্তর্জাতিক সম্পর্কের জ্ঞান ব্যবহার করে শক্তিশালী বক্তব্য তৈরি শেখানো হয়। শেষে মক ডিবেট ও ফিডব্যাকের মাধ্যমে শেখা দক্ষতাগুলো বাস্তবে প্রয়োগ ও মূল্যায়ন করা হয়। Price: ৳1,500. Mode: online. Classes: 12. Duration/workload: 3 Months. Starts: 18 Jul 2026. Instructor(s): H M Sabir Noor. Book at https://www.promiseschool.app/hobbycamp/course/debate-course For help call +8801814266295."
+    },
+    {
+      "question": "How many classes are in Debate Course?",
+      "answer": "এই কোর্সটি ডিবেটের মৌলিক ধারণা থেকে শুরু করে বিভিন্ন ফরম্যাট (ট্র্যাডিশনাল, AP, BP) ও কৌশল শেখানোর জন্য তৈরি। এতে আর্গুমেন্ট বিল্ডিং, প্রিন্সিপল ও পলিসি বিশ্লেষণের মাধ্যমে যৌক্তিক ও সমালোচনামূলক চিন্তা উন্নত করা হয়। পাশাপাশি বিশ্ব ইতিহাস, অর্থনীতি ও আন্তর্জাতিক সম্পর্কের জ্ঞান ব্যবহার করে শক্তিশালী বক্তব্য তৈরি শেখানো হয়। শেষে মক ডিবেট ও ফিডব্যাকের মাধ্যমে শেখা দক্ষতাগুলো বাস্তবে প্রয়োগ ও মূল্যায়ন করা হয়। Price: ৳1,500. Mode: online. Classes: 12. Duration/workload: 3 Months. Starts: 18 Jul 2026. Instructor(s): H M Sabir Noor. Book at https://www.promiseschool.app/hobbycamp/course/debate-course For help call +8801814266295."
+    },
+    {
+      "question": "Debate Course কোর্স সম্পর্কে বলো",
+      "answer": "Hobbycamp কোর্স: Debate Course। এই কোর্সটি ডিবেটের মৌলিক ধারণা থেকে শুরু করে বিভিন্ন ফরম্যাট (ট্র্যাডিশনাল, AP, BP) ও কৌশল শেখানোর জন্য তৈরি। এতে আর্গুমেন্ট বিল্ডিং, প্রিন্সিপল ও পলিসি বিশ্লেষণের মাধ্যমে যৌক্তিক ও সমালোচনামূলক চিন্তা উন্নত করা হয়। পাশাপাশি বিশ্ব ইতিহাস, অর্থনীতি ও আন্তর্জাতিক সম্পর্কের জ্ঞান ব্যবহার করে শক্তিশালী বক্তব্য তৈরি শেখানো হয়। শেষে মক ডিবেট ও ফিডব্যাকের মাধ্যমে শেখা দক্ষতাগুলো বাস্তবে প্রয়োগ ও মূল্যায়ন করা হয়। মূল্য: ৳1,500। মাধ্যম: অনলাইন। ক্লাস সংখ্যা: 12টি। সময়কাল: 3 Months। শুরুর তারিখ: 18 Jul 2026। ইনস্ট্রাক্টর: H M Sabir Noor। বুকিং লিংক: https://www.promiseschool.app/hobbycamp/course/debate-course সাহায্যের জন্য কল করুন +8801814266295।"
+    },
+    {
+      "question": "Debate Course কোর্সের দাম কত?",
+      "answer": "Hobbycamp কোর্স: Debate Course। এই কোর্সটি ডিবেটের মৌলিক ধারণা থেকে শুরু করে বিভিন্ন ফরম্যাট (ট্র্যাডিশনাল, AP, BP) ও কৌশল শেখানোর জন্য তৈরি। এতে আর্গুমেন্ট বিল্ডিং, প্রিন্সিপল ও পলিসি বিশ্লেষণের মাধ্যমে যৌক্তিক ও সমালোচনামূলক চিন্তা উন্নত করা হয়। পাশাপাশি বিশ্ব ইতিহাস, অর্থনীতি ও আন্তর্জাতিক সম্পর্কের জ্ঞান ব্যবহার করে শক্তিশালী বক্তব্য তৈরি শেখানো হয়। শেষে মক ডিবেট ও ফিডব্যাকের মাধ্যমে শেখা দক্ষতাগুলো বাস্তবে প্রয়োগ ও মূল্যায়ন করা হয়। মূল্য: ৳1,500। মাধ্যম: অনলাইন। ক্লাস সংখ্যা: 12টি। সময়কাল: 3 Months। শুরুর তারিখ: 18 Jul 2026। ইনস্ট্রাক্টর: H M Sabir Noor। বুকিং লিংক: https://www.promiseschool.app/hobbycamp/course/debate-course সাহায্যের জন্য কল করুন +8801814266295।"
+    },
+    {
+      "question": "Debate Course কবে শুরু?",
+      "answer": "Hobbycamp কোর্স: Debate Course। এই কোর্সটি ডিবেটের মৌলিক ধারণা থেকে শুরু করে বিভিন্ন ফরম্যাট (ট্র্যাডিশনাল, AP, BP) ও কৌশল শেখানোর জন্য তৈরি। এতে আর্গুমেন্ট বিল্ডিং, প্রিন্সিপল ও পলিসি বিশ্লেষণের মাধ্যমে যৌক্তিক ও সমালোচনামূলক চিন্তা উন্নত করা হয়। পাশাপাশি বিশ্ব ইতিহাস, অর্থনীতি ও আন্তর্জাতিক সম্পর্কের জ্ঞান ব্যবহার করে শক্তিশালী বক্তব্য তৈরি শেখানো হয়। শেষে মক ডিবেট ও ফিডব্যাকের মাধ্যমে শেখা দক্ষতাগুলো বাস্তবে প্রয়োগ ও মূল্যায়ন করা হয়। মূল্য: ৳1,500। মাধ্যম: অনলাইন। ক্লাস সংখ্যা: 12টি। সময়কাল: 3 Months। শুরুর তারিখ: 18 Jul 2026। ইনস্ট্রাক্টর: H M Sabir Noor। বুকিং লিংক: https://www.promiseschool.app/hobbycamp/course/debate-course সাহায্যের জন্য কল করুন +8801814266295।"
+    },
+    {
+      "question": "Debate Course এর ইনস্ট্রাক্টর কে?",
+      "answer": "Hobbycamp কোর্স: Debate Course। এই কোর্সটি ডিবেটের মৌলিক ধারণা থেকে শুরু করে বিভিন্ন ফরম্যাট (ট্র্যাডিশনাল, AP, BP) ও কৌশল শেখানোর জন্য তৈরি। এতে আর্গুমেন্ট বিল্ডিং, প্রিন্সিপল ও পলিসি বিশ্লেষণের মাধ্যমে যৌক্তিক ও সমালোচনামূলক চিন্তা উন্নত করা হয়। পাশাপাশি বিশ্ব ইতিহাস, অর্থনীতি ও আন্তর্জাতিক সম্পর্কের জ্ঞান ব্যবহার করে শক্তিশালী বক্তব্য তৈরি শেখানো হয়। শেষে মক ডিবেট ও ফিডব্যাকের মাধ্যমে শেখা দক্ষতাগুলো বাস্তবে প্রয়োগ ও মূল্যায়ন করা হয়। মূল্য: ৳1,500। মাধ্যম: অনলাইন। ক্লাস সংখ্যা: 12টি। সময়কাল: 3 Months। শুরুর তারিখ: 18 Jul 2026। ইনস্ট্রাক্টর: H M Sabir Noor। বুকিং লিংক: https://www.promiseschool.app/hobbycamp/course/debate-course সাহায্যের জন্য কল করুন +8801814266295।"
+    },
+    {
+      "question": "Debate Course এ কতগুলো ক্লাস?",
+      "answer": "Hobbycamp কোর্স: Debate Course। এই কোর্সটি ডিবেটের মৌলিক ধারণা থেকে শুরু করে বিভিন্ন ফরম্যাট (ট্র্যাডিশনাল, AP, BP) ও কৌশল শেখানোর জন্য তৈরি। এতে আর্গুমেন্ট বিল্ডিং, প্রিন্সিপল ও পলিসি বিশ্লেষণের মাধ্যমে যৌক্তিক ও সমালোচনামূলক চিন্তা উন্নত করা হয়। পাশাপাশি বিশ্ব ইতিহাস, অর্থনীতি ও আন্তর্জাতিক সম্পর্কের জ্ঞান ব্যবহার করে শক্তিশালী বক্তব্য তৈরি শেখানো হয়। শেষে মক ডিবেট ও ফিডব্যাকের মাধ্যমে শেখা দক্ষতাগুলো বাস্তবে প্রয়োগ ও মূল্যায়ন করা হয়। মূল্য: ৳1,500। মাধ্যম: অনলাইন। ক্লাস সংখ্যা: 12টি। সময়কাল: 3 Months। শুরুর তারিখ: 18 Jul 2026। ইনস্ট্রাক্টর: H M Sabir Noor। বুকিং লিংক: https://www.promiseschool.app/hobbycamp/course/debate-course সাহায্যের জন্য কল করুন +8801814266295।"
     },
     {
       "question": "How do I enroll in a Hobbycamp course?",
-      "answer": "Visit https://www.promiseschool.app/hobbycamp, choose a course, and book a seat. You can pick online or offline batches where available. For payment issues email support@promiseschool.com."
+      "answer": "Visit https://www.promiseschool.app/hobbycamp, choose a course, and book a seat. You can pick online or offline batches where available. For payment issues call +8801814266295."
     },
     {
       "question": "হবিক্যাম্প কোর্সে ভর্তি কিভাবে করব?",
-      "answer": "https://www.promiseschool.app/hobbycamp এ গিয়ে কোর্স বেছে নিয়ে সিট বুক করুন। পেমেন্ট সমস্যা হলে support@promiseschool.com এ লিখুন।"
+      "answer": "https://www.promiseschool.app/hobbycamp এ গিয়ে কোর্স বেছে নিয়ে সিট বুক করুন। অনলাইন বা অফলাইন ব্যাচ থাকলে সেখান থেকে বেছে নিন। পেমেন্ট সমস্যা হলে +8801814266295 নম্বরে কল করুন।"
+    }
+  ],
+  "courses": [
+    {
+      "title": "প্রমিত উচ্চারণ ও আবৃত্তি শৈলী Special Batch - Online",
+      "url": "https://www.promiseschool.app/hobbycamp/course/special-batch-online",
+      "description": "এই কোর্সটি আবৃত্তির মৌলিক থেকে উন্নত বিষয়গুলো ধাপে ধাপে শেখানোর জন্য সাজানো। এতে বর্ণ-ধ্বনি, উচ্চারণ, স্বরলহরী, ছন্দ ও রসের মতো গুরুত্বপূর্ণ উপাদানগুলো শেখানো হয়। পাশাপাশি জিহ্বা ও ওষ্ঠের ব্যায়াম এবং গদ্যপাঠ ও উপস্থাপনার অনুশীলন করানো হয়। শেষে আবৃত্তি নির্মাণ ও একটি চূড়ান্ত পরীক্ষার মাধ্যমে দক্ষতা মূল্যায়ন করা হয়।",
+      "mode": "online",
+      "price": "3,500",
+      "originalPrice": null,
+      "currency": "BDT",
+      "classes": "12",
+      "workload": "3 Months",
+      "starts": "22 Jul 2026",
+      "startDateIso": "2026-07-22T00:00:00.000Z",
+      "instructor": "Shoaib Ahmad, Rupshree Chakraborty",
+      "languages": [
+        "en",
+        "bn"
+      ],
+      "free": false
+    },
+    {
+      "title": "এলিট ম্যাথ অলিম্পিয়াড প্রস্তুতি (লেভেল ১)",
+      "url": "https://www.promiseschool.app/hobbycamp/course/course-4",
+      "description": "গ্রেড ৬ এবং তদূর্ধ্ব শিক্ষার্থীদের জন্য এই ৪ মাসের কোর্সে Permutation, Combination এবং Pattern ভিত্তিক সমস্যা সমাধানের শক্তিশালী ভিত্তি তৈরি করা হবে। শিক্ষার্থীরা ধাপে ধাপে গণনা, বিন্যাস, নির্বাচন এবং লজিক্যাল রিজনিং শিখবে, যা ক্লাস, প্র্যাকটিস এবং পরীক্ষার মাধ্যমে আরও শক্তিশালী হবে। এই কোর্সটি শিক্ষার্থীদের বিশ্লেষণী চিন্তাশক্তি বৃদ্ধি করবে এবং স্কুল পরীক্ষা ও অলিম্পিয়াডের জন্য প্রস্তুত করবে।",
+      "mode": "offline",
+      "price": "6,000",
+      "originalPrice": null,
+      "currency": "BDT",
+      "classes": "32",
+      "workload": "4 Month",
+      "starts": "18 Jul 2026",
+      "startDateIso": "2026-07-18T00:00:00.000Z",
+      "instructor": "Md. Sayem Shahriar",
+      "languages": [
+        "en",
+        "bn"
+      ],
+      "free": false
+    },
+    {
+      "title": "ম্যাথ মাইন্ডস: নাম্বার থিওরি ও লজিক মাস্টারি (লেভেল ১)",
+      "url": "https://www.promiseschool.app/hobbycamp/course/course-3",
+      "description": "গ্রেড ৪–৫ শিক্ষার্থীদের জন্য তৈরি এই কোর্সে মজার ও ইন্টারেক্টিভ উপায়ে শেখানো হবে Number Theory ও Logical Thinking। Factor, Multiple, Divisibility, Prime Number, Pattern, Series এবং Olympiad ধাঁচের সমস্যা সমাধানের মাধ্যমে শিক্ষার্থীরা গড়ে তুলবে শক্তিশালী গণিতভিত্তি, লজিক্যাল চিন্তাশক্তি এবং স্মার্ট প্রবলেম সলভিং দক্ষতা।",
+      "mode": "offline",
+      "price": "6,000",
+      "originalPrice": null,
+      "currency": "BDT",
+      "classes": "32",
+      "workload": "4 Month",
+      "starts": "18 Jul 2026",
+      "startDateIso": "2026-07-18T00:00:00.000Z",
+      "instructor": "Md. Sayem Shahriar",
+      "languages": [
+        "en",
+        "bn"
+      ],
+      "free": false
+    },
+    {
+      "title": "এলিট ম্যাথ অলিম্পিয়াড প্রস্তুতি (লেভেল ১)",
+      "url": "https://www.promiseschool.app/hobbycamp/course/course-2",
+      "description": "গ্রেড ৬ এবং তদূর্ধ্ব শিক্ষার্থীদের জন্য এই ৪ মাসের কোর্সে Permutation, Combination এবং Pattern ভিত্তিক সমস্যা সমাধানের শক্তিশালী ভিত্তি তৈরি করা হবে। শিক্ষার্থীরা ধাপে ধাপে গণনা, বিন্যাস, নির্বাচন এবং লজিক্যাল রিজনিং শিখবে, যা ক্লাস, প্র্যাকটিস এবং পরীক্ষার মাধ্যমে আরও শক্তিশালী হবে। এই কোর্সটি শিক্ষার্থীদের বিশ্লেষণী চিন্তাশক্তি বৃদ্ধি করবে এবং স্কুল পরীক্ষা ও অলিম্পিয়াডের জন্য প্রস্তুত করবে।",
+      "mode": "online",
+      "price": "6,000",
+      "originalPrice": null,
+      "currency": "BDT",
+      "classes": "32",
+      "workload": "4 Month",
+      "starts": "18 Jul 2026",
+      "startDateIso": "2026-07-18T00:00:00.000Z",
+      "instructor": "Md. Sayem Shahriar",
+      "languages": [
+        "en",
+        "bn"
+      ],
+      "free": false
+    },
+    {
+      "title": "ম্যাথ মাইন্ডস: নাম্বার থিওরি ও লজিক মাস্টারি (লেভেল ১)",
+      "url": "https://www.promiseschool.app/hobbycamp/course/course",
+      "description": "গ্রেড ৪–৫ শিক্ষার্থীদের জন্য তৈরি এই কোর্সে মজার ও ইন্টারেক্টিভ উপায়ে শেখানো হবে Number Theory ও Logical Thinking। Factor, Multiple, Divisibility, Prime Number, Pattern, Series এবং Olympiad ধাঁচের সমস্যা সমাধানের মাধ্যমে শিক্ষার্থীরা গড়ে তুলবে শক্তিশালী গণিতভিত্তি, লজিক্যাল চিন্তাশক্তি এবং স্মার্ট প্রবলেম সলভিং দক্ষতা।",
+      "mode": "online",
+      "price": "6,000",
+      "originalPrice": null,
+      "currency": "BDT",
+      "classes": "32",
+      "workload": "4 Month",
+      "starts": "18 Jul 2026",
+      "startDateIso": "2026-07-18T00:00:00.000Z",
+      "instructor": "Md. Sayem Shahriar",
+      "languages": [
+        "en",
+        "bn"
+      ],
+      "free": false
+    },
+    {
+      "title": "Programming for Kids",
+      "url": "https://www.promiseschool.app/hobbycamp/course/programming-for-kids",
+      "description": "This course is designed for beginners with little to no programming experience who want to learn Python from scratch. It’s suitable for students, school learners, or anyone interested in coding and building simple projects.\r\nIntermediate learners can also join to strengthen fundamentals through hands-on practice. No prior experience is required—just basic computer knowledge and interest in learning.",
+      "mode": "online",
+      "price": "1,500",
+      "originalPrice": null,
+      "currency": "BDT",
+      "classes": "15",
+      "workload": "3 Months",
+      "starts": "18 Jul 2026",
+      "startDateIso": "2026-07-18T00:00:00.000Z",
+      "instructor": "Joynal Abedin Parag",
+      "languages": [
+        "en",
+        "bn"
+      ],
+      "free": false
+    },
+    {
+      "title": "প্রমিত উচ্চারণ ও আবৃত্তি শৈলী - Offline",
+      "url": "https://www.promiseschool.app/hobbycamp/course/offline",
+      "description": "এই কোর্সটি আবৃত্তির মৌলিক থেকে উন্নত বিষয়গুলো ধাপে ধাপে শেখানোর জন্য সাজানো। এতে বর্ণ-ধ্বনি, উচ্চারণ, স্বরলহরী, ছন্দ ও রসের মতো গুরুত্বপূর্ণ উপাদানগুলো শেখানো হয়। পাশাপাশি জিহ্বা ও ওষ্ঠের ব্যায়াম এবং গদ্যপাঠ ও উপস্থাপনার অনুশীলন করানো হয়। শেষে আবৃত্তি নির্মাণ ও একটি চূড়ান্ত পরীক্ষার মাধ্যমে দক্ষতা মূল্যায়ন করা হয়।",
+      "mode": "offline",
+      "price": "3,500",
+      "originalPrice": null,
+      "currency": "BDT",
+      "classes": "12",
+      "workload": "3 Months",
+      "starts": "18 Jul 2026",
+      "startDateIso": "2026-07-18T00:00:00.000Z",
+      "instructor": "Subarna Arfin",
+      "languages": [
+        "en",
+        "bn"
+      ],
+      "free": false
+    },
+    {
+      "title": "Debate Course Offline",
+      "url": "https://www.promiseschool.app/hobbycamp/course/debate-course-offline",
+      "description": "এই কোর্সটি ডিবেটের মৌলিক ধারণা থেকে শুরু করে বিভিন্ন ফরম্যাট (ট্র্যাডিশনাল, AP, BP) ও কৌশল শেখানোর জন্য তৈরি। এতে আর্গুমেন্ট বিল্ডিং, প্রিন্সিপল ও পলিসি বিশ্লেষণের মাধ্যমে যৌক্তিক ও সমালোচনামূলক চিন্তা উন্নত করা হয়। পাশাপাশি বিশ্ব ইতিহাস, অর্থনীতি ও আন্তর্জাতিক সম্পর্কের জ্ঞান ব্যবহার করে শক্তিশালী বক্তব্য তৈরি শেখানো হয়। শেষে মক ডিবেট ও ফিডব্যাকের মাধ্যমে শেখা দক্ষতাগুলো বাস্তবে প্রয়োগ ও মূল্যায়ন করা হয়।",
+      "mode": "offline",
+      "price": "3,499",
+      "originalPrice": null,
+      "currency": "BDT",
+      "classes": "12",
+      "workload": "3 Months",
+      "starts": "18 Jul 2026",
+      "startDateIso": "2026-07-18T00:00:00.000Z",
+      "instructor": "H M Sabir Noor",
+      "languages": [
+        "en",
+        "bn"
+      ],
+      "free": false
+    },
+    {
+      "title": "Python Beginner",
+      "url": "https://www.promiseschool.app/hobbycamp/course/python-beginner",
+      "description": "This course is designed for beginners with little to no programming experience who want to learn Python from scratch. It’s suitable for students, school learners, or anyone interested in coding and building simple projects.\r\nIntermediate learners can also join to strengthen fundamentals through hands-on practice. No prior experience is required—just basic computer knowledge and interest in learning.",
+      "mode": "online",
+      "price": "1,500",
+      "originalPrice": null,
+      "currency": "BDT",
+      "classes": "15",
+      "workload": "3 Months",
+      "starts": "18 Jul 2026",
+      "startDateIso": "2026-07-18T00:00:00.000Z",
+      "instructor": "Joynal Abedin Parag",
+      "languages": [
+        "en",
+        "bn"
+      ],
+      "free": false
+    },
+    {
+      "title": "প্রমিত উচ্চারণ ও আবৃত্তি শৈলী - Online",
+      "url": "https://www.promiseschool.app/hobbycamp/course/online",
+      "description": "এই কোর্সটি আবৃত্তির মৌলিক থেকে উন্নত বিষয়গুলো ধাপে ধাপে শেখানোর জন্য সাজানো। এতে বর্ণ-ধ্বনি, উচ্চারণ, স্বরলহরী, ছন্দ ও রসের মতো গুরুত্বপূর্ণ উপাদানগুলো শেখানো হয়। পাশাপাশি জিহ্বা ও ওষ্ঠের ব্যায়াম এবং গদ্যপাঠ ও উপস্থাপনার অনুশীলন করানো হয়। শেষে আবৃত্তি নির্মাণ ও একটি চূড়ান্ত পরীক্ষার মাধ্যমে দক্ষতা মূল্যায়ন করা হয়।",
+      "mode": "online",
+      "price": "1,500",
+      "originalPrice": null,
+      "currency": "BDT",
+      "classes": "11",
+      "workload": "3 Months",
+      "starts": "23 Jul 2026",
+      "startDateIso": "2026-07-23T00:00:00.000Z",
+      "instructor": "Subarna Arfin",
+      "languages": [
+        "en",
+        "bn"
+      ],
+      "free": false
+    },
+    {
+      "title": "Debate Course",
+      "url": "https://www.promiseschool.app/hobbycamp/course/debate-course",
+      "description": "এই কোর্সটি ডিবেটের মৌলিক ধারণা থেকে শুরু করে বিভিন্ন ফরম্যাট (ট্র্যাডিশনাল, AP, BP) ও কৌশল শেখানোর জন্য তৈরি। এতে আর্গুমেন্ট বিল্ডিং, প্রিন্সিপল ও পলিসি বিশ্লেষণের মাধ্যমে যৌক্তিক ও সমালোচনামূলক চিন্তা উন্নত করা হয়। পাশাপাশি বিশ্ব ইতিহাস, অর্থনীতি ও আন্তর্জাতিক সম্পর্কের জ্ঞান ব্যবহার করে শক্তিশালী বক্তব্য তৈরি শেখানো হয়। শেষে মক ডিবেট ও ফিডব্যাকের মাধ্যমে শেখা দক্ষতাগুলো বাস্তবে প্রয়োগ ও মূল্যায়ন করা হয়।",
+      "mode": "online",
+      "price": "1,500",
+      "originalPrice": null,
+      "currency": "BDT",
+      "classes": "12",
+      "workload": "3 Months",
+      "starts": "18 Jul 2026",
+      "startDateIso": "2026-07-18T00:00:00.000Z",
+      "instructor": "H M Sabir Noor",
+      "languages": [
+        "en",
+        "bn"
+      ],
+      "free": false
     }
   ],
   "escalationTopics": [
@@ -140,7 +688,7 @@
     "data deletion",
     "billing issue"
   ],
-  "escalationReply": "Thanks for reaching out. This needs help from our support team — please email support@promiseschool.com with your phone number or account details, and we'll follow up shortly.",
-  "syncedAt": "2026-06-06T09:04:46.924Z",
+  "escalationReply": "Thanks for reaching out. This needs help from our support team — please call +8801814266295 with your account details, and we'll follow up shortly.",
+  "syncedAt": "2026-07-25T07:30:27.981Z",
   "syncedFrom": "https://www.promiseschool.app"
 }

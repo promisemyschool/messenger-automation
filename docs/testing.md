@@ -25,7 +25,8 @@ Message the Promise School Page from your personal account:
 | # | Send | Expected |
 |---|------|----------|
 | 1 | `Is Promise School free?` | Confirms free app; mentions Hobbycamp is paid |
-| 2 | `হবিক্যাম্প কি?` | Bangla reply about Hobbycamp + link |
+| 2 | `হবিক্যাম্প কি?` | Bangla reply about Hobbycamp + link (same language as question) |
+| 2b | `Is Promise School free?` | English reply (not Bangla) |
 | 3 | `Which classes do you cover?` | NCTB Class 6-12, SSC/HSC subjects |
 | 4 | `I need a refund` | Escalation to support@promiseschool.com |
 | 5 | `What is the price of Physics course in Hobbycamp?` | Does not invent price; points to hobbycamp page or support |
@@ -34,6 +35,8 @@ Message the Promise School Page from your personal account:
 
 - [ ] Typing indicator appears before reply (LLM path)
 - [ ] Follow-up question remembers prior turn (e.g. ask about app, then "what about iOS?")
+- [ ] Send 2–3 short messages within ~3s → **one** combined reply (debounce ~4s), not one reply per message
+- [ ] While bot is still typing/thinking, reply as Page/human → bot **does not** send (execution shows **Should Send?** false / skips **Send Messenger Reply**)
 
 ## n8n execution checks
 
